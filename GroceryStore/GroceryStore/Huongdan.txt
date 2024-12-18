@@ -1,0 +1,2 @@
+﻿1. Vấn đề Migration
+Database connect string: Chỉnh sửa ở AppDBContext.cs
