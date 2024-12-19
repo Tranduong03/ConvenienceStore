@@ -13,7 +13,7 @@ namespace GroceryStore.Model
         [Key]
         public int BillId { get; set; }
         // Cấu hình BillCode = string("FLBill" + BillID)
-        public string BillCode { get; set; }
+        public string ? BillCode { get; set; }
 
         [ForeignKey("Customer")]
         public int CustomerID { get; set; }
@@ -27,7 +27,7 @@ namespace GroceryStore.Model
         [Required]
         public long TotalCost { get; set; }
 
-        public virtual Customer Customer { get; set; }
-        public virtual User User { get; set; }
+        public virtual Customer ? Customer { get; set; }
+        public virtual User ? User { get; set; }
     }
 }

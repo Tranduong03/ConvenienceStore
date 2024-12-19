@@ -81,7 +81,7 @@
             cbxCategory.FormattingEnabled = true;
             cbxCategory.Location = new Point(674, 86);
             cbxCategory.Name = "cbxCategory";
-            cbxCategory.Size = new Size(254, 26);
+            cbxCategory.Size = new Size(254, 30);
             cbxCategory.TabIndex = 17;
             cbxCategory.SelectedIndexChanged += cbxCategory_SelectedIndexChanged;
             // 
@@ -90,7 +90,7 @@
             label6.AutoSize = true;
             label6.Location = new Point(582, 89);
             label6.Name = "label6";
-            label6.Size = new Size(38, 18);
+            label6.Size = new Size(48, 22);
             label6.TabIndex = 16;
             label6.Text = "Loại:";
             // 
@@ -137,7 +137,7 @@
             label1.Font = new Font("Tahoma", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(57, 10);
             label1.Name = "label1";
-            label1.Size = new Size(117, 36);
+            label1.Size = new Size(141, 43);
             label1.TabIndex = 1;
             label1.Text = "Product";
             // 
@@ -165,7 +165,7 @@
             btnSearch.Location = new Point(329, 1);
             btnSearch.Margin = new Padding(0);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(32, 30);
+            btnSearch.Size = new Size(33, 34);
             btnSearch.TabIndex = 1;
             btnSearch.UseVisualStyleBackColor = true;
             btnSearch.Click += btnSearch_Click;
@@ -176,7 +176,7 @@
             txbSearch.Location = new Point(3, 3);
             txbSearch.Name = "txbSearch";
             txbSearch.PlaceholderText = "Find Product Here";
-            txbSearch.Size = new Size(326, 28);
+            txbSearch.Size = new Size(326, 32);
             txbSearch.TabIndex = 0;
             // 
             // label2
@@ -185,7 +185,7 @@
             label2.Font = new Font("Tahoma", 12F);
             label2.Location = new Point(465, 86);
             label2.Name = "label2";
-            label2.Size = new Size(86, 24);
+            label2.Size = new Size(104, 29);
             label2.TabIndex = 23;
             label2.Text = "Lọc theo";
             // 
@@ -333,7 +333,7 @@
             txbCustomerID.Location = new Point(132, 184);
             txbCustomerID.Name = "txbCustomerID";
             txbCustomerID.ReadOnly = true;
-            txbCustomerID.Size = new Size(156, 30);
+            txbCustomerID.Size = new Size(156, 34);
             txbCustomerID.TabIndex = 8;
             // 
             // label8
@@ -342,7 +342,7 @@
             label8.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.Location = new Point(12, 187);
             label8.Name = "label8";
-            label8.Size = new Size(96, 22);
+            label8.Size = new Size(114, 27);
             label8.TabIndex = 7;
             label8.Text = "ID Khách";
             // 
@@ -352,7 +352,7 @@
             txbRefund.Location = new Point(132, 138);
             txbRefund.Name = "txbRefund";
             txbRefund.ReadOnly = true;
-            txbRefund.Size = new Size(156, 30);
+            txbRefund.Size = new Size(156, 34);
             txbRefund.TabIndex = 6;
             // 
             // label7
@@ -361,7 +361,7 @@
             label7.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.Location = new Point(12, 141);
             label7.Name = "label7";
-            label7.Size = new Size(66, 22);
+            label7.Size = new Size(81, 27);
             label7.TabIndex = 5;
             label7.Text = "Trả lại";
             // 
@@ -370,7 +370,7 @@
             txbReceived.Font = new Font("Tahoma", 11F);
             txbReceived.Location = new Point(132, 87);
             txbReceived.Name = "txbReceived";
-            txbReceived.Size = new Size(156, 30);
+            txbReceived.Size = new Size(156, 34);
             txbReceived.TabIndex = 4;
             txbReceived.TextChanged += txbReceived_TextChanged;
             // 
@@ -380,7 +380,7 @@
             label5.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.Location = new Point(12, 90);
             label5.Name = "label5";
-            label5.Size = new Size(101, 22);
+            label5.Size = new Size(120, 27);
             label5.TabIndex = 3;
             label5.Text = "Tiền nhận";
             // 
@@ -403,7 +403,7 @@
             txbSumCost.Location = new Point(132, 29);
             txbSumCost.Name = "txbSumCost";
             txbSumCost.ReadOnly = true;
-            txbSumCost.Size = new Size(156, 30);
+            txbSumCost.Size = new Size(156, 34);
             txbSumCost.TabIndex = 1;
             // 
             // label4
@@ -412,13 +412,13 @@
             label4.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(12, 32);
             label4.Name = "label4";
-            label4.Size = new Size(95, 22);
+            label4.Size = new Size(116, 27);
             label4.TabIndex = 0;
             label4.Text = "Tổng tiền";
             // 
             // EmployeeProductView
             // 
-            AutoScaleDimensions = new SizeF(8F, 18F);
+            AutoScaleDimensions = new SizeF(10F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(flowLayoutPanel1);
             Controls.Add(flpListProduct);

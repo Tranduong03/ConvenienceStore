@@ -12,7 +12,7 @@ namespace GroceryStore.Controls
         private bool _isPlaceholderActive = true;
 
         [Category("Placeholder"), Description("Text to display as placeholder")]
-        public string PlaceholderText
+        public new string PlaceholderText
         {
             get => _placeholderText;
             set
@@ -53,7 +53,7 @@ namespace GroceryStore.Controls
             }
         }
 
-        private void RemovePlaceholder(object sender, EventArgs e)
+        private void RemovePlaceholder(object ? sender, EventArgs e)
         {
             if (_isPlaceholderActive)
             {
@@ -63,7 +63,7 @@ namespace GroceryStore.Controls
             }
         }
 
-        private void SetPlaceholder(object sender, EventArgs e)
+        private void SetPlaceholder(object ? sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(Text))
             {

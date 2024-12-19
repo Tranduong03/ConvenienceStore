@@ -13,7 +13,7 @@ namespace GroceryStore.Model
         public int CategoryID { get; set; }
         [Required]
         [MaxLength(30)]
-        public string Name { get; set; }
+        public string ? Name { get; set; }
 
         public string Description { get; set; } = "Không có mô tả cho loại sản phẩm này";
     }

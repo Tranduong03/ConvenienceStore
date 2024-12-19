@@ -16,15 +16,15 @@ namespace GroceryStore.Model
 
         [Required] // NOT NULL
         [MaxLength(40)] // NVARCHAR(40)
-        public string Name { get; set; } // Thay TenNCC bằng Name
+        public string ? Name { get; set; } // Thay TenNCC bằng Name
 
         [MaxLength(100)] // VARCHAR(100)
-        public string Email { get; set; }
+        public string ? Email { get; set; }
 
         [MaxLength(60)] // NVARCHAR(60)
-        public string Address { get; set; } // Thay DiaChi bằng Address
+        public string ?Address { get; set; } // Thay DiaChi bằng Address
 
         [MaxLength(24)] // NVARCHAR(24)
-        public string FAX { get; set; }
+        public string ? FAX { get; set; }
     }
 }

@@ -23,8 +23,8 @@ namespace GroceryStore.Model
                   // không phải giá trị sellprice của product
         public int SellPrice { get; set; }
 
-        public virtual Bill Bill { get; set; } 
-        public virtual Product Product { get; set; } 
+        public virtual Bill ? Bill { get; set; } 
+        public virtual Product ? Product { get; set; } 
     }
 
 }

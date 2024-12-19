@@ -17,7 +17,7 @@ namespace GroceryStore.Model
 
         [Required]
         [MaxLength(100)] // Giới hạn độ dài tên
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [ForeignKey("Category")]
         public int CategoryID { get; set; }
@@ -30,17 +30,17 @@ namespace GroceryStore.Model
 
         [MaxLength(500)] // Giới hạn độ dài mô tả
         [DefaultValue("None")]
-        public string Description { get; set; }
+        public string ? Description { get; set; }
 
         [Required]
         public int Quantity { get; set; }
 
         [MaxLength(255)] // Giới hạn độ dài link ảnh
         [DefaultValue("none.png")]
-        public string ImageLink { get; set; }
+        public string ?ImageLink { get; set; }
 
         // Navigation property (tùy chọn, nếu có bảng Category)
-        public virtual Category Category { get; set; }
-        public virtual Supplier Supplier { get; set; }
+        public virtual Category? Category { get; set; }
+        public virtual Supplier? Supplier { get; set; }
     }
 }
