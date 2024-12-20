@@ -713,7 +713,7 @@ namespace GroceryStore.Views
         product.Quantity += importQuantity;
 
         // Lưu lịch sử nhập hàng vào bảng ImportProduct
-        var importProduct = new ImportProduct
+        var importProduct = new Import
         {
             ProductID = product.ProductID,
             SupplierID = supplierId,

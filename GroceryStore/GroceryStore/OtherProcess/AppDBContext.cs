@@ -13,7 +13,8 @@ namespace GroceryStore.OtherProcess
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=MSI;Initial Catalog=FlashShopC#;Persist Security Info=True;User ID=sa;Password=29112004;Encrypt=True;Trust Server Certificate=True");
+            //optionsBuilder.UseSqlServer("Data Source=MSI;Initial Catalog=FlashShopC#;Persist Security Info=True;User ID=sa;Password=29112004;Encrypt=True;Trust Server Certificate=True");
+            optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=FlashStore;Integrated Security=True;Trust Server Certificate=True");
         }
 
         public DbSet<User> Users { get; set; }
@@ -21,27 +22,27 @@ namespace GroceryStore.OtherProcess
 
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<ImportProduct> ImportProducts { get; set; }
+        public DbSet<Import> ImportProducts { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Bill> Bills { get; set; }
         public DbSet<BillDetail> BillDetails { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<BillDetail>()
-                .HasKey(bd => new { bd.BillId, bd.ProductID }); // Định nghĩa khóa chính tổng hợp
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<BillDetail>()
+        //        .HasKey(bd => new { bd.BillId, bd.ProductID }); // Định nghĩa khóa chính tổng hợp
 
-            base.OnModelCreating(modelBuilder);
-        }
-        public override int SaveChanges()
-        {
-            // Xử lý trước khi lưu
-            foreach (var entry in ChangeTracker.Entries<Bill>().Where(e => e.State == EntityState.Added))
-            {
-                entry.Entity.BillCode = "FLBill" + entry.Entity.BillId;
-            }
+        //    base.OnModelCreating(modelBuilder);
+        //}
+        //public override int SaveChanges()
+        //{
+        //    // Xử lý trước khi lưu
+        //    foreach (var entry in ChangeTracker.Entries<Bill>().Where(e => e.State == EntityState.Added))
+        //    {
+        //        entry.Entity.BillCode = "FLBill" + entry.Entity.BillId;
+        //    }
 
-            return base.SaveChanges();
-        }
+        //    return base.SaveChanges();
+        //}
     }
 }
