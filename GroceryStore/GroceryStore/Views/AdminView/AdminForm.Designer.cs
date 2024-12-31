@@ -30,31 +30,34 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             sidebarMenu = new FlowLayoutPanel();
+            panel6 = new Panel();
+            panel7 = new Panel();
+            label2 = new Label();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
             panel1 = new Panel();
             button1 = new Button();
             panel2 = new Panel();
-            button2 = new Button();
+            btnProduct = new Button();
             panel3 = new Panel();
             button3 = new Button();
+            panel8 = new Panel();
+            btnEmployee = new Button();
             panel4 = new Panel();
             button4 = new Button();
             panel5 = new Panel();
             button5 = new Button();
-            panel6 = new Panel();
-            pictureBox1 = new PictureBox();
-            label1 = new Label();
-            label2 = new Label();
-            panel7 = new Panel();
             pnlWork = new Panel();
             sidebarMenu.SuspendLayout();
+            panel6.SuspendLayout();
+            panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
+            panel8.SuspendLayout();
             panel4.SuspendLayout();
             panel5.SuspendLayout();
-            panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel7.SuspendLayout();
             SuspendLayout();
             // 
             // sidebarMenu
@@ -64,6 +67,7 @@
             sidebarMenu.Controls.Add(panel1);
             sidebarMenu.Controls.Add(panel2);
             sidebarMenu.Controls.Add(panel3);
+            sidebarMenu.Controls.Add(panel8);
             sidebarMenu.Controls.Add(panel4);
             sidebarMenu.Controls.Add(panel5);
             sidebarMenu.Location = new Point(0, 0);
@@ -71,6 +75,55 @@
             sidebarMenu.Name = "sidebarMenu";
             sidebarMenu.Size = new Size(350, 900);
             sidebarMenu.TabIndex = 0;
+            // 
+            // panel6
+            // 
+            panel6.Controls.Add(panel7);
+            panel6.Controls.Add(pictureBox1);
+            panel6.Controls.Add(label1);
+            panel6.Font = new Font("Tahoma", 14F);
+            panel6.Location = new Point(0, 0);
+            panel6.Margin = new Padding(0);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(350, 300);
+            panel6.TabIndex = 4;
+            // 
+            // panel7
+            // 
+            panel7.Controls.Add(label2);
+            panel7.Location = new Point(3, 232);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(347, 45);
+            panel7.TabIndex = 2;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(126, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(87, 29);
+            label2.TabIndex = 2;
+            label2.Text = "ADMIN";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(113, 53);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(125, 116);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(113, 188);
+            label1.Name = "label1";
+            label1.Size = new Size(123, 29);
+            label1.TabIndex = 1;
+            label1.Text = "WELCOME";
             // 
             // panel1
             // 
@@ -100,29 +153,30 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(button2);
+            panel2.Controls.Add(btnProduct);
             panel2.Location = new Point(25, 404);
             panel2.Margin = new Padding(25, 20, 0, 0);
             panel2.Name = "panel2";
             panel2.Size = new Size(300, 64);
             panel2.TabIndex = 3;
             // 
-            // button2
+            // btnProduct
             // 
-            button2.BackColor = Color.FromArgb(37, 150, 190);
-            button2.Dock = DockStyle.Fill;
-            button2.Font = new Font("Tahoma", 14F, FontStyle.Bold);
-            button2.Image = (Image)resources.GetObject("button2.Image");
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(0, 0);
-            button2.Margin = new Padding(0);
-            button2.Name = "button2";
-            button2.Padding = new Padding(30, 0, 0, 0);
-            button2.Size = new Size(300, 64);
-            button2.TabIndex = 2;
-            button2.Text = "        Product";
-            button2.TextAlign = ContentAlignment.MiddleLeft;
-            button2.UseVisualStyleBackColor = false;
+            btnProduct.BackColor = Color.FromArgb(37, 150, 190);
+            btnProduct.Dock = DockStyle.Fill;
+            btnProduct.Font = new Font("Tahoma", 14F, FontStyle.Bold);
+            btnProduct.Image = (Image)resources.GetObject("btnProduct.Image");
+            btnProduct.ImageAlign = ContentAlignment.MiddleLeft;
+            btnProduct.Location = new Point(0, 0);
+            btnProduct.Margin = new Padding(0);
+            btnProduct.Name = "btnProduct";
+            btnProduct.Padding = new Padding(30, 0, 0, 0);
+            btnProduct.Size = new Size(300, 64);
+            btnProduct.TabIndex = 2;
+            btnProduct.Text = "        Product";
+            btnProduct.TextAlign = ContentAlignment.MiddleLeft;
+            btnProduct.UseVisualStyleBackColor = false;
+            btnProduct.Click += btnProduct_Click;
             // 
             // panel3
             // 
@@ -150,10 +204,37 @@
             button3.TextAlign = ContentAlignment.MiddleLeft;
             button3.UseVisualStyleBackColor = false;
             // 
+            // panel8
+            // 
+            panel8.Controls.Add(btnEmployee);
+            panel8.Location = new Point(25, 572);
+            panel8.Margin = new Padding(25, 20, 0, 0);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(300, 64);
+            panel8.TabIndex = 4;
+            // 
+            // btnEmployee
+            // 
+            btnEmployee.BackColor = Color.FromArgb(37, 150, 190);
+            btnEmployee.Dock = DockStyle.Fill;
+            btnEmployee.Font = new Font("Tahoma", 14F, FontStyle.Bold);
+            btnEmployee.Image = (Image)resources.GetObject("btnEmployee.Image");
+            btnEmployee.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEmployee.Location = new Point(0, 0);
+            btnEmployee.Margin = new Padding(0);
+            btnEmployee.Name = "btnEmployee";
+            btnEmployee.Padding = new Padding(30, 0, 0, 0);
+            btnEmployee.Size = new Size(300, 64);
+            btnEmployee.TabIndex = 2;
+            btnEmployee.Text = "        Employee";
+            btnEmployee.TextAlign = ContentAlignment.MiddleLeft;
+            btnEmployee.UseVisualStyleBackColor = false;
+            btnEmployee.Click += btnEmployee_Click;
+            // 
             // panel4
             // 
             panel4.Controls.Add(button4);
-            panel4.Location = new Point(25, 572);
+            panel4.Location = new Point(25, 656);
             panel4.Margin = new Padding(25, 20, 0, 0);
             panel4.Name = "panel4";
             panel4.Size = new Size(300, 64);
@@ -179,7 +260,7 @@
             // panel5
             // 
             panel5.Controls.Add(button5);
-            panel5.Location = new Point(25, 656);
+            panel5.Location = new Point(25, 740);
             panel5.Margin = new Padding(25, 20, 0, 0);
             panel5.Name = "panel5";
             panel5.Size = new Size(300, 64);
@@ -202,55 +283,6 @@
             button5.TextAlign = ContentAlignment.MiddleLeft;
             button5.UseVisualStyleBackColor = false;
             // 
-            // panel6
-            // 
-            panel6.Controls.Add(panel7);
-            panel6.Controls.Add(pictureBox1);
-            panel6.Controls.Add(label1);
-            panel6.Font = new Font("Tahoma", 14F);
-            panel6.Location = new Point(0, 0);
-            panel6.Margin = new Padding(0);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(350, 300);
-            panel6.TabIndex = 4;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(113, 53);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(125, 116);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(113, 188);
-            label1.Name = "label1";
-            label1.Size = new Size(123, 29);
-            label1.TabIndex = 1;
-            label1.Text = "WELCOME";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(126, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(87, 29);
-            label2.TabIndex = 2;
-            label2.Text = "ADMIN";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // panel7
-            // 
-            panel7.Controls.Add(label2);
-            panel7.Location = new Point(3, 232);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(347, 45);
-            panel7.TabIndex = 2;
-            // 
             // pnlWork
             // 
             pnlWork.Location = new Point(350, 0);
@@ -269,16 +301,17 @@
             Name = "AdminForm";
             Text = "AdminForm";
             sidebarMenu.ResumeLayout(false);
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
+            panel8.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel5.ResumeLayout(false);
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -288,7 +321,7 @@
         private Panel panel1;
         private Button button1;
         private Panel panel2;
-        private Button button2;
+        private Button btnProduct;
         private Panel panel3;
         private Button button3;
         private Panel panel4;
@@ -301,5 +334,7 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Panel pnlWork;
+        private Panel panel8;
+        private Button btnEmployee;
     }
 }

@@ -23,16 +23,13 @@ namespace GroceryStore.Views
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-            string name = txbName.Text.Trim();
-            string address = txbAddress.Text.Trim() != string.Empty ? txbAddress.Text.Trim() : "none";
-            string email = txbEmail.Text.Trim() != string.Empty ? txbEmail.Text.Trim() : "none";
+            string customerName = txbName.Text.Trim();
             int gender = cboGender.SelectedIndex;
             string phone = txbPhone.Text.Trim();
-            DateTime dateJoin = DateTime.Now;
 
             lblError.Text = "";
 
-            if (string.IsNullOrEmpty(name))
+            if (string.IsNullOrEmpty(customerName))
             {
                 lblError.Text = "Tên không được để trống";
                 return;
@@ -66,19 +63,17 @@ namespace GroceryStore.Views
                     // Tạo khách hàng mới
                     Customer newCustomer = new Customer
                     {
-                        Name = name,
-                        Email = email.Contains('@') ? email : email + "@gmail.com",
+                        CustomerName = customerName,
                         PhoneNumber = phone,
-                        Address = address,
-                        Gender = gender,
-                        dateJoin = dateJoin // Lưu thời gian hiện tại
+                        Gender = gender == 0? false : true,
+                        FCoin = 0
                     };
 
                     // Thêm vào DB
                     context.Customers.Add(newCustomer);
                     context.SaveChanges();
 
-                    int newCustomerId = newCustomer.CustomerId;
+                    int newCustomerId = newCustomer.CustomerID;
                     this.Tag = newCustomerId; // Lưu ID vào Tag của form
                     this.DialogResult = DialogResult.OK;
                     this.Close(); // Đóng form sau khi thêm

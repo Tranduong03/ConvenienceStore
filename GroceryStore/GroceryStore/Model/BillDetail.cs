@@ -8,23 +8,48 @@ using System.Threading.Tasks;
 
 namespace GroceryStore.Model
 {
-    internal class BillDetail
+    [Table("BILLDETAIL")]
+    public class BillDetail
     {
-        [ForeignKey("Bill")]
-        public int BillId { get; set; } 
-
-        [ForeignKey("Product")]
-        public int ProductID { get; set; } 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int BillDetailID { get; set; }  
 
         [Required]
-        public int Quantity { get; set; }
+        public int Quantity { get; set; }  
+        [Required]
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal UnitPrice { get; set; }  
 
-        [Required]// SellPrice của chi tiết hóa đơn, tham chiếu prodID, value = prodID.SellPrice(tại thời điểm mua) * Quantity
-                  // không phải giá trị sellprice của product
-        public int SellPrice { get; set; }
+        [NotMapped]  
+        public decimal TotalPrice => Quantity * UnitPrice; 
 
-        public virtual Bill Bill { get; set; } 
-        public virtual Product Product { get; set; } 
+        // Khóa ngoại
+        [ForeignKey("Bill")]
+        public int BillID { get; set; }
+        public virtual Bill ? Bill { get; set; }  
+
+        [ForeignKey("Product")]
+        public int ProductID { get; set; }
+        public virtual Product ? Product { get; set; }  
     }
 
+    //internal class BillDetail
+    //{
+    //    [ForeignKey("Bill")]
+    //    public int BillId { get; set; } 
+
+    //    [ForeignKey("Product")]
+    //    public int ProductID { get; set; } 
+
+    //    [Required]
+    //    public int Quantity { get; set; }
+
+    //    [Required]// SellPrice của chi tiết hóa đơn, tham chiếu prodID, value = prodID.SellPrice(tại thời điểm mua) * Quantity
+    //              // không phải giá trị sellprice của product
+    //    public int SellPrice { get; set; }
+
+    //    public virtual Bill ? Bill { get; set; } 
+    //    public virtual Product ? Product { get; set; } 
+    //}
 }

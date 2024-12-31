@@ -8,27 +8,45 @@ using System.Threading.Tasks;
 
 namespace GroceryStore.Model
 {
-    internal class Customer
+    [Table("CUSTOMER")]
+    public class Customer
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int CustomerId { get; set; }
+        public int CustomerID { get; set; }
+
         [Required]
-        public string Name { get; set; }
+        [StringLength(128)]
+        public string CustomerName { get; set; } = string.Empty;
 
-        [MaxLength(60, ErrorMessage = "Email không được vượt quá 60 ký tự.")]
-        public string Email { get; set; }
-
-        public string Address { get; set; }
-
-        [Required]                
-        [RegularExpression(@"^\+?[0-9]{8,12}$", ErrorMessage = "Số điện thoại phải từ 8 đến 12 chữ số, có thể bắt đầu bằng '+'.")]
-        [MaxLength(15)]
-        public string PhoneNumber {  get; set; }
         [Required]
-        [Range(0, 2, ErrorMessage = "Giới tính không hợp lệ (0: Nam, 1: Nữ, 2: Phi nhị giới).")]
-        public int Gender {  get; set; }
+        [StringLength(15)]
+        public string PhoneNumber { get; set; } = string.Empty;
 
-        public DateTime dateJoin { get; set; }
+        [Column(TypeName = "bit")]
+        public bool Gender { get; set; } = false;
+
+        [Column(TypeName = "real")]
+        public float FCoin { get; set; } = 0;
     }
+
+    //internal class Customer
+    //{
+    //    [Key]
+    //    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    //    public int CustomerId { get; set; }
+    //    [Required]
+    //    public string? Name { get; set; }
+    //    [MaxLength(60, ErrorMessage = "Email không được vượt quá 60 ký tự.")]
+    //    public string ? Email { get; set; }
+    //    public string ? Address { get; set; }
+    //    [Required]                
+    //    [RegularExpression(@"^\+?[0-9]{8,12}$", ErrorMessage = "Số điện thoại phải từ 8 đến 12 chữ số, có thể bắt đầu bằng '+'.")]
+    //    [MaxLength(15)]
+    //    public string ?PhoneNumber {  get; set; }
+    //    [Required]
+    //    [Range(0, 2, ErrorMessage = "Giới tính không hợp lệ (0: Nam, 1: Nữ, 2: Phi nhị giới).")]
+    //    public int Gender {  get; set; }
+    //    public DateTime dateJoin { get; set; }
+    //}
 }

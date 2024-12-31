@@ -85,18 +85,18 @@ namespace GroceryStore.Views
         {
             // Giả sử bạn đang sử dụng DataGridView để hiển thị các sản phẩm đã mua
             tableProdToBuy.Rows.Clear(); // Xóa các dòng cũ trong bảng
-            int totalPurchase = 0;
+            decimal totalPurchase = 0;
 
             foreach (var item in purchasedProducts)
             {
                 Product product = item.Key;
                 int quantity = item.Value;
-                int cost = product.SellPrice * quantity;
+                decimal cost = product.SellPrice * quantity;
 
                 totalPurchase += cost;
 
                 // Thêm dòng mới vào DataGridView
-                tableProdToBuy.Rows.Add(product.Name, quantity, cost);
+                tableProdToBuy.Rows.Add(product.ProductName, quantity, cost);
             }
             txbSumCost.Text = totalPurchase.ToString();
         }
@@ -111,7 +111,7 @@ namespace GroceryStore.Views
                 string productName = tableProdToBuy.Rows[e.RowIndex].Cells["colProdName"].Value.ToString();
 
                 // Tìm sản phẩm trong Dictionary và xóa nó
-                var productToRemove = purchasedProducts.Keys.FirstOrDefault(p => p.Name == productName);
+                var productToRemove = purchasedProducts.Keys.FirstOrDefault(p => p.ProductName == productName);
                 if (productToRemove != null)
                 {
                     purchasedProducts.Remove(productToRemove); // Xóa khỏi Dictionary
@@ -136,7 +136,7 @@ namespace GroceryStore.Views
                 // Thêm các danh mục từ cơ sở dữ liệu
                 foreach (var category in categories)
                 {
-                    cbxCategory.Items.Add(new { CategoryID = category.CategoryID, CategoryName = category.Name });
+                    cbxCategory.Items.Add(new { CategoryID = category.CategoryID, CategoryName = category.CName });
                 }
             }
 
@@ -202,7 +202,7 @@ namespace GroceryStore.Views
                 // Áp dụng điều kiện tìm kiếm theo từ khóa (Name hoặc Description)
                 if (!string.IsNullOrEmpty(keyword))
                 {
-                    query = query.Where(p => p.Name.Contains(keyword) || p.Description.Contains(keyword));
+                    query = query.Where(p => p.ProductName.Contains(keyword) || p.Description.Contains(keyword));
                 }
 
                 // Lấy danh sách sản phẩm đã lọc
@@ -302,10 +302,10 @@ namespace GroceryStore.Views
                     // Thêm chi tiết hóa đơn
                     var billDetail = new BillDetail
                     {
-                        BillId = newBill.BillId,
+                        BillID = newBill.BillID,
                         ProductID = product.ProductID,
                         Quantity = quantity,
-                        SellPrice = product.SellPrice
+                        UnitPrice = product.SellPrice
                     };
                     context.BillDetails.Add(billDetail);
 
@@ -313,12 +313,12 @@ namespace GroceryStore.Views
                     var productInDb = context.Products.FirstOrDefault(p => p.ProductID == product.ProductID);
                     if (productInDb != null)
                     {
-                        if (productInDb.Quantity < quantity)
+                        if (productInDb.Stock < quantity)
                         {
-                            MessageBox.Show($"Sản phẩm {product.Name} không đủ số lượng trong kho.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show($"Sản phẩm {product.ProductName} không đủ số lượng trong kho.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
-                        productInDb.Quantity -= quantity; // Trừ số lượng sản phẩm trong kho
+                        productInDb.Stock -= quantity; // Trừ số lượng sản phẩm trong kho
                     }
                 }
 

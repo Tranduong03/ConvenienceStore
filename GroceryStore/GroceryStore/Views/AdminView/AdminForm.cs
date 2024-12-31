@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GroceryStore.Model;
+using GroceryStore.Views.AdminView;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,30 @@ namespace GroceryStore.Views
 {
     public partial class AdminForm : Form
     {
+        private User currentAdm;
         public AdminForm()
         {
             InitializeComponent();
+        }
+
+        internal AdminForm(User user)
+        {
+            InitializeComponent();
+            currentAdm = user;
+        }
+
+        private void btnProduct_Click(object sender, EventArgs e)
+        {
+            ProductView productView = new ProductView(currentAdm);
+            pnlWork.Controls.Clear();
+            pnlWork.Controls.Add(productView);
+        }
+
+        private void btnEmployee_Click(object sender, EventArgs e)
+        {
+            EmployeeView employeeView = new EmployeeView(currentAdm);
+            pnlWork.Controls.Clear();
+            pnlWork.Controls.Add(employeeView);
         }
     }
 }

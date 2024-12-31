@@ -26,23 +26,21 @@ namespace GroceryStore.Views
                 var customers = context.Customers
                     .Select(c => new
                     {
-                        c.CustomerId,
-                        c.Name,
-                        Email = c.Email ?? "Không có email",
+                        c.CustomerID,
+                        c.CustomerName,
                         PhoneNumber = c.PhoneNumber ?? "Không có số điện thoại"
                     }).ToList();
 
                 foreach (var customer in customers)
                 {
                     // Kiểm tra và thay thế giá trị NULL nếu cần
-                    string email = customer.Email ?? "Không có email";
                     string phoneNumber = customer.PhoneNumber ?? "Không có số điện thoại";
 
                     // Thêm dòng vào DataGridView
-                    tableCustomerList.Rows.Add(customer.CustomerId, customer.Name, email, phoneNumber);
+                    tableCustomerList.Rows.Add(customer.CustomerID, customer.CustomerName, phoneNumber);
                 }
             }
-        }
+        } 
 
 
         private void btnChooseCustomer_Click(object sender, EventArgs e)

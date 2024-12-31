@@ -32,8 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login_Child));
             pnlLogin = new Panel();
             lblWarning = new Label();
-            linkRegister = new LinkLabel();
-            label2 = new Label();
             linkForgotPassword = new LinkLabel();
             chkShowPassword = new CheckBox();
             btnLogin = new Button();
@@ -56,8 +54,6 @@
             // pnlLogin
             // 
             pnlLogin.Controls.Add(lblWarning);
-            pnlLogin.Controls.Add(linkRegister);
-            pnlLogin.Controls.Add(label2);
             pnlLogin.Controls.Add(linkForgotPassword);
             pnlLogin.Controls.Add(chkShowPassword);
             pnlLogin.Controls.Add(btnLogin);
@@ -81,26 +77,6 @@
             lblWarning.Padding = new Padding(20, 0, 0, 0);
             lblWarning.Size = new Size(20, 20);
             lblWarning.TabIndex = 9;
-            // 
-            // linkRegister
-            // 
-            linkRegister.AutoSize = true;
-            linkRegister.Location = new Point(221, 501);
-            linkRegister.Name = "linkRegister";
-            linkRegister.Size = new Size(109, 20);
-            linkRegister.TabIndex = 8;
-            linkRegister.TabStop = true;
-            linkRegister.Text = "Đăng kí tại đây";
-            linkRegister.LinkClicked += linkRegister_LinkClicked;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(69, 501);
-            label2.Name = "label2";
-            label2.Size = new Size(135, 20);
-            label2.TabIndex = 7;
-            label2.Text = "Chưa có tài khoản?";
             // 
             // linkForgotPassword
             // 
@@ -253,8 +229,6 @@
         #endregion
 
         public Panel pnlLogin;
-        private LinkLabel linkRegister;
-        private Label label2;
         private LinkLabel linkForgotPassword;
         private CheckBox chkShowPassword;
         private Button btnLogin;
