@@ -39,5 +39,12 @@ namespace GroceryStore.Views
             pnlWork.Controls.Clear();
             pnlWork.Controls.Add(employeeView);
         }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            CustomerView customerView = new CustomerView(currentAdm);
+            pnlWork.Controls.Clear();
+            pnlWork.Controls.Add(customerView);
+        }
     }
 }

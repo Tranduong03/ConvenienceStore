@@ -40,7 +40,7 @@
             panel2 = new Panel();
             btnProduct = new Button();
             panel3 = new Panel();
-            button3 = new Button();
+            btnCustomer = new Button();
             panel8 = new Panel();
             btnEmployee = new Button();
             panel4 = new Panel();
@@ -180,29 +180,30 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(button3);
+            panel3.Controls.Add(btnCustomer);
             panel3.Location = new Point(25, 488);
             panel3.Margin = new Padding(25, 20, 0, 0);
             panel3.Name = "panel3";
             panel3.Size = new Size(300, 64);
             panel3.TabIndex = 3;
             // 
-            // button3
+            // btnCustomer
             // 
-            button3.BackColor = Color.FromArgb(37, 150, 190);
-            button3.Dock = DockStyle.Fill;
-            button3.Font = new Font("Tahoma", 14F, FontStyle.Bold);
-            button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(0, 0);
-            button3.Margin = new Padding(0);
-            button3.Name = "button3";
-            button3.Padding = new Padding(30, 0, 0, 0);
-            button3.Size = new Size(300, 64);
-            button3.TabIndex = 2;
-            button3.Text = "        Customer";
-            button3.TextAlign = ContentAlignment.MiddleLeft;
-            button3.UseVisualStyleBackColor = false;
+            btnCustomer.BackColor = Color.FromArgb(37, 150, 190);
+            btnCustomer.Dock = DockStyle.Fill;
+            btnCustomer.Font = new Font("Tahoma", 14F, FontStyle.Bold);
+            btnCustomer.Image = (Image)resources.GetObject("btnCustomer.Image");
+            btnCustomer.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCustomer.Location = new Point(0, 0);
+            btnCustomer.Margin = new Padding(0);
+            btnCustomer.Name = "btnCustomer";
+            btnCustomer.Padding = new Padding(30, 0, 0, 0);
+            btnCustomer.Size = new Size(300, 64);
+            btnCustomer.TabIndex = 2;
+            btnCustomer.Text = "        Customer";
+            btnCustomer.TextAlign = ContentAlignment.MiddleLeft;
+            btnCustomer.UseVisualStyleBackColor = false;
+            btnCustomer.Click += btnCustomer_Click;
             // 
             // panel8
             // 
@@ -323,7 +324,7 @@
         private Panel panel2;
         private Button btnProduct;
         private Panel panel3;
-        private Button button3;
+        private Button btnCustomer;
         private Panel panel4;
         private Button button4;
         private Panel panel5;

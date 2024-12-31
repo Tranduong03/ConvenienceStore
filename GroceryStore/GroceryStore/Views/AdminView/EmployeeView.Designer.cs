@@ -38,8 +38,10 @@
             txbSearch = new TextBox();
             button2 = new Button();
             button3 = new Button();
-            textBox1 = new TextBox();
             label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -135,16 +137,6 @@
             button3.Text = "Sau";
             button3.UseVisualStyleBackColor = true;
             // 
-            // textBox1
-            // 
-            textBox1.Font = new Font("Tahoma", 11F);
-            textBox1.Location = new Point(611, 814);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 30);
-            textBox1.TabIndex = 7;
-            textBox1.Text = "1/max";
-            textBox1.TextAlign = HorizontalAlignment.Center;
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -155,12 +147,44 @@
             label2.TabIndex = 8;
             label2.Text = "Trang: ";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Tahoma", 11F);
+            label3.Location = new Point(600, 815);
+            label3.Name = "label3";
+            label3.Size = new Size(20, 23);
+            label3.TabIndex = 9;
+            label3.Text = "1";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Tahoma", 11F);
+            label4.Location = new Point(644, 815);
+            label4.Name = "label4";
+            label4.Size = new Size(17, 23);
+            label4.TabIndex = 10;
+            label4.Text = "/";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Tahoma", 11F);
+            label5.Location = new Point(667, 815);
+            label5.Name = "label5";
+            label5.Size = new Size(45, 23);
+            label5.TabIndex = 11;
+            label5.Text = "max";
+            // 
             // EmployeeView
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(textBox1);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(btnSearch);
@@ -188,8 +212,10 @@
         private TextBox txbSearch;
         private Button button2;
         private Button button3;
-        private TextBox textBox1;
         private Label label2;
         public FlowLayoutPanel flpEmployeeView;
+        private Label label3;
+        private Label label4;
+        private Label label5;
     }
 }
