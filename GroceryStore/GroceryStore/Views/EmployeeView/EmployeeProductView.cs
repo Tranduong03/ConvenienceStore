@@ -285,7 +285,6 @@ namespace GroceryStore.Views
                 BillDate = DateTime.Now,
                 TotalCost = purchasedProducts.Sum(p => p.Key.SellPrice * p.Value) // Tổng tiền
             };
-            MessageBox.Show(employee.UserID.ToString());
 
             // Sử dụng context để lưu dữ liệu vào DB
             using (var context = new AppDBContext())
@@ -336,6 +335,7 @@ namespace GroceryStore.Views
             txbRefund.Text = string.Empty;
             txbCustomerID.Text = string.Empty;
         }
+
 
     }
 }

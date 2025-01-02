@@ -1,4 +1,5 @@
 ﻿using GroceryStore.Model;
+using GroceryStore.Views.EmployeeView;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,6 +45,13 @@ namespace GroceryStore.Views
             EmployeeDetailInfo employeeDetailInfo = new EmployeeDetailInfo(currentUser);
             pnlWork.Controls.Clear();
             pnlWork.Controls.Add(employeeDetailInfo);
+        }
+
+        private void btnBillHistory_Click(object sender, EventArgs e)
+        {
+            BillHistory billHistory = new BillHistory(currentUser);
+            pnlWork.Controls.Clear();
+            pnlWork.Controls.Add(billHistory);
         }
     }
 }

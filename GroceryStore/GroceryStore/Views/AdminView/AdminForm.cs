@@ -35,7 +35,7 @@ namespace GroceryStore.Views
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
-            EmployeeView employeeView = new EmployeeView(currentAdm);
+            EmployeeManage employeeView = new EmployeeManage(currentAdm);
             pnlWork.Controls.Clear();
             pnlWork.Controls.Add(employeeView);
         }

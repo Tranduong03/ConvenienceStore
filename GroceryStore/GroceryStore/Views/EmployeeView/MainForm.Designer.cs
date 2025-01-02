@@ -196,6 +196,7 @@
             btnBillHistory.Text = "        Bill History";
             btnBillHistory.TextAlign = ContentAlignment.MiddleLeft;
             btnBillHistory.UseVisualStyleBackColor = false;
+            btnBillHistory.Click += btnBillHistory_Click;
             // 
             // panel5
             // 

@@ -1,6 +1,6 @@
 ﻿namespace GroceryStore.Views.AdminView
 {
-    partial class EmployeeView
+    partial class EmployeeManage
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeView));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeManage));
             panel1 = new Panel();
             button1 = new Button();
             label1 = new Label();

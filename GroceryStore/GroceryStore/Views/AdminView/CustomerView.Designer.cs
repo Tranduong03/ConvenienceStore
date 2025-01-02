@@ -420,7 +420,6 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1250, 900);
             Controls.Add(btnAdd);
             Controls.Add(btnSaveChange);
             Controls.Add(btnDelete);
@@ -435,10 +434,9 @@
             Controls.Add(tableCustomerList);
             Controls.Add(panel1);
             Font = new Font("Tahoma", 11F);
-//            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(4, 3, 4, 3);
             Name = "CustomerView";
-            Text = "CustomerView";
+            Size = new Size(1250, 900);
             Load += CustomerView_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

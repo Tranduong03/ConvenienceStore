@@ -12,15 +12,15 @@ using System.Windows.Forms;
 
 namespace GroceryStore.Views.AdminView
 {
-    public partial class EmployeeView : UserControl
+    public partial class EmployeeManage : UserControl
     {
         private User currentAdm = new User();
-        public EmployeeView()
+        public EmployeeManage()
         {
             InitializeComponent();
         }
 
-        internal EmployeeView(User user)
+        internal EmployeeManage(User user)
         {
             InitializeComponent();
             currentAdm = user;
