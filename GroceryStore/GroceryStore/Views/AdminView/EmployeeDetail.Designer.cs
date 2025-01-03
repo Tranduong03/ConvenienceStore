@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeDetail));
             groupBox1 = new GroupBox();
+            btnBack = new Button();
             btnResetPassword = new Button();
             btnDelete = new Button();
             btnSaveInfo = new Button();
@@ -47,12 +48,9 @@
             txbPhone = new TextBox();
             label7 = new Label();
             label13 = new Label();
-            label8 = new Label();
             label12 = new Label();
-            txbAddress = new TextBox();
             cboGender = new ComboBox();
             openFileDialog1 = new OpenFileDialog();
-            btnBack = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picEmployeeImage).BeginInit();
             SuspendLayout();
@@ -77,22 +75,31 @@
             groupBox1.Controls.Add(txbPhone);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label13);
-            groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label12);
-            groupBox1.Controls.Add(txbAddress);
             groupBox1.Controls.Add(cboGender);
             groupBox1.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(506, 685);
+            groupBox1.Size = new Size(506, 605);
             groupBox1.TabIndex = 69;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin nhân viên";
             // 
+            // btnBack
+            // 
+            btnBack.Font = new Font("Tahoma", 9F, FontStyle.Bold);
+            btnBack.Image = (Image)resources.GetObject("btnBack.Image");
+            btnBack.Location = new Point(452, 20);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(48, 48);
+            btnBack.TabIndex = 75;
+            btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
+            // 
             // btnResetPassword
             // 
             btnResetPassword.BackColor = SystemColors.ActiveBorder;
-            btnResetPassword.Location = new Point(105, 620);
+            btnResetPassword.Location = new Point(105, 529);
             btnResetPassword.Name = "btnResetPassword";
             btnResetPassword.Size = new Size(299, 59);
             btnResetPassword.TabIndex = 74;
@@ -103,7 +110,7 @@
             // btnDelete
             // 
             btnDelete.BackColor = Color.Tomato;
-            btnDelete.Location = new Point(6, 620);
+            btnDelete.Location = new Point(6, 529);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(93, 59);
             btnDelete.TabIndex = 73;
@@ -114,7 +121,7 @@
             // btnSaveInfo
             // 
             btnSaveInfo.BackColor = Color.Lime;
-            btnSaveInfo.Location = new Point(410, 620);
+            btnSaveInfo.Location = new Point(410, 529);
             btnSaveInfo.Name = "btnSaveInfo";
             btnSaveInfo.Size = new Size(90, 59);
             btnSaveInfo.TabIndex = 72;
@@ -124,7 +131,7 @@
             // 
             // txbImgLink
             // 
-            txbImgLink.Location = new Point(118, 389);
+            txbImgLink.Location = new Point(118, 298);
             txbImgLink.Name = "txbImgLink";
             txbImgLink.Size = new Size(287, 35);
             txbImgLink.TabIndex = 71;
@@ -132,7 +139,7 @@
             // btnSelectImage
             // 
             btnSelectImage.Font = new Font("Tahoma", 12F);
-            btnSelectImage.Location = new Point(164, 439);
+            btnSelectImage.Location = new Point(164, 348);
             btnSelectImage.Name = "btnSelectImage";
             btnSelectImage.Size = new Size(112, 34);
             btnSelectImage.TabIndex = 70;
@@ -142,7 +149,7 @@
             // 
             // picEmployeeImage
             // 
-            picEmployeeImage.Location = new Point(32, 439);
+            picEmployeeImage.Location = new Point(32, 348);
             picEmployeeImage.Name = "picEmployeeImage";
             picEmployeeImage.Size = new Size(126, 124);
             picEmployeeImage.SizeMode = PictureBoxSizeMode.Zoom;
@@ -153,7 +160,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Tahoma", 12F);
-            label2.Location = new Point(32, 395);
+            label2.Location = new Point(32, 304);
             label2.Name = "label2";
             label2.Size = new Size(80, 24);
             label2.TabIndex = 68;
@@ -256,16 +263,6 @@
             label13.TabIndex = 62;
             label13.Text = "*";
             // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Tahoma", 12F);
-            label8.Location = new Point(32, 310);
-            label8.Name = "label8";
-            label8.Size = new Size(56, 24);
-            label8.TabIndex = 55;
-            label8.Text = "Nơi ở";
-            // 
             // label12
             // 
             label12.AutoSize = true;
@@ -277,20 +274,12 @@
             label12.TabIndex = 61;
             label12.Text = "*";
             // 
-            // txbAddress
-            // 
-            txbAddress.Font = new Font("Tahoma", 12F);
-            txbAddress.Location = new Point(31, 337);
-            txbAddress.Name = "txbAddress";
-            txbAddress.Size = new Size(374, 32);
-            txbAddress.TabIndex = 56;
-            // 
             // cboGender
             // 
             cboGender.DropDownStyle = ComboBoxStyle.DropDownList;
             cboGender.Font = new Font("Tahoma", 12F);
             cboGender.FormattingEnabled = true;
-            cboGender.Items.AddRange(new object[] { "Nam", "Nữ", "Phi nhị giới" });
+            cboGender.Items.AddRange(new object[] { "Nam", "Nữ" });
             cboGender.Location = new Point(221, 246);
             cboGender.Margin = new Padding(0);
             cboGender.Name = "cboGender";
@@ -301,22 +290,11 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
-            // btnBack
-            // 
-            btnBack.Font = new Font("Tahoma", 9F, FontStyle.Bold);
-            btnBack.Image = (Image)resources.GetObject("btnBack.Image");
-            btnBack.Location = new Point(461, 0);
-            btnBack.Name = "btnBack";
-            btnBack.Size = new Size(48, 48);
-            btnBack.TabIndex = 75;
-            btnBack.UseVisualStyleBackColor = true;
-            btnBack.Click += btnBack_Click;
-            // 
             // EmployeeDetail
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(533, 709);
+            ClientSize = new Size(533, 625);
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "EmployeeDetail";
@@ -347,9 +325,7 @@
         private TextBox txbPhone;
         private Label label7;
         private Label label13;
-        private Label label8;
         private Label label12;
-        private TextBox txbAddress;
         private ComboBox cboGender;
         private Button btnResetPassword;
         private OpenFileDialog openFileDialog1;
