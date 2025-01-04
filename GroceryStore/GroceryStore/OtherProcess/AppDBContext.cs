@@ -13,7 +13,7 @@ namespace GroceryStore.OtherProcess
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=MSI;Initial Catalog=FlashShopC#;Persist Security Info=True;User ID=sa;Password=29112004;Encrypt=True;Trust Server Certificate=True");
+            optionsBuilder.UseSqlServer("Data Source=LAPTOP-5JQDFU6J;Initial Catalog=FlashShopC#;Persist Security Info=True;User ID=sa;Password=bao123689;Encrypt=True;Trust Server Certificate=True");
         }
 
         public DbSet<User> Users { get; set; }
