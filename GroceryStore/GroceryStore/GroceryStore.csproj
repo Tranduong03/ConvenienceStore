@@ -25,7 +25,6 @@
 
   <ItemGroup>
     <Folder Include="Resource\Icons\" />
-    <Folder Include="Resource\Images\" />
     <Folder Include="Resource\UserImages\" />
   </ItemGroup>
 
@@ -70,6 +69,49 @@
 
 	<ItemGroup>
 		<Content Include="Resource\UserImages\**\*" CopyToOutputDirectory="PreserveNewest" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resource\Images\7 Up Can 330ml.png" />
+	  <None Remove="Resource\Images\Budweiser Beer.png" />
+	  <None Remove="Resource\Images\Butter Cookies Cosan.png" />
+	  <None Remove="Resource\Images\Coca Cola.png" />
+	  <None Remove="Resource\Images\Corona Beer.png" />
+	  <None Remove="Resource\Images\Donut.png" />
+	  <None Remove="Resource\Images\Dr Pepper.png" />
+	  <None Remove="Resource\Images\Fanta.png" />
+	  <None Remove="Resource\Images\Grape Wine.png" />
+	  <None Remove="Resource\Images\Heineken Beer.png" />
+	  <None Remove="Resource\Images\Highland Black Coffee Box.png" />
+	  <None Remove="Resource\Images\Highland Black Coffee Can.png" />
+	  <None Remove="Resource\Images\Highland Coffee Milk Box.png" />
+	  <None Remove="Resource\Images\Highland Coffee Milk Can.png" />
+	  <None Remove="Resource\Images\Larue Beer.png" />
+	  <None Remove="Resource\Images\Mirinda.png" />
+	  <None Remove="Resource\Images\Mr. Brown Coffee.png" />
+	  <None Remove="Resource\Images\Oatmeal Cookies Kinh Do.png" />
+	  <None Remove="Resource\Images\Pepsi Bottle 1.5l.png" />
+	  <None Remove="Resource\Images\Pepsi Bottle 330ml.png" />
+	  <None Remove="Resource\Images\Pepsi Can 320ml.png" />
+	  <None Remove="Resource\Images\Saigon Beer.png" />
+	  <None Remove="Resource\Images\Sake.png" />
+	  <None Remove="Resource\Images\Sapporo Beer.png" />
+	  <None Remove="Resource\Images\Schweppes.png" />
+	  <None Remove="Resource\Images\Sprite.png" />
+	  <None Remove="Resource\Images\Sting.png" />
+	  <None Remove="Resource\Images\Sweet Bread Vinabread.png" />
+	  <None Remove="Resource\Images\TH Centella Juice.png" />
+	  <None Remove="Resource\Images\TH Grapefruit Juice.png" />
+	  <None Remove="Resource\Images\TH Guava Juice.png" />
+	  <None Remove="Resource\Images\TH Mangosteen Juice.png" />
+	  <None Remove="Resource\Images\TH Orange Juice.png" />
+	  <None Remove="Resource\Images\TH Pineapple Juice.png" />
+	  <None Remove="Resource\Images\TH Sugarcane Juice.png" />
+	  <None Remove="Resource\Images\TH Watermelon Juice.png" />
+	  <None Remove="Resource\Images\Tiger Beer.png" />
+	  <None Remove="Resource\Images\Wine.png" />
+	  <None Remove="Resource\Images\Winter Melon Tea.png" />
+	  <None Remove="Resource\Images\Zero Degree Green Tea.png" />
 	</ItemGroup>
 
 

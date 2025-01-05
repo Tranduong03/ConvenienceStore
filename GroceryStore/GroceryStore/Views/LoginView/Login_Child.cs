@@ -76,16 +76,16 @@ namespace GroceryStore.Views
                 string accountOrEmail = txbAccount.Text.Trim();
                 string password = txbPassword.Text.Trim();
 
-                if(accountOrEmail == "1" && password == "1") // Thử nghiệm đóng mở form, không quan trọng
+                if (accountOrEmail == "1" && password == "1") // Thử nghiệm đóng mở form, không quan trọng
                 {
                     AdminForm adm = new AdminForm();
-                   
+
                     var welcome_Form = this.Owner as Welcome;
                     welcome_Form?.Hide(); // Đóng form Welcome nếu nó đang mở
                     adm.FormClosed += (s, args) => welcome_Form.Close();
                     adm.Show();
                     this.Close();
-                   
+                    return; // Kết thúc phương thức tại đây nếu dùng thử nghiệm
                 }
 
                 // Tìm kiếm người dùng theo Account hoặc Email
@@ -106,6 +106,10 @@ namespace GroceryStore.Views
                     StartWarningTimer();
                     return;
                 }
+
+                // Lưu UserID vào CurrentUser trong OtherProcess
+                CurrentUser.UserID = user.UserID;
+
                 Form nextForm;
                 // Đăng nhập thành công với ADMIN role
                 if (user.Role)
@@ -124,6 +128,7 @@ namespace GroceryStore.Views
                 this.Close(); // Đóng Login_Child
             }
         }
+
 
         private void timerWarning_Tick(object sender, EventArgs e)
         {

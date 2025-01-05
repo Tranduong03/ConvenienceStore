@@ -37,17 +37,17 @@
             // dataGridViewProducts
             // 
             dataGridViewProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewProducts.Location = new Point(62, 33);
+            dataGridViewProducts.Location = new Point(12, 12);
             dataGridViewProducts.MultiSelect = false;
             dataGridViewProducts.Name = "dataGridViewProducts";
             dataGridViewProducts.RowHeadersWidth = 62;
             dataGridViewProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewProducts.Size = new Size(360, 225);
+            dataGridViewProducts.Size = new Size(776, 352);
             dataGridViewProducts.TabIndex = 0;
             // 
             // btnSelect
             // 
-            btnSelect.Location = new Point(167, 304);
+            btnSelect.Location = new Point(183, 392);
             btnSelect.Name = "btnSelect";
             btnSelect.Size = new Size(112, 34);
             btnSelect.TabIndex = 1;
@@ -58,7 +58,7 @@
             // cbSupplier
             // 
             cbSupplier.FormattingEnabled = true;
-            cbSupplier.Location = new Point(508, 33);
+            cbSupplier.Location = new Point(469, 392);
             cbSupplier.Name = "cbSupplier";
             cbSupplier.Size = new Size(182, 33);
             cbSupplier.TabIndex = 2;

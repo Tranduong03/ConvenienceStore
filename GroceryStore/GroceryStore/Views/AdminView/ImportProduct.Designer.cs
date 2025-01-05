@@ -39,13 +39,13 @@
             dataGridViewQuantity.Location = new Point(12, 12);
             dataGridViewQuantity.Name = "dataGridViewQuantity";
             dataGridViewQuantity.RowHeadersWidth = 62;
-            dataGridViewQuantity.Size = new Size(635, 284);
+            dataGridViewQuantity.Size = new Size(776, 376);
             dataGridViewQuantity.TabIndex = 0;
-            dataGridViewQuantity.CellValueChanged += dataGridView1_CellValueChanged;
+            dataGridViewQuantity.CellValueChanged += dataGridViewQuantity_CellValueChanged;
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(665, 56);
+            btnAdd.Location = new Point(169, 404);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(112, 34);
             btnAdd.TabIndex = 1;
@@ -55,7 +55,7 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(669, 110);
+            btnSave.Location = new Point(456, 404);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(112, 34);
             btnSave.TabIndex = 2;
