@@ -219,64 +219,7 @@ namespace GroceryStore.Views.AdminView
         private void btnAdd_Click(object sender, EventArgs e)
         {
             groupBox1.Visible = true;
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            var selectedRows = tableCustomerList.SelectedRows;
-            if (selectedRows.Count > 0)
-            {
-                // Lưu danh sách ID cần xóa
-                List<int> customersToDelete = new List<int>();
-                foreach (DataGridViewRow row in selectedRows)
-                {
-                    if (row.Cells["colCustomerID"].Value != null)
-                    {
-                        customersToDelete.Add(Convert.ToInt32(row.Cells["colCustomerID"].Value));
-                    }
-                }
-
-                // Hiển thị hộp thoại xác nhận
-                if (!PromptSaveChanges()) return; // Lưu thay đổi nếu cần
-
-                DialogResult result = MessageBox.Show(
-                    "Bạn có chắc chắn muốn xóa các khách hàng đã chọn không?",
-                    "Xác nhận xóa",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning
-                );
-
-                if (result == DialogResult.Yes)
-                {
-                    try
-                    {
-                        using (var context = new AppDBContext())
-                        {
-                            foreach (var customerId in customersToDelete)
-                            {
-                                var customer = context.Customers.Find(customerId);
-                                if (customer != null)
-                                {
-                                    context.Customers.Remove(customer);
-                                }
-                            }
-                            context.SaveChanges();
-                            MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LoadCustomerList(); // Tải lại danh sách sau khi xóa
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Có lỗi xảy ra khi xóa: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn ít nhất một khách hàng để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
+        }      
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {

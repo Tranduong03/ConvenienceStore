@@ -46,6 +46,7 @@
             label12 = new Label();
             label11 = new Label();
             pnlDetailImport = new Panel();
+            btnPrintImport = new Button();
             ((System.ComponentModel.ISupportInitialize)tableImportHistory).BeginInit();
             ((System.ComponentModel.ISupportInitialize)tableImportDetail).BeginInit();
             panel2.SuspendLayout();
@@ -239,6 +240,7 @@
             // 
             // pnlDetailImport
             // 
+            pnlDetailImport.Controls.Add(btnPrintImport);
             pnlDetailImport.Controls.Add(label9);
             pnlDetailImport.Controls.Add(lblTotalCost);
             pnlDetailImport.Controls.Add(label10);
@@ -250,6 +252,17 @@
             pnlDetailImport.Name = "pnlDetailImport";
             pnlDetailImport.Size = new Size(568, 721);
             pnlDetailImport.TabIndex = 96;
+            // 
+            // btnPrintImport
+            // 
+            btnPrintImport.Location = new Point(383, 26);
+            btnPrintImport.Margin = new Padding(2);
+            btnPrintImport.Name = "btnPrintImport";
+            btnPrintImport.Size = new Size(138, 36);
+            btnPrintImport.TabIndex = 3;
+            btnPrintImport.Text = "Print Import";
+            btnPrintImport.UseVisualStyleBackColor = true;
+            btnPrintImport.Click += btnPrintImport_Click;
             // 
             // Import_Product
             // 
@@ -296,5 +309,6 @@
         private Label label12;
         private Label label11;
         private Panel pnlDetailImport;
+        private Button btnPrintImport;
     }
 }

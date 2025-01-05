@@ -39,38 +39,11 @@ namespace GroceryStore.Views.AdminView
                 foreach (var user in users)
                 {
                     EmployeeDetail_minimize employeeShow = new EmployeeDetail_minimize(user);
-                    employeeShow.OnUserDelete += HandleUserDelete;
                     employeeShow.OnUserUpdate += HandleUpdate;
                     Panel pnlEmployee = employeeShow.pnlEmployee;
                     flpEmployeeView.Controls.Add(pnlEmployee); // Thêm panel vào FlowLayoutPanel
                 }
 
-            }
-        }
-
-        private void HandleUserDelete(User user)
-        {
-            try
-            {
-                using (var context = new AppDBContext())
-                {
-                    // Tìm và xóa nhân viên trong database
-                    var userToDelete = context.Users.Find(user.UserID);
-                    if (userToDelete != null)
-                    {
-                        context.Users.Remove(userToDelete);
-                        context.SaveChanges();
-
-                        MessageBox.Show($"Đã xóa nhân viên {user.FullName} thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        // Tải lại danh sách sau khi xóa
-                        LoadEmployeePanels();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Đã xảy ra lỗi khi xóa nhân viên: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -82,6 +55,11 @@ namespace GroceryStore.Views.AdminView
         private void EmployeeView_Load(object sender, EventArgs e)
         {
             LoadEmployeePanels();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

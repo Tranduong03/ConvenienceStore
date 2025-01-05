@@ -96,7 +96,7 @@ namespace GroceryStore.Views.AdminView
                     .ToList();
 
                 tableImportDetail.DataSource = importDetails;
-               
+
             }
             tableImportDetail.Columns["ProductID"].HeaderText = "ID sản phẩm";
             tableImportDetail.Columns["Quantity"].HeaderText = "Số lượng nhập";
@@ -153,5 +153,27 @@ namespace GroceryStore.Views.AdminView
             FilterImportHistory();
         }
 
+        private void btnPrintImport_Click(object sender, EventArgs e)
+        {
+            if (tableImportHistory.SelectedRows.Count > 0)
+            {
+                // Lấy dòng đang được chọn
+                DataGridViewRow selectedRow = tableImportHistory.SelectedRows[0];
+
+                // Lấy thông tin từ các cột của dòng đã chọn
+                string importID = selectedRow.Cells["ImportID"].Value.ToString();
+                string importDate = ((DateTime)selectedRow.Cells["ImportDate"].Value).ToString("yyyy-MM-dd");
+
+                string filename = importID + "_" + importDate + ".pdf";
+
+                string outputPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "OutputImport", filename);
+
+                PDFtool.SavePanelAsPdf(pnlDetailImport, outputPath);
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hóa đơn.");
+            }
+        }
     }
 }

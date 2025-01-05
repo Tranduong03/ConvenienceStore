@@ -48,7 +48,7 @@ namespace GroceryStore.Views
 
         private void btnDetailInfo_Click(object sender, EventArgs e)
         {
-            EmployeeDetailInfo employeeDetailInfo = new EmployeeDetailInfo(currentUser);
+            EmployeeDetailInfo employeeDetailInfo = new EmployeeDetailInfo(ref currentUser);
             pnlWork.Controls.Clear();
             pnlWork.Controls.Add(employeeDetailInfo);
         }

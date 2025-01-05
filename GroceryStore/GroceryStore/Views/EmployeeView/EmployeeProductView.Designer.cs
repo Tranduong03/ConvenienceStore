@@ -72,6 +72,7 @@
             btnPrev = new Button();
             btnToBeginPage = new Button();
             btnToLastPage = new Button();
+            checkFCoinUsed = new CheckBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -258,7 +259,7 @@
             flpListBuy.Location = new Point(0, 49);
             flpListBuy.Margin = new Padding(0);
             flpListBuy.Name = "flpListBuy";
-            flpListBuy.Size = new Size(296, 470);
+            flpListBuy.Size = new Size(296, 440);
             flpListBuy.TabIndex = 1;
             // 
             // tableProdToBuy
@@ -281,7 +282,7 @@
             tableProdToBuy.ReadOnly = true;
             tableProdToBuy.RowHeadersVisible = false;
             tableProdToBuy.RowHeadersWidth = 51;
-            tableProdToBuy.Size = new Size(296, 470);
+            tableProdToBuy.Size = new Size(296, 434);
             tableProdToBuy.TabIndex = 0;
             // 
             // colProdName
@@ -320,6 +321,7 @@
             // 
             // panel4
             // 
+            panel4.Controls.Add(checkFCoinUsed);
             panel4.Controls.Add(txbCustomerID);
             panel4.Controls.Add(label8);
             panel4.Controls.Add(txbRefund);
@@ -329,16 +331,16 @@
             panel4.Controls.Add(btnPurchase);
             panel4.Controls.Add(txbSumCost);
             panel4.Controls.Add(label4);
-            panel4.Location = new Point(0, 519);
+            panel4.Location = new Point(0, 489);
             panel4.Margin = new Padding(0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(296, 286);
+            panel4.Size = new Size(296, 316);
             panel4.TabIndex = 2;
             // 
             // txbCustomerID
             // 
             txbCustomerID.Font = new Font("Tahoma", 11F);
-            txbCustomerID.Location = new Point(132, 184);
+            txbCustomerID.Location = new Point(132, 159);
             txbCustomerID.Name = "txbCustomerID";
             txbCustomerID.ReadOnly = true;
             txbCustomerID.Size = new Size(156, 30);
@@ -348,7 +350,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(12, 187);
+            label8.Location = new Point(12, 162);
             label8.Name = "label8";
             label8.Size = new Size(96, 22);
             label8.TabIndex = 7;
@@ -357,7 +359,7 @@
             // txbRefund
             // 
             txbRefund.Font = new Font("Tahoma", 11F);
-            txbRefund.Location = new Point(132, 138);
+            txbRefund.Location = new Point(132, 113);
             txbRefund.Name = "txbRefund";
             txbRefund.ReadOnly = true;
             txbRefund.Size = new Size(156, 30);
@@ -367,7 +369,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(12, 141);
+            label7.Location = new Point(12, 116);
             label7.Name = "label7";
             label7.Size = new Size(66, 22);
             label7.TabIndex = 5;
@@ -376,7 +378,7 @@
             // txbReceived
             // 
             txbReceived.Font = new Font("Tahoma", 11F);
-            txbReceived.Location = new Point(132, 87);
+            txbReceived.Location = new Point(132, 62);
             txbReceived.Name = "txbReceived";
             txbReceived.Size = new Size(156, 30);
             txbReceived.TabIndex = 4;
@@ -386,7 +388,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(12, 90);
+            label5.Location = new Point(12, 65);
             label5.Name = "label5";
             label5.Size = new Size(101, 22);
             label5.TabIndex = 3;
@@ -396,7 +398,7 @@
             // 
             btnPurchase.BackColor = Color.Lime;
             btnPurchase.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPurchase.Location = new Point(2, 236);
+            btnPurchase.Location = new Point(2, 257);
             btnPurchase.Margin = new Padding(0);
             btnPurchase.Name = "btnPurchase";
             btnPurchase.Size = new Size(294, 50);
@@ -408,7 +410,7 @@
             // txbSumCost
             // 
             txbSumCost.Font = new Font("Tahoma", 11F);
-            txbSumCost.Location = new Point(132, 29);
+            txbSumCost.Location = new Point(132, 13);
             txbSumCost.Name = "txbSumCost";
             txbSumCost.ReadOnly = true;
             txbSumCost.Size = new Size(156, 30);
@@ -418,7 +420,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Tahoma", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(12, 32);
+            label4.Location = new Point(12, 16);
             label4.Name = "label4";
             label4.Size = new Size(95, 22);
             label4.TabIndex = 0;
@@ -508,6 +510,17 @@
             btnToLastPage.UseVisualStyleBackColor = true;
             btnToLastPage.Click += btnToLastPage_Click;
             // 
+            // checkFCoinUsed
+            // 
+            checkFCoinUsed.AutoSize = true;
+            checkFCoinUsed.Location = new Point(12, 217);
+            checkFCoinUsed.Name = "checkFCoinUsed";
+            checkFCoinUsed.Size = new Size(222, 22);
+            checkFCoinUsed.TabIndex = 0;
+            checkFCoinUsed.Text = "Sử dụng FCoin để thanh toán";
+            checkFCoinUsed.UseVisualStyleBackColor = true;
+            checkFCoinUsed.CheckedChanged += checkFCoinUsed_CheckedChanged;
+            // 
             // EmployeeProductView
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
@@ -590,5 +603,6 @@
         private Button btnPrev;
         private Button btnToBeginPage;
         private Button btnToLastPage;
+        private CheckBox checkFCoinUsed;
     }
 }

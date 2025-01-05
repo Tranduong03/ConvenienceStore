@@ -176,25 +176,7 @@ namespace GroceryStore.Views.AdminView
                     MessageBox.Show("Cập nhật mật khẩu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-        }
-
-      
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            var confirmResult = MessageBox.Show(
-                "Bạn có chắc chắn muốn xóa nhân viên này không?",
-                "Xác nhận xóa",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning
-            );
-
-            if (confirmResult == DialogResult.Yes)
-            {
-                this.DialogResult = DialogResult.Ignore;
-                this.Close();
-            }
-        }
-
+        }     
 
         private void btnBack_Click(object sender, EventArgs e)
         {

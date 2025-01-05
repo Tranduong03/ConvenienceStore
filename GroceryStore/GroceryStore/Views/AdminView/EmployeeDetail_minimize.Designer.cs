@@ -32,11 +32,9 @@
             picEmployee = new PictureBox();
             lblEmployeeName = new Label();
             lblEmployeePhone = new Label();
-            btnDelete = new PictureBox();
             pnlEmployee = new Panel();
             btnInformation = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)picEmployee).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)btnDelete).BeginInit();
             pnlEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnInformation).BeginInit();
             SuspendLayout();
@@ -69,27 +67,15 @@
             lblEmployeePhone.Text = "unknownPhone";
             lblEmployeePhone.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // btnDelete
-            // 
-            btnDelete.BackColor = Color.IndianRed;
-            btnDelete.Image = (Image)resources.GetObject("btnDelete.Image");
-            btnDelete.Location = new Point(165, 12);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(33, 30);
-            btnDelete.SizeMode = PictureBoxSizeMode.StretchImage;
-            btnDelete.TabIndex = 3;
-            btnDelete.TabStop = false;
-            btnDelete.Click += btnDelete_Click;
-            // 
             // pnlEmployee
             // 
             pnlEmployee.BackColor = SystemColors.ActiveBorder;
             pnlEmployee.Controls.Add(btnInformation);
             pnlEmployee.Controls.Add(picEmployee);
-            pnlEmployee.Controls.Add(btnDelete);
             pnlEmployee.Controls.Add(lblEmployeeName);
             pnlEmployee.Controls.Add(lblEmployeePhone);
             pnlEmployee.Location = new Point(0, 0);
+            pnlEmployee.Margin = new Padding(10, 7, 10, 7);
             pnlEmployee.Name = "pnlEmployee";
             pnlEmployee.Size = new Size(210, 213);
             pnlEmployee.TabIndex = 4;
@@ -98,7 +84,7 @@
             // 
             btnInformation.BackColor = SystemColors.ActiveBorder;
             btnInformation.Image = (Image)resources.GetObject("btnInformation.Image");
-            btnInformation.Location = new Point(165, 48);
+            btnInformation.Location = new Point(165, 12);
             btnInformation.Name = "btnInformation";
             btnInformation.Size = new Size(33, 30);
             btnInformation.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -117,7 +103,6 @@
             Name = "EmployeeDetail_minimize";
             Text = "EmployeeDetail";
             ((System.ComponentModel.ISupportInitialize)picEmployee).EndInit();
-            ((System.ComponentModel.ISupportInitialize)btnDelete).EndInit();
             pnlEmployee.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)btnInformation).EndInit();
             ResumeLayout(false);
@@ -128,7 +113,6 @@
         private PictureBox picEmployee;
         private Label lblEmployeeName;
         private Label lblEmployeePhone;
-        private PictureBox btnDelete;
         public Panel pnlEmployee;
         private PictureBox btnInformation;
     }

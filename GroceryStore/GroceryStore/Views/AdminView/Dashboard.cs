@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using GroceryStore.OtherProcess;
 using OxyPlot;
 using OxyPlot.Axes;
+using OxyPlot.Legends;
 using OxyPlot.Series;
 using OxyPlot.WindowsForms;
 
@@ -43,10 +44,18 @@ namespace GroceryStore.Views
                                    .ToList();
 
             // Tạo LineSeries cho biểu đồ
-            var lineSeries = new LineSeries
+            var lineSeriesRevenue = new LineSeries
             {
                 Title = "Doanh Thu",
-                MarkerType = MarkerType.Circle
+                MarkerType = MarkerType.Circle,
+                Color = OxyColors.White,
+            };
+
+            var lineSeriesImport = new LineSeries
+            {
+                Title = "Nhập hàng",
+                MarkerType = MarkerType.Circle,
+                Color = OxyColors.Red
             };
 
             using (var context = new AppDBContext())
@@ -112,12 +121,24 @@ namespace GroceryStore.Views
                         TotalRevenue = g.Sum(b => b.TotalCost)
                     })
                     .ToDictionary(r => r.YearMonth, r => r.TotalRevenue ?? 0);
+
+                var importData = context.Imports
+                    .Where(i => i.ImportDate >= startDate && i.ImportDate <= endDate)
+                    .GroupBy(i => new { i.ImportDate.Year, i.ImportDate.Month })
+                    .Select(g => new
+                    {
+                        YearMonth = new DateTime(g.Key.Year, g.Key.Month, 1),
+                        TotalImport = g.Sum(i => i.TotalCost)
+                    })
+                    .ToDictionary(r => r.YearMonth, r => r.TotalImport ?? 0);
                     // Kết hợp dữ liệu với danh sách các tháng cho biểu đồ
                 foreach (var month in months)
                 {
                     // Nếu tháng không có dữ liệu, doanh thu = 0
                     var totalRevenue = revenueData.ContainsKey(month) ? revenueData[month] : 0;
-                    lineSeries.Points.Add(new DataPoint(DateTimeAxis.ToDouble(month), 0.2 * (double)totalRevenue));
+                    var totalImport = importData.ContainsKey(month) ? importData[month] : 0;
+                    lineSeriesRevenue.Points.Add(new DataPoint(DateTimeAxis.ToDouble(month), (double)totalRevenue));
+                    lineSeriesImport.Points.Add(new DataPoint(DateTimeAxis.ToDouble(month), (double)totalImport));
                 }
             }
 
@@ -138,15 +159,22 @@ namespace GroceryStore.Views
             {
                 Position = AxisPosition.Left,
                 Minimum = 0,
-                Title = "Doanh Thu (VNĐ)",
-                MajorStep = 10000, // Tăng theo đơn vị 10.000
+                Title = "Số tiền (VND)",
+                MajorStep = 50000, 
                 IsPanEnabled = false,
                 IsZoomEnabled = false
             });
 
             // Thêm series vào biểu đồ
-            plotModel.Series.Add(lineSeries);
+            plotModel.Series.Add(lineSeriesRevenue);
+            plotModel.Series.Add(lineSeriesImport);
 
+            plotModel.Legends.Add(new Legend
+            {
+                LegendPosition = LegendPosition.BottomCenter, // Vị trí chú thích ở góc trên bên phải
+                LegendPlacement = LegendPlacement.Outside, // Chú thích bên ngoài biểu đồ
+                LegendOrientation = LegendOrientation.Vertical // Chú thích theo chiều dọc
+            });
             // Gán mô hình vào plotView
             plotView1.Model = plotModel;
         }

@@ -59,7 +59,6 @@
             label7 = new Label();
             txbPhone = new TextBox();
             label8 = new Label();
-            btnDelete = new Button();
             btnSaveChange = new Button();
             btnAdd = new Button();
             panel1.SuspendLayout();
@@ -380,18 +379,6 @@
             label8.TabIndex = 72;
             label8.Text = "Số điện thoại";
             // 
-            // btnDelete
-            // 
-            btnDelete.BackColor = Color.Salmon;
-            btnDelete.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btnDelete.Location = new Point(659, 610);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(149, 52);
-            btnDelete.TabIndex = 81;
-            btnDelete.Text = "Xóa";
-            btnDelete.UseVisualStyleBackColor = false;
-            btnDelete.Click += btnDelete_Click;
-            // 
             // btnSaveChange
             // 
             btnSaveChange.BackColor = SystemColors.GradientActiveCaption;
@@ -422,7 +409,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(btnAdd);
             Controls.Add(btnSaveChange);
-            Controls.Add(btnDelete);
             Controls.Add(groupBox1);
             Controls.Add(lblMaxPage);
             Controls.Add(label4);
@@ -481,7 +467,6 @@
         private Label label7;
         private TextBox txbPhone;
         private Label label8;
-        private Button btnDelete;
         private Button btnSaveChange;
         private Button btnAdd;
         private Button btnCancelAdd;

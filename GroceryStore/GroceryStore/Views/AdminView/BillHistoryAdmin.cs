@@ -20,8 +20,9 @@ namespace GroceryStore.Views.AdminView
 
         private void BillHistoryAdmin_Load(object sender, EventArgs e)
         {
-            LoadBillHistory();
+            
             dtpStart.Value = new DateTime(2000, 1, 1);
+            LoadBillHistory();
         }
 
         private void LoadBillHistory()
@@ -106,10 +107,12 @@ namespace GroceryStore.Views.AdminView
                 int billID = Convert.ToInt32(tableBillHistory.SelectedRows[0].Cells["BillID"].Value);
 
                 LoadBillDetails(billID); // Gọi hàm để tải thông tin chi tiết
+                
             }
         }
         private void LoadBillDetails(int billID)
         {
+            DataGridViewRow selectedRow = tableBillHistory.SelectedRows[0];
             using (var context = new AppDBContext())
             {
                 // Truy vấn chi tiết hóa đơn theo BillID
@@ -133,6 +136,10 @@ namespace GroceryStore.Views.AdminView
 
                 // Hiển thị tổng chi phí trên Label
                 lblTotalCost.Text = totalCost.ToString();
+                lblBillDate.Text = ((DateTime)selectedRow.Cells["BillDate"].Value).ToString("yyyy-MM-dd");
+
+                lblCustomerName.Text = selectedRow.Cells["CustomerName"].Value.ToString();
+                lblEmployeeName.Text = selectedRow.Cells["EmployeeName"].Value.ToString();
 
                 // Cập nhật tiêu đề cột cho tableBillDetail
                 tableBillDetail.Columns["ProductName"].HeaderText = "Tên sản phẩm";

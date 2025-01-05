@@ -39,7 +39,7 @@
             dataGridViewProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewProducts.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewProducts.Location = new Point(50, 26);
+            dataGridViewProducts.Location = new Point(269, 135);
             dataGridViewProducts.Margin = new Padding(2);
             dataGridViewProducts.MultiSelect = false;
             dataGridViewProducts.Name = "dataGridViewProducts";
@@ -51,7 +51,7 @@
             // 
             // btnSelect
             // 
-            btnSelect.Location = new Point(134, 243);
+            btnSelect.Location = new Point(355, 357);
             btnSelect.Margin = new Padding(2);
             btnSelect.Name = "btnSelect";
             btnSelect.Size = new Size(90, 27);
@@ -63,7 +63,7 @@
             // cbSupplier
             // 
             cbSupplier.FormattingEnabled = true;
-            cbSupplier.Location = new Point(406, 26);
+            cbSupplier.Location = new Point(371, 71);
             cbSupplier.Margin = new Padding(2);
             cbSupplier.Name = "cbSupplier";
             cbSupplier.Size = new Size(146, 28);
@@ -74,7 +74,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(640, 360);
+            ClientSize = new Size(640, 492);
             Controls.Add(cbSupplier);
             Controls.Add(btnSelect);
             Controls.Add(dataGridViewProducts);

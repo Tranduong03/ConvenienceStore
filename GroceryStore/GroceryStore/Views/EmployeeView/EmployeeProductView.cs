@@ -17,7 +17,7 @@ namespace GroceryStore.Views
         private int currentPage = 1; // Trang hiện tại
         private int pageSize = 9;   // Số sản phẩm trên mỗi trang
         private int totalPages;      // Tổng số trang
-
+        private bool FCoinUseCheck = false;
         User employee = new User();
         private Dictionary<Product, int> purchasedProducts = new Dictionary<Product, int>();
 
@@ -226,21 +226,56 @@ namespace GroceryStore.Views
 
         private void txbReceived_TextChanged(object sender, EventArgs e)
         {
+            CalculateRefund();
+            
+            
+        }
+
+        private void CalculateRefund()
+        {
             txbRefund.Text = string.Empty;
             int received = int.Parse(txbReceived.Text == string.Empty ? "0" : txbReceived.Text);
             int sumCost = int.Parse(txbSumCost.Text == string.Empty ? "0" : txbSumCost.Text);
-            int refund = received - sumCost;
-            if (refund < 0 || sumCost == 0)
+            int customerId = string.IsNullOrEmpty(txbCustomerID.Text) ? 0 : int.Parse(txbCustomerID.Text);
+            int maxFcoinCanUse = Convert.ToInt32(0.1 * sumCost);
+
+            if (!FCoinUseCheck || customerId == 0)
             {
-                txbRefund.Text = "0";
-                btnPurchase.Enabled = false;
+                int refund = received - sumCost;
+                if (refund < 0 || sumCost == 0)
+                {
+                    txbRefund.Text = "0";
+                    btnPurchase.Enabled = false;
+                }
+                else
+                {
+                    txbRefund.Text = refund.ToString();
+                    btnPurchase.Enabled = true;
+
+                }
             }
             else
             {
-                txbRefund.Text = refund.ToString();
-                btnPurchase.Enabled = true;
+                using (var context = new AppDBContext())
+                {
+                    var customerInDb = context.Customers.FirstOrDefault(c => c.CustomerID == customerId);
+                    int FCoin = Convert.ToInt32(customerInDb.FCoin) > maxFcoinCanUse ? maxFcoinCanUse : Convert.ToInt32(customerInDb.FCoin);
+                    int refund = received + FCoin - sumCost;
+                    if (refund < 0 || sumCost == 0)
+                    {
+                        txbRefund.Text = "0";
+                        btnPurchase.Enabled = false;
+                    }
+                    else
+                    {
+                        txbRefund.Text = refund.ToString();
+                        btnPurchase.Enabled = true;
+
+                    }
+                }
 
             }
+
         }
 
         private void btnPurchase_Click(object sender, EventArgs e)
@@ -253,16 +288,18 @@ namespace GroceryStore.Views
             {
                 customerId = int.Parse(txbCustomerID.Text);
             }
-
+            decimal totalCost = purchasedProducts.Sum(p => p.Key.SellPrice * p.Value);
             // Tạo hóa đơn mới
             var newBill = new Bill
             {
                 CustomerID = customerId,
                 UserID = employee.UserID, // ID nhân viên
                 BillDate = DateTime.Now,
-                TotalCost = purchasedProducts.Sum(p => p.Key.SellPrice * p.Value) // Tổng tiền
+                TotalCost = totalCost // Tổng tiền
             };
 
+            
+            
             // Sử dụng context để lưu dữ liệu vào DB
             using (var context = new AppDBContext())
             {
@@ -296,8 +333,25 @@ namespace GroceryStore.Views
                         }
                         productInDb.Stock -= quantity; // Trừ số lượng sản phẩm trong kho
                     }
-                }
 
+                }
+                var customerInDb = context.Customers.FirstOrDefault(p => p.CustomerID == customerId);
+                if (customerInDb != null && customerInDb.CustomerID!=0)
+                {
+                    if (FCoinUseCheck)
+                    {
+                        int received = int.Parse(txbReceived.Text == string.Empty ? "0" : txbReceived.Text);
+                        int sumCost = int.Parse(txbSumCost.Text == string.Empty ? "0" : txbSumCost.Text);
+                        int maxFcoinCanUse = Convert.ToInt32(0.1 * sumCost);
+                        int FCoin = Convert.ToInt32(customerInDb.FCoin) > maxFcoinCanUse ? maxFcoinCanUse : Convert.ToInt32(customerInDb.FCoin);
+                       
+                        customerInDb.FCoin -= FCoin;
+                    }
+
+                    customerInDb.FCoin += Convert.ToInt32(0.01 * (double)totalCost);
+
+                    
+                }
                 // Lưu các thay đổi vào DB
                 context.SaveChanges();
             }
@@ -324,12 +378,18 @@ namespace GroceryStore.Views
 
         private void btnToBeginPage_Click(object sender, EventArgs e)
         {
-            if (currentPage != 1) 
-            { 
+            if (currentPage != 1)
+            {
                 currentPage = 1;
                 LoadProductPanels();
             }
 
+        }
+
+        private void checkFCoinUsed_CheckedChanged(object sender, EventArgs e)
+        {
+            FCoinUseCheck = checkFCoinUsed.Checked;
+            CalculateRefund();
         }
     }
 }

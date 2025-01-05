@@ -32,7 +32,6 @@
             groupBox1 = new GroupBox();
             btnBack = new Button();
             btnResetPassword = new Button();
-            btnDelete = new Button();
             btnSaveInfo = new Button();
             txbImgLink = new TextBox();
             btnSelectImage = new Button();
@@ -59,7 +58,6 @@
             // 
             groupBox1.Controls.Add(btnBack);
             groupBox1.Controls.Add(btnResetPassword);
-            groupBox1.Controls.Add(btnDelete);
             groupBox1.Controls.Add(btnSaveInfo);
             groupBox1.Controls.Add(txbImgLink);
             groupBox1.Controls.Add(btnSelectImage);
@@ -99,7 +97,7 @@
             // btnResetPassword
             // 
             btnResetPassword.BackColor = SystemColors.ActiveBorder;
-            btnResetPassword.Location = new Point(105, 529);
+            btnResetPassword.Location = new Point(29, 529);
             btnResetPassword.Name = "btnResetPassword";
             btnResetPassword.Size = new Size(299, 59);
             btnResetPassword.TabIndex = 74;
@@ -107,21 +105,10 @@
             btnResetPassword.UseVisualStyleBackColor = false;
             btnResetPassword.Click += btnResetPassword_Click;
             // 
-            // btnDelete
-            // 
-            btnDelete.BackColor = Color.Tomato;
-            btnDelete.Location = new Point(6, 529);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(93, 59);
-            btnDelete.TabIndex = 73;
-            btnDelete.Text = "Xóa";
-            btnDelete.UseVisualStyleBackColor = false;
-            btnDelete.Click += btnDelete_Click;
-            // 
             // btnSaveInfo
             // 
             btnSaveInfo.BackColor = Color.Lime;
-            btnSaveInfo.Location = new Point(410, 529);
+            btnSaveInfo.Location = new Point(375, 529);
             btnSaveInfo.Name = "btnSaveInfo";
             btnSaveInfo.Size = new Size(90, 59);
             btnSaveInfo.TabIndex = 72;
@@ -309,7 +296,6 @@
         #endregion
 
         private GroupBox groupBox1;
-        private Button btnDelete;
         private Button btnSaveInfo;
         private TextBox txbImgLink;
         private Button btnSelectImage;

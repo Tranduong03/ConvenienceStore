@@ -20,7 +20,7 @@ namespace GroceryStore.Views
             InitializeComponent();
         }
 
-        internal EmployeeDetailInfo(User user)
+        internal EmployeeDetailInfo(ref User user)
         {
             InitializeComponent();
             employee = user;
@@ -140,10 +140,10 @@ namespace GroceryStore.Views
 
                         // Cập nhật employee hiện tại
                         employee = existingUser;
+                        
 
                         // Lưu thay đổi vào cơ sở dữ liệu
                         context.SaveChanges();
-
                         MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }

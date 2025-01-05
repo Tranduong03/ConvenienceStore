@@ -92,26 +92,27 @@
             // flpEmployeeView
             // 
             flpEmployeeView.AutoScroll = true;
-            flpEmployeeView.Location = new Point(87, 116);
+            flpEmployeeView.Location = new Point(140, 116);
             flpEmployeeView.Margin = new Padding(0);
             flpEmployeeView.Name = "flpEmployeeView";
-            flpEmployeeView.Size = new Size(1070, 650);
+            flpEmployeeView.Size = new Size(977, 650);
             flpEmployeeView.TabIndex = 2;
             // 
             // btnSearch
             // 
             btnSearch.Image = (Image)resources.GetObject("btnSearch.Image");
-            btnSearch.Location = new Point(416, 76);
+            btnSearch.Location = new Point(486, 76);
             btnSearch.Margin = new Padding(0);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(34, 30);
             btnSearch.TabIndex = 4;
             btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // txbSearch
             // 
             txbSearch.Font = new Font("Tahoma", 10F);
-            txbSearch.Location = new Point(87, 76);
+            txbSearch.Location = new Point(157, 76);
             txbSearch.Name = "txbSearch";
             txbSearch.PlaceholderText = "Find Employee Here";
             txbSearch.Size = new Size(326, 28);
@@ -177,7 +178,7 @@
             label5.TabIndex = 11;
             label5.Text = "max";
             // 
-            // EmployeeView
+            // EmployeeManage
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -192,7 +193,7 @@
             Controls.Add(flpEmployeeView);
             Controls.Add(panel1);
             Font = new Font("Tahoma", 9F);
-            Name = "EmployeeView";
+            Name = "EmployeeManage";
             Size = new Size(1250, 900);
             Load += EmployeeView_Load;
             panel1.ResumeLayout(false);

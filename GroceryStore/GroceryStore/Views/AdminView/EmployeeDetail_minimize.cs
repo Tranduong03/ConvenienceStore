@@ -29,36 +29,12 @@ namespace GroceryStore.Views.AdminView
             lblEmployeePhone.Text = user.PhoneNumber;
         }
 
-        internal event Action<User> OnUserDelete;
         internal event Action OnUserUpdate;
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            var confirmResult = MessageBox.Show(
-                "Bạn có chắc chắn muốn xóa nhân viên này không?",
-                "Xác nhận xóa",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning
-            );
-
-            if (confirmResult == DialogResult.Yes)
-            {
-                // Gọi sự kiện OnUserDelete để thông báo nhân viên cần được xóa
-                OnUserDelete?.Invoke(user);
-
-                // Đóng form sau khi báo xóa
-                this.Close();
-            }
-        }
 
         private void btnInformation_Click(object sender, EventArgs e)
         {
             EmployeeDetail employeeDetail = new EmployeeDetail(user);
-            if (employeeDetail.ShowDialog() == DialogResult.Ignore)
-            {
-                OnUserDelete?.Invoke(user);
-            }
-            else if (employeeDetail.ShowDialog() == DialogResult.None)
+            if (employeeDetail.ShowDialog() == DialogResult.None)
             {
                 OnUserUpdate?.Invoke();
             }
