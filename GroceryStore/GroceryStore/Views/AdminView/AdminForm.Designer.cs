@@ -45,6 +45,8 @@
             btnEmployee = new Button();
             panel4 = new Panel();
             button4 = new Button();
+            panel9 = new Panel();
+            btnImportManage = new Button();
             panel5 = new Panel();
             button5 = new Button();
             pnlWork = new Panel();
@@ -57,11 +59,13 @@
             panel3.SuspendLayout();
             panel8.SuspendLayout();
             panel4.SuspendLayout();
+            panel9.SuspendLayout();
             panel5.SuspendLayout();
             SuspendLayout();
             // 
             // sidebarMenu
             // 
+            sidebarMenu.AutoScroll = true;
             sidebarMenu.BackColor = Color.FromArgb(37, 150, 190);
             sidebarMenu.Controls.Add(panel6);
             sidebarMenu.Controls.Add(panel1);
@@ -69,11 +73,12 @@
             sidebarMenu.Controls.Add(panel3);
             sidebarMenu.Controls.Add(panel8);
             sidebarMenu.Controls.Add(panel4);
+            sidebarMenu.Controls.Add(panel9);
             sidebarMenu.Controls.Add(panel5);
             sidebarMenu.Location = new Point(0, 0);
             sidebarMenu.Margin = new Padding(0);
             sidebarMenu.Name = "sidebarMenu";
-            sidebarMenu.Size = new Size(350, 900);
+            sidebarMenu.Size = new Size(438, 1125);
             sidebarMenu.TabIndex = 0;
             // 
             // panel6
@@ -85,23 +90,25 @@
             panel6.Location = new Point(0, 0);
             panel6.Margin = new Padding(0);
             panel6.Name = "panel6";
-            panel6.Size = new Size(350, 300);
+            panel6.Size = new Size(438, 375);
             panel6.TabIndex = 4;
             // 
             // panel7
             // 
             panel7.Controls.Add(label2);
-            panel7.Location = new Point(3, 232);
+            panel7.Location = new Point(4, 290);
+            panel7.Margin = new Padding(4);
             panel7.Name = "panel7";
-            panel7.Size = new Size(347, 45);
+            panel7.Size = new Size(434, 56);
             panel7.TabIndex = 2;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(126, 0);
+            label2.Location = new Point(158, 0);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(87, 29);
+            label2.Size = new Size(102, 34);
             label2.TabIndex = 2;
             label2.Text = "ADMIN";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -109,9 +116,10 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(113, 53);
+            pictureBox1.Location = new Point(141, 66);
+            pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(125, 116);
+            pictureBox1.Size = new Size(156, 145);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -119,19 +127,20 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(113, 188);
+            label1.Location = new Point(141, 235);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(123, 29);
+            label1.Size = new Size(145, 34);
             label1.TabIndex = 1;
             label1.Text = "WELCOME";
             // 
             // panel1
             // 
             panel1.Controls.Add(button1);
-            panel1.Location = new Point(25, 320);
-            panel1.Margin = new Padding(25, 20, 0, 0);
+            panel1.Location = new Point(31, 400);
+            panel1.Margin = new Padding(31, 25, 0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(300, 64);
+            panel1.Size = new Size(375, 80);
             panel1.TabIndex = 1;
             // 
             // button1
@@ -144,8 +153,8 @@
             button1.Location = new Point(0, 0);
             button1.Margin = new Padding(0);
             button1.Name = "button1";
-            button1.Padding = new Padding(30, 0, 0, 0);
-            button1.Size = new Size(300, 64);
+            button1.Padding = new Padding(38, 0, 0, 0);
+            button1.Size = new Size(375, 80);
             button1.TabIndex = 2;
             button1.Text = "        Dashboard";
             button1.TextAlign = ContentAlignment.MiddleLeft;
@@ -154,10 +163,10 @@
             // panel2
             // 
             panel2.Controls.Add(btnProduct);
-            panel2.Location = new Point(25, 404);
-            panel2.Margin = new Padding(25, 20, 0, 0);
+            panel2.Location = new Point(31, 505);
+            panel2.Margin = new Padding(31, 25, 0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(300, 64);
+            panel2.Size = new Size(375, 80);
             panel2.TabIndex = 3;
             // 
             // btnProduct
@@ -170,8 +179,8 @@
             btnProduct.Location = new Point(0, 0);
             btnProduct.Margin = new Padding(0);
             btnProduct.Name = "btnProduct";
-            btnProduct.Padding = new Padding(30, 0, 0, 0);
-            btnProduct.Size = new Size(300, 64);
+            btnProduct.Padding = new Padding(38, 0, 0, 0);
+            btnProduct.Size = new Size(375, 80);
             btnProduct.TabIndex = 2;
             btnProduct.Text = "        Product";
             btnProduct.TextAlign = ContentAlignment.MiddleLeft;
@@ -181,10 +190,10 @@
             // panel3
             // 
             panel3.Controls.Add(btnCustomer);
-            panel3.Location = new Point(25, 488);
-            panel3.Margin = new Padding(25, 20, 0, 0);
+            panel3.Location = new Point(31, 610);
+            panel3.Margin = new Padding(31, 25, 0, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(300, 64);
+            panel3.Size = new Size(375, 80);
             panel3.TabIndex = 3;
             // 
             // btnCustomer
@@ -197,8 +206,8 @@
             btnCustomer.Location = new Point(0, 0);
             btnCustomer.Margin = new Padding(0);
             btnCustomer.Name = "btnCustomer";
-            btnCustomer.Padding = new Padding(30, 0, 0, 0);
-            btnCustomer.Size = new Size(300, 64);
+            btnCustomer.Padding = new Padding(38, 0, 0, 0);
+            btnCustomer.Size = new Size(375, 80);
             btnCustomer.TabIndex = 2;
             btnCustomer.Text = "        Customer";
             btnCustomer.TextAlign = ContentAlignment.MiddleLeft;
@@ -208,10 +217,10 @@
             // panel8
             // 
             panel8.Controls.Add(btnEmployee);
-            panel8.Location = new Point(25, 572);
-            panel8.Margin = new Padding(25, 20, 0, 0);
+            panel8.Location = new Point(31, 715);
+            panel8.Margin = new Padding(31, 25, 0, 0);
             panel8.Name = "panel8";
-            panel8.Size = new Size(300, 64);
+            panel8.Size = new Size(375, 80);
             panel8.TabIndex = 4;
             // 
             // btnEmployee
@@ -224,8 +233,8 @@
             btnEmployee.Location = new Point(0, 0);
             btnEmployee.Margin = new Padding(0);
             btnEmployee.Name = "btnEmployee";
-            btnEmployee.Padding = new Padding(30, 0, 0, 0);
-            btnEmployee.Size = new Size(300, 64);
+            btnEmployee.Padding = new Padding(38, 0, 0, 0);
+            btnEmployee.Size = new Size(375, 80);
             btnEmployee.TabIndex = 2;
             btnEmployee.Text = "        Employee";
             btnEmployee.TextAlign = ContentAlignment.MiddleLeft;
@@ -235,10 +244,10 @@
             // panel4
             // 
             panel4.Controls.Add(button4);
-            panel4.Location = new Point(25, 656);
-            panel4.Margin = new Padding(25, 20, 0, 0);
+            panel4.Location = new Point(31, 820);
+            panel4.Margin = new Padding(31, 25, 0, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(300, 64);
+            panel4.Size = new Size(375, 80);
             panel4.TabIndex = 3;
             // 
             // button4
@@ -251,20 +260,47 @@
             button4.Location = new Point(0, 0);
             button4.Margin = new Padding(0);
             button4.Name = "button4";
-            button4.Padding = new Padding(30, 0, 0, 0);
-            button4.Size = new Size(300, 64);
+            button4.Padding = new Padding(38, 0, 0, 0);
+            button4.Size = new Size(375, 80);
             button4.TabIndex = 2;
             button4.Text = "        Bill";
             button4.TextAlign = ContentAlignment.MiddleLeft;
             button4.UseVisualStyleBackColor = false;
             // 
+            // panel9
+            // 
+            panel9.Controls.Add(btnImportManage);
+            panel9.Location = new Point(31, 925);
+            panel9.Margin = new Padding(31, 25, 0, 0);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(375, 80);
+            panel9.TabIndex = 4;
+            // 
+            // btnImportManage
+            // 
+            btnImportManage.BackColor = Color.FromArgb(37, 150, 190);
+            btnImportManage.Dock = DockStyle.Fill;
+            btnImportManage.Font = new Font("Tahoma", 14F, FontStyle.Bold);
+            btnImportManage.Image = (Image)resources.GetObject("btnImportManage.Image");
+            btnImportManage.ImageAlign = ContentAlignment.MiddleLeft;
+            btnImportManage.Location = new Point(0, 0);
+            btnImportManage.Margin = new Padding(0);
+            btnImportManage.Name = "btnImportManage";
+            btnImportManage.Padding = new Padding(38, 0, 0, 0);
+            btnImportManage.Size = new Size(375, 80);
+            btnImportManage.TabIndex = 2;
+            btnImportManage.Text = "        Import";
+            btnImportManage.TextAlign = ContentAlignment.MiddleLeft;
+            btnImportManage.UseVisualStyleBackColor = false;
+            btnImportManage.Click += btnImportManage_Click;
+            // 
             // panel5
             // 
             panel5.Controls.Add(button5);
-            panel5.Location = new Point(25, 740);
-            panel5.Margin = new Padding(25, 20, 0, 0);
+            panel5.Location = new Point(31, 1030);
+            panel5.Margin = new Padding(31, 25, 0, 0);
             panel5.Name = "panel5";
-            panel5.Size = new Size(300, 64);
+            panel5.Size = new Size(375, 80);
             panel5.TabIndex = 3;
             // 
             // button5
@@ -277,8 +313,8 @@
             button5.Location = new Point(0, 0);
             button5.Margin = new Padding(0);
             button5.Name = "button5";
-            button5.Padding = new Padding(30, 0, 0, 0);
-            button5.Size = new Size(300, 64);
+            button5.Padding = new Padding(38, 0, 0, 0);
+            button5.Size = new Size(375, 80);
             button5.TabIndex = 2;
             button5.Text = "        Exit";
             button5.TextAlign = ContentAlignment.MiddleLeft;
@@ -286,19 +322,20 @@
             // 
             // pnlWork
             // 
-            pnlWork.Location = new Point(350, 0);
+            pnlWork.Location = new Point(438, 0);
             pnlWork.Margin = new Padding(0);
             pnlWork.Name = "pnlWork";
-            pnlWork.Size = new Size(1250, 900);
+            pnlWork.Size = new Size(1562, 1125);
             pnlWork.TabIndex = 1;
             // 
             // AdminForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1598, 900);
+            ClientSize = new Size(1924, 1050);
             Controls.Add(pnlWork);
             Controls.Add(sidebarMenu);
+            Margin = new Padding(4);
             Name = "AdminForm";
             Text = "AdminForm";
             sidebarMenu.ResumeLayout(false);
@@ -312,6 +349,7 @@
             panel3.ResumeLayout(false);
             panel8.ResumeLayout(false);
             panel4.ResumeLayout(false);
+            panel9.ResumeLayout(false);
             panel5.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -337,5 +375,7 @@
         private Panel pnlWork;
         private Panel panel8;
         private Button btnEmployee;
+        private Panel panel9;
+        private Button btnImportManage;
     }
 }

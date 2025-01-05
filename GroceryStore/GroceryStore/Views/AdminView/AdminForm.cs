@@ -46,5 +46,12 @@ namespace GroceryStore.Views
             pnlWork.Controls.Clear();
             pnlWork.Controls.Add(customerView);
         }
+
+        private void btnImportManage_Click(object sender, EventArgs e)
+        {
+            Import_Product import_Product = new Import_Product();
+            pnlWork.Controls.Clear();
+            pnlWork.Controls.Add(import_Product);
+        }
     }
 }
