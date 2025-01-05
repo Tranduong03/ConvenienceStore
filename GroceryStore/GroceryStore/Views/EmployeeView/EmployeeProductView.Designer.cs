@@ -54,6 +54,7 @@
             colCost = new DataGridViewTextBoxColumn();
             colDelete = new DataGridViewButtonColumn();
             panel4 = new Panel();
+            checkFCoinUsed = new CheckBox();
             txbCustomerID = new TextBox();
             label8 = new Label();
             txbRefund = new TextBox();
@@ -72,7 +73,6 @@
             btnPrev = new Button();
             btnToBeginPage = new Button();
             btnToLastPage = new Button();
-            checkFCoinUsed = new CheckBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -337,6 +337,17 @@
             panel4.Size = new Size(296, 316);
             panel4.TabIndex = 2;
             // 
+            // checkFCoinUsed
+            // 
+            checkFCoinUsed.AutoSize = true;
+            checkFCoinUsed.Location = new Point(12, 217);
+            checkFCoinUsed.Name = "checkFCoinUsed";
+            checkFCoinUsed.Size = new Size(222, 22);
+            checkFCoinUsed.TabIndex = 0;
+            checkFCoinUsed.Text = "Sử dụng FCoin để thanh toán";
+            checkFCoinUsed.UseVisualStyleBackColor = true;
+            checkFCoinUsed.CheckedChanged += checkFCoinUsed_CheckedChanged;
+            // 
             // txbCustomerID
             // 
             txbCustomerID.Font = new Font("Tahoma", 11F);
@@ -510,21 +521,9 @@
             btnToLastPage.UseVisualStyleBackColor = true;
             btnToLastPage.Click += btnToLastPage_Click;
             // 
-            // checkFCoinUsed
-            // 
-            checkFCoinUsed.AutoSize = true;
-            checkFCoinUsed.Location = new Point(12, 217);
-            checkFCoinUsed.Name = "checkFCoinUsed";
-            checkFCoinUsed.Size = new Size(222, 22);
-            checkFCoinUsed.TabIndex = 0;
-            checkFCoinUsed.Text = "Sử dụng FCoin để thanh toán";
-            checkFCoinUsed.UseVisualStyleBackColor = true;
-            checkFCoinUsed.CheckedChanged += checkFCoinUsed_CheckedChanged;
-            // 
             // EmployeeProductView
             // 
-            AutoScaleDimensions = new SizeF(8F, 18F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             Controls.Add(btnToLastPage);
             Controls.Add(btnToBeginPage);
             Controls.Add(lblMaxPage);

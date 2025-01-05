@@ -155,7 +155,7 @@
             btnDashboard.Padding = new Padding(30, 0, 0, 0);
             btnDashboard.Size = new Size(300, 64);
             btnDashboard.TabIndex = 2;
-            btnDashboard.Text = "        Dashboard";
+            btnDashboard.Text = "        Bảng thông tin";
             btnDashboard.TextAlign = ContentAlignment.MiddleLeft;
             btnDashboard.UseVisualStyleBackColor = false;
             btnDashboard.Click += button1_Click;
@@ -182,7 +182,7 @@
             btnProduct.Padding = new Padding(30, 0, 0, 0);
             btnProduct.Size = new Size(300, 64);
             btnProduct.TabIndex = 2;
-            btnProduct.Text = "        Product";
+            btnProduct.Text = "        Sản phẩm";
             btnProduct.TextAlign = ContentAlignment.MiddleLeft;
             btnProduct.UseVisualStyleBackColor = false;
             btnProduct.Click += btnProduct_Click;
@@ -209,7 +209,7 @@
             btnCustomer.Padding = new Padding(30, 0, 0, 0);
             btnCustomer.Size = new Size(300, 64);
             btnCustomer.TabIndex = 2;
-            btnCustomer.Text = "        Customer";
+            btnCustomer.Text = "        Khách hàng";
             btnCustomer.TextAlign = ContentAlignment.MiddleLeft;
             btnCustomer.UseVisualStyleBackColor = false;
             btnCustomer.Click += btnCustomer_Click;
@@ -236,7 +236,7 @@
             btnEmployee.Padding = new Padding(30, 0, 0, 0);
             btnEmployee.Size = new Size(300, 64);
             btnEmployee.TabIndex = 2;
-            btnEmployee.Text = "        Employee";
+            btnEmployee.Text = "        Nhân viên";
             btnEmployee.TextAlign = ContentAlignment.MiddleLeft;
             btnEmployee.UseVisualStyleBackColor = false;
             btnEmployee.Click += btnEmployee_Click;
@@ -263,7 +263,7 @@
             btnBillHistory.Padding = new Padding(30, 0, 0, 0);
             btnBillHistory.Size = new Size(300, 64);
             btnBillHistory.TabIndex = 2;
-            btnBillHistory.Text = "        Bill";
+            btnBillHistory.Text = "        Hóa đơn";
             btnBillHistory.TextAlign = ContentAlignment.MiddleLeft;
             btnBillHistory.UseVisualStyleBackColor = false;
             btnBillHistory.Click += btnBillHistory_Click;
@@ -290,7 +290,7 @@
             btnImport.Padding = new Padding(30, 0, 0, 0);
             btnImport.Size = new Size(300, 64);
             btnImport.TabIndex = 2;
-            btnImport.Text = "        Import";
+            btnImport.Text = "        Nhập hàng";
             btnImport.TextAlign = ContentAlignment.MiddleLeft;
             btnImport.UseVisualStyleBackColor = false;
             btnImport.Click += btnImport_Click;
@@ -317,7 +317,7 @@
             btnExit.Padding = new Padding(30, 0, 0, 0);
             btnExit.Size = new Size(300, 64);
             btnExit.TabIndex = 2;
-            btnExit.Text = "        Exit";
+            btnExit.Text = "        Thoát";
             btnExit.TextAlign = ContentAlignment.MiddleLeft;
             btnExit.UseVisualStyleBackColor = false;
             btnExit.Click += btnExit_Click;

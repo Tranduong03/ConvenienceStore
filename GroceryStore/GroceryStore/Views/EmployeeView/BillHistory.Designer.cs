@@ -431,8 +431,7 @@
             // 
             // BillHistory
             // 
-            AutoScaleDimensions = new SizeF(9F, 21F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             Controls.Add(btnFillWithDay);
             Controls.Add(dtpEnd);
             Controls.Add(label3);

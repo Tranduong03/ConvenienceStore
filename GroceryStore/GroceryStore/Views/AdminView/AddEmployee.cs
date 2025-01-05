@@ -87,6 +87,9 @@ namespace GroceryStore.Views.AdminView
                     SendAccountEmail(email, fullname, account, password);
                     context.SaveChanges();
 
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+
                     MessageBox.Show("Employee Account Created");
                 }
             }

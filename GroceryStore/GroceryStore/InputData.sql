@@ -156,4 +156,163 @@ VALUES
 ('user10', 'password10', 'User Ten', 'user10@example.com', '1234567899', 0, GETDATE(), 0);
 
 
-update PRODUCT set ImageLink = N'imagename.png' where ProductName  = N'productname';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Pepsi Can 320ml.png' 
+WHERE ProductName = N'Pepsi Can 320ml';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Pepsi Bottle 330ml.png' 
+WHERE ProductName = N'Pepsi Bottle 330ml';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Pepsi Bottle 1.5l.png' 
+WHERE ProductName = N'Pepsi Bottle 1.5l';
+
+UPDATE PRODUCT 
+SET ImageLink = N'7 Up Can 330ml.png' 
+WHERE ProductName = N'7 Up Can 330ml';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Mirinda.png' 
+WHERE ProductName = N'Mirinda';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Sprite.png' 
+WHERE ProductName = N'Sprite';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Fanta.png' 
+WHERE ProductName = N'Fanta';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Sting.png' 
+WHERE ProductName = N'Sting';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Dr Pepper.png' 
+WHERE ProductName = N'Dr Pepper';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Coca Cola.png' 
+WHERE ProductName = N'Coca Cola';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Schweppes.png' 
+WHERE ProductName = N'Schweppes';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Zero Degree Green Tea.png' 
+WHERE ProductName = N'Zero Degree Green Tea';
+
+UPDATE PRODUCT 
+SET ImageLink = N'TH Orange Juice.png' 
+WHERE ProductName = N'TH Orange Juice';
+
+UPDATE PRODUCT 
+SET ImageLink = N'TH Watermelon Juice.png' 
+WHERE ProductName = N'TH Watermelon Juice';
+
+UPDATE PRODUCT 
+SET ImageLink = N'TH Guava Juice.png' 
+WHERE ProductName = N'TH Guava Juice';
+
+UPDATE PRODUCT 
+SET ImageLink = N'TH Sugarcane Juice.png' 
+WHERE ProductName = N'TH Sugarcane Juice';
+
+UPDATE PRODUCT 
+SET ImageLink = N'TH Centella Juice.png' 
+WHERE ProductName = N'TH Centella Juice';
+
+UPDATE PRODUCT 
+SET ImageLink = N'TH Mangosteen Juice.png' 
+WHERE ProductName = N'TH Mangosteen Juice';
+
+UPDATE PRODUCT 
+SET ImageLink = N'TH Pineapple Juice.png' 
+WHERE ProductName = N'TH Pineapple Juice';
+
+UPDATE PRODUCT 
+SET ImageLink = N'TH Grapefruit Juice.png' 
+WHERE ProductName = N'TH Grapefruit Juice';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Saigon Beer.png' 
+WHERE ProductName = N'Saigon Beer';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Heineken Beer.png' 
+WHERE ProductName = N'Heineken Beer';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Tiger Beer.png' 
+WHERE ProductName = N'Tiger Beer';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Larue Beer.png' 
+WHERE ProductName = N'Larue Beer';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Budweiser Beer.png' 
+WHERE ProductName = N'Budweiser Beer';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Sapporo Beer.png' 
+WHERE ProductName = N'Sapporo Beer';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Corona Beer.png' 
+WHERE ProductName = N'Corona Beer';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Wine.png' 
+WHERE ProductName = N'Wine';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Grape Wine.png' 
+WHERE ProductName = N'Grape Wine';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Sake.png' 
+WHERE ProductName = N'Sake';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Mr. Brown Coffee.png' 
+WHERE ProductName = N'Mr. Brown Coffee';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Highland Coffee Milk Can.png' 
+WHERE ProductName = N'Highland Coffee Milk Can';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Highland Coffee Milk Box.png' 
+WHERE ProductName = N'Highland Coffee Milk Box';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Highland Black Coffee Box.png' 
+WHERE ProductName = N'Highland Black Coffee Box';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Highland Black Coffee Can.png' 
+WHERE ProductName = N'Highland Black Coffee Can';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Winter Melon Tea.png' 
+WHERE ProductName = N'Winter Melon Tea';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Butter Cookies Cosan.png' 
+WHERE ProductName = N'Butter Cookies Cosan';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Oatmeal Cookies Kinh Do.png' 
+WHERE ProductName = N'Oatmeal Cookies Kinh Do';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Sweet Bread Vinabread.png' 
+WHERE ProductName = N'Sweet Bread Vinabread';
+
+UPDATE PRODUCT 
+SET ImageLink = N'Donut.png' 
+WHERE ProductName = N'Donut';

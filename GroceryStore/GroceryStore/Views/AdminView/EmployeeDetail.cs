@@ -176,11 +176,30 @@ namespace GroceryStore.Views.AdminView
                     MessageBox.Show("Cập nhật mật khẩu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-        }     
+        }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             if (isAnyChanged) { this.DialogResult = DialogResult.None; }
+            this.Close();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            using (var context = new AppDBContext()) 
+            {
+                var existingUser = context.Users.Find(user.UserID);
+                if (existingUser != null) 
+                {
+                    existingUser.isWorking = false;
+                }
+
+                user = existingUser;
+                context.SaveChanges();
+
+                MessageBox.Show("Xóa nhân viên thành công");
+            }
+            this.DialogResult = DialogResult.Ignore;
             this.Close();
         }
     }

@@ -94,8 +94,7 @@
             // 
             // EmployeeDetail_minimize
             // 
-            AutoScaleDimensions = new SizeF(8F, 18F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(210, 213);
             Controls.Add(pnlEmployee);
             Font = new Font("Tahoma", 9F);

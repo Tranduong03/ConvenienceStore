@@ -40,7 +40,6 @@ namespace GroceryStore.Views
             switch (tabMenuWork.SelectedTab.Name)
             {
                 case "tabAdd":
-                case "tabDelete":
                     tableProducts.MultiSelect = true; // Bật MultiSelect
                     tableProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Đảm bảo chế độ chọn cả hàng
                     break;
@@ -302,18 +301,7 @@ namespace GroceryStore.Views
             {
                 var selectedRows = tableProducts.SelectedRows;
 
-                if (tabMenuWork.SelectedTab == tabDelete)
-                {
-                    // Xử lý cho tabDelete - chọn nhiều sản phẩm
-                    var productNames = selectedRows
-                        .Cast<DataGridViewRow>() // Ép kiểu DataGridViewRow
-                        .Select(row => row.Cells["colName"].Value?.ToString()) // Lấy tên sản phẩm
-                        .Where(name => !string.IsNullOrEmpty(name)) // Loại bỏ tên null hoặc rỗng
-                        .ToList(); // Chuyển sang danh sách
-
-                    HandleDeleteTab(productNames); // Gọi hàm xử lý
-                }
-                else if (selectedRows.Count == 1)
+                if (selectedRows.Count == 1)
                 {
                     var selectedRow = selectedRows[0];
 
@@ -328,84 +316,6 @@ namespace GroceryStore.Views
                         }
                     }
                 }
-            }
-        }
-
-        private void btnDelProducts_Click(object sender, EventArgs e)
-        {
-            // Xác nhận người dùng có chắc chắn muốn xóa
-            DialogResult result = MessageBox.Show(
-                "Bạn có chắc chắn muốn xóa các sản phẩm đã chọn không?",
-                "Xác nhận xóa",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning
-            );
-
-            if (result == DialogResult.Yes)
-            {
-                using (var context = new AppDBContext())
-                {
-                    // Duyệt qua danh sách sản phẩm trong tableChooseProduct
-                    foreach (DataGridViewRow row in tableChooseProduct.Rows)
-                    {
-                        var productNameCell = row.Cells["colChooseToDel"].Value;
-
-                        if (productNameCell != null && !string.IsNullOrEmpty(productNameCell.ToString()))
-                        {
-                            string productName = productNameCell.ToString();
-
-                            // Tìm sản phẩm trong cơ sở dữ liệu
-                            var productToDelete = context.Products.FirstOrDefault(p => p.ProductName == productName);
-
-                            if (productToDelete != null)
-                            {
-                                // Kiểm tra ImgLink và xử lý nếu cần thiết
-                                if (string.IsNullOrEmpty(productToDelete.ImageLink))
-                                {
-                                    // ImgLink là null hoặc rỗng, có thể tiếp tục xóa mà không gặp vấn đề
-                                    context.Products.Remove(productToDelete);
-                                }
-                                else
-                                {
-                                    // Nếu cần, xử lý ImgLink ở đây (ví dụ: xóa ảnh trong thư mục nếu cần)
-                                    context.Products.Remove(productToDelete);
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show($"Không tìm thấy sản phẩm có tên {productName}.");
-                            }
-                        }
-                    }
-
-                    // Lưu thay đổi vào cơ sở dữ liệu
-                    context.SaveChanges();
-                }
-
-                // Xóa hàng đã chọn khỏi tableProducts và tableChooseProduct
-                foreach (DataGridViewRow selectedRow in tableProducts.SelectedRows)
-                {
-                    tableProducts.Rows.Remove(selectedRow); // Xóa khỏi tableProducts
-                }
-
-                tableChooseProduct.Rows.Clear(); // Xóa tất cả sản phẩm trong bảng nhỏ
-
-                MessageBox.Show("Đã xóa thành công các sản phẩm đã chọn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Tải lại dữ liệu trong tableProducts
-                LoadProductData();
-            }
-        }
-
-        private void HandleDeleteTab(IEnumerable<string> productNames)
-        {
-            // Xóa dữ liệu cũ trong bảng nhỏ (tableChooseProduct)
-            tableChooseProduct.Rows.Clear();
-
-            // Duyệt qua danh sách tên sản phẩm và thêm vào bảng nhỏ
-            foreach (var productName in productNames)
-            {
-                tableChooseProduct.Rows.Add(productName);
             }
         }
 

@@ -189,8 +189,7 @@
             // 
             // AddCustomer
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(572, 436);
             Controls.Add(lblError);
             Controls.Add(btnReturn);

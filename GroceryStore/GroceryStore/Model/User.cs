@@ -40,6 +40,9 @@ namespace GroceryStore.Model
         public bool Role { get; set; } = false;
 
         public DateTime? CreatedAt { get; set; } = DateTime.Now;
+        [Column(TypeName = "bit")]
+        [Required]
+        public bool isWorking { get; set; } = true;
     }
 
     //internal class User

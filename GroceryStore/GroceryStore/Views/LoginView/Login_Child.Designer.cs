@@ -208,8 +208,7 @@
             // 
             // Login_Child
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(400, 650);
             Controls.Add(pnlLogin);
             FormBorderStyle = FormBorderStyle.None;

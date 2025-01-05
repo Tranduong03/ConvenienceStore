@@ -32,6 +32,7 @@
             btnAdd = new Button();
             btnSave = new Button();
             btnBack = new Button();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridViewQuantity).BeginInit();
             SuspendLayout();
             // 
@@ -42,55 +43,67 @@
             dataGridViewQuantity.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewQuantity.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewQuantity.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewQuantity.Location = new Point(10, 10);
+            dataGridViewQuantity.Location = new Point(11, 73);
             dataGridViewQuantity.Margin = new Padding(2);
             dataGridViewQuantity.Name = "dataGridViewQuantity";
             dataGridViewQuantity.RowHeadersVisible = false;
             dataGridViewQuantity.RowHeadersWidth = 62;
-            dataGridViewQuantity.Size = new Size(508, 429);
+            dataGridViewQuantity.Size = new Size(838, 417);
             dataGridViewQuantity.TabIndex = 0;
             dataGridViewQuantity.CellValueChanged += dataGridView1_CellValueChanged;
             // 
             // btnAdd
             // 
+            btnAdd.BackColor = SystemColors.ActiveCaption;
             btnAdd.Font = new Font("Tahoma", 10.2F, FontStyle.Bold);
-            btnAdd.Location = new Point(561, 199);
+            btnAdd.Location = new Point(167, 504);
             btnAdd.Margin = new Padding(2);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(90, 27);
+            btnAdd.Size = new Size(138, 39);
             btnAdd.TabIndex = 1;
             btnAdd.Text = "Thêm";
-            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
             // 
             // btnSave
             // 
+            btnSave.BackColor = Color.Lime;
             btnSave.Font = new Font("Tahoma", 10.2F, FontStyle.Bold);
-            btnSave.Location = new Point(560, 262);
+            btnSave.Location = new Point(560, 504);
             btnSave.Margin = new Padding(2);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(90, 27);
+            btnSave.Size = new Size(141, 39);
             btnSave.TabIndex = 2;
             btnSave.Text = "Lưu";
-            btnSave.UseVisualStyleBackColor = true;
+            btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += BtnSave_Click;
             // 
             // btnBack
             // 
             btnBack.Font = new Font("Tahoma", 9F, FontStyle.Bold);
             btnBack.Image = (Image)resources.GetObject("btnBack.Image");
-            btnBack.Location = new Point(587, 12);
+            btnBack.Location = new Point(795, 12);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(63, 63);
+            btnBack.Size = new Size(54, 56);
             btnBack.TabIndex = 76;
             btnBack.UseVisualStyleBackColor = true;
             btnBack.Click += btnBack_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            label1.Location = new Point(12, 24);
+            label1.Name = "label1";
+            label1.Size = new Size(275, 32);
+            label1.TabIndex = 77;
+            label1.Text = "Bảng lượng hàng nhập";
+            // 
             // AddImportProduct
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(662, 489);
+            AutoScaleMode = AutoScaleMode.None;
+            ClientSize = new Size(861, 554);
+            Controls.Add(label1);
             Controls.Add(btnBack);
             Controls.Add(btnSave);
             Controls.Add(btnAdd);
@@ -102,6 +115,7 @@
             Text = "ImportProduct";
             ((System.ComponentModel.ISupportInitialize)dataGridViewQuantity).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -110,5 +124,6 @@
         private Button btnAdd;
         private Button btnSave;
         private Button btnBack;
+        private Label label1;
     }
 }

@@ -141,8 +141,7 @@
             // 
             // ProductDetail
             // 
-            AutoScaleDimensions = new SizeF(8F, 18F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(300, 210);
             Controls.Add(pnlProductDetail);
             Font = new Font("Tahoma", 9F);

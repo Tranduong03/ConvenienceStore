@@ -31,14 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseCustomer));
             label1 = new Label();
             tableCustomerList = new DataGridView();
+            colCustomerID = new DataGridViewTextBoxColumn();
+            colCustomerName = new DataGridViewTextBoxColumn();
+            colPhone = new DataGridViewTextBoxColumn();
             panel3 = new Panel();
             btnSearch = new Button();
             txbSearch = new TextBox();
             btnReturn = new Button();
             btnChooseCustomer = new Button();
-            colCustomerID = new DataGridViewTextBoxColumn();
-            colCustomerName = new DataGridViewTextBoxColumn();
-            colPhone = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)tableCustomerList).BeginInit();
             panel3.SuspendLayout();
             SuspendLayout();
@@ -68,6 +68,30 @@
             tableCustomerList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             tableCustomerList.Size = new Size(489, 399);
             tableCustomerList.TabIndex = 71;
+            // 
+            // colCustomerID
+            // 
+            colCustomerID.HeaderText = "ID";
+            colCustomerID.MinimumWidth = 6;
+            colCustomerID.Name = "colCustomerID";
+            colCustomerID.ReadOnly = true;
+            colCustomerID.Width = 60;
+            // 
+            // colCustomerName
+            // 
+            colCustomerName.HeaderText = "Tên";
+            colCustomerName.MinimumWidth = 6;
+            colCustomerName.Name = "colCustomerName";
+            colCustomerName.ReadOnly = true;
+            colCustomerName.Width = 300;
+            // 
+            // colPhone
+            // 
+            colPhone.HeaderText = "Số điện thoại";
+            colPhone.MinimumWidth = 6;
+            colPhone.Name = "colPhone";
+            colPhone.ReadOnly = true;
+            colPhone.Width = 126;
             // 
             // panel3
             // 
@@ -121,34 +145,9 @@
             btnChooseCustomer.UseVisualStyleBackColor = false;
             btnChooseCustomer.Click += btnChooseCustomer_Click;
             // 
-            // colCustomerID
-            // 
-            colCustomerID.HeaderText = "ID";
-            colCustomerID.MinimumWidth = 6;
-            colCustomerID.Name = "colCustomerID";
-            colCustomerID.ReadOnly = true;
-            colCustomerID.Width = 60;
-            // 
-            // colCustomerName
-            // 
-            colCustomerName.HeaderText = "Tên";
-            colCustomerName.MinimumWidth = 6;
-            colCustomerName.Name = "colCustomerName";
-            colCustomerName.ReadOnly = true;
-            colCustomerName.Width = 300;
-            // 
-            // colPhone
-            // 
-            colPhone.HeaderText = "Số điện thoại";
-            colPhone.MinimumWidth = 6;
-            colPhone.Name = "colPhone";
-            colPhone.ReadOnly = true;
-            colPhone.Width = 126;
-            // 
             // ChooseCustomer
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(600, 600);
             Controls.Add(btnReturn);
             Controls.Add(btnChooseCustomer);

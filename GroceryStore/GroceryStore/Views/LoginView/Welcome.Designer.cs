@@ -114,8 +114,7 @@
             // 
             // Welcome
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(800, 650);
             Controls.Add(tableLayoutPanel1);
             KeyPreview = true;

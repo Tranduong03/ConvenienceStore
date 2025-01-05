@@ -62,10 +62,6 @@
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
-            tabDelete = new TabPage();
-            btnDelProducts = new Button();
-            tableChooseProduct = new DataGridView();
-            colChooseToDel = new DataGridViewTextBoxColumn();
             tabUpdate = new TabPage();
             txbUpdateImgLink = new TextBox();
             cbxSupplier_tabUpdate = new ComboBox();
@@ -100,8 +96,6 @@
             tabMenuWork.SuspendLayout();
             tabAdd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picAddProdImage).BeginInit();
-            tabDelete.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)tableChooseProduct).BeginInit();
             tabUpdate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picUpdateProdImage).BeginInit();
             SuspendLayout();
@@ -245,7 +239,6 @@
             // tabMenuWork
             // 
             tabMenuWork.Controls.Add(tabAdd);
-            tabMenuWork.Controls.Add(tabDelete);
             tabMenuWork.Controls.Add(tabUpdate);
             tabMenuWork.Dock = DockStyle.Fill;
             tabMenuWork.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -432,51 +425,6 @@
             label2.Size = new Size(52, 18);
             label2.TabIndex = 0;
             label2.Text = "Name:";
-            // 
-            // tabDelete
-            // 
-            tabDelete.Controls.Add(btnDelProducts);
-            tabDelete.Controls.Add(tableChooseProduct);
-            tabDelete.Location = new Point(4, 29);
-            tabDelete.Name = "tabDelete";
-            tabDelete.Padding = new Padding(3);
-            tabDelete.Size = new Size(1213, 174);
-            tabDelete.TabIndex = 1;
-            tabDelete.Text = "Delete";
-            tabDelete.UseVisualStyleBackColor = true;
-            // 
-            // btnDelProducts
-            // 
-            btnDelProducts.BackColor = Color.IndianRed;
-            btnDelProducts.Font = new Font("Tahoma", 11F, FontStyle.Bold);
-            btnDelProducts.Location = new Point(530, 15);
-            btnDelProducts.Name = "btnDelProducts";
-            btnDelProducts.Size = new Size(135, 41);
-            btnDelProducts.TabIndex = 1;
-            btnDelProducts.Text = "Delete";
-            btnDelProducts.UseVisualStyleBackColor = false;
-            btnDelProducts.Click += btnDelProducts_Click;
-            // 
-            // tableChooseProduct
-            // 
-            tableChooseProduct.AllowUserToAddRows = false;
-            tableChooseProduct.AllowUserToDeleteRows = false;
-            tableChooseProduct.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tableChooseProduct.Columns.AddRange(new DataGridViewColumn[] { colChooseToDel });
-            tableChooseProduct.Location = new Point(89, 0);
-            tableChooseProduct.Name = "tableChooseProduct";
-            tableChooseProduct.ReadOnly = true;
-            tableChooseProduct.RowHeadersWidth = 51;
-            tableChooseProduct.Size = new Size(348, 171);
-            tableChooseProduct.TabIndex = 0;
-            // 
-            // colChooseToDel
-            // 
-            colChooseToDel.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colChooseToDel.HeaderText = "Product you choose";
-            colChooseToDel.MinimumWidth = 6;
-            colChooseToDel.Name = "colChooseToDel";
-            colChooseToDel.ReadOnly = true;
             // 
             // tabUpdate
             // 
@@ -728,9 +676,7 @@
             // 
             // ProductView
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1250, 900);
+            AutoScaleMode = AutoScaleMode.None;
             Controls.Add(btnArrange);
             Controls.Add(btnNext);
             Controls.Add(lblMaxPage);
@@ -745,9 +691,8 @@
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            // FormBorderStyle = FormBorderStyle.None;
             Name = "ProductView";
-            Text = "Products";
+            Size = new Size(1250, 900);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -759,8 +704,6 @@
             tabAdd.ResumeLayout(false);
             tabAdd.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picAddProdImage).EndInit();
-            tabDelete.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)tableChooseProduct).EndInit();
             tabUpdate.ResumeLayout(false);
             tabUpdate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picUpdateProdImage).EndInit();
@@ -804,7 +747,6 @@
         private Label label4;
         private Label label3;
         private Label label2;
-        private TabPage tabDelete;
         private TabPage tabUpdate;
         private DataGridViewTextBoxColumn colName;
         private DataGridViewTextBoxColumn colCategory;
@@ -815,9 +757,6 @@
         private ComboBox cbxSupplier_tabAdd;
         private Label label11;
         private TextBox txbAddImgLink;
-        private DataGridView tableChooseProduct;
-        private DataGridViewTextBoxColumn colChooseToDel;
-        private Button btnDelProducts;
         private TextBox txbUpdateImgLink;
         private ComboBox cbxSupplier_tabUpdate;
         private Label label12;

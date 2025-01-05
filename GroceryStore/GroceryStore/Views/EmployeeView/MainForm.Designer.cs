@@ -139,7 +139,7 @@
             btnBuy.Padding = new Padding(30, 0, 0, 0);
             btnBuy.Size = new Size(300, 64);
             btnBuy.TabIndex = 2;
-            btnBuy.Text = "        Buy";
+            btnBuy.Text = "        Bán hàng";
             btnBuy.TextAlign = ContentAlignment.MiddleLeft;
             btnBuy.UseVisualStyleBackColor = false;
             btnBuy.Click += btnBuy_Click;
@@ -166,7 +166,7 @@
             btnDetailInfo.Padding = new Padding(30, 0, 0, 0);
             btnDetailInfo.Size = new Size(300, 64);
             btnDetailInfo.TabIndex = 2;
-            btnDetailInfo.Text = "        Detail Info";
+            btnDetailInfo.Text = "        Bản thân";
             btnDetailInfo.TextAlign = ContentAlignment.MiddleLeft;
             btnDetailInfo.UseVisualStyleBackColor = false;
             btnDetailInfo.Click += btnDetailInfo_Click;
@@ -193,7 +193,7 @@
             btnBillHistory.Padding = new Padding(30, 0, 0, 0);
             btnBillHistory.Size = new Size(300, 64);
             btnBillHistory.TabIndex = 2;
-            btnBillHistory.Text = "        Bill History";
+            btnBillHistory.Text = "        Lịch sử hóa đơn";
             btnBillHistory.TextAlign = ContentAlignment.MiddleLeft;
             btnBillHistory.UseVisualStyleBackColor = false;
             btnBillHistory.Click += btnBillHistory_Click;
@@ -220,7 +220,7 @@
             btnExit.Padding = new Padding(30, 0, 0, 0);
             btnExit.Size = new Size(300, 64);
             btnExit.TabIndex = 2;
-            btnExit.Text = "        Exit";
+            btnExit.Text = "        Thoát";
             btnExit.TextAlign = ContentAlignment.MiddleLeft;
             btnExit.UseVisualStyleBackColor = false;
             btnExit.Click += btnExit_Click;

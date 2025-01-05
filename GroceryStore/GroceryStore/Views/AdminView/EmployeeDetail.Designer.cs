@@ -50,12 +50,14 @@
             label12 = new Label();
             cboGender = new ComboBox();
             openFileDialog1 = new OpenFileDialog();
+            btnDelete = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picEmployeeImage).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(btnDelete);
             groupBox1.Controls.Add(btnBack);
             groupBox1.Controls.Add(btnResetPassword);
             groupBox1.Controls.Add(btnSaveInfo);
@@ -97,7 +99,7 @@
             // btnResetPassword
             // 
             btnResetPassword.BackColor = SystemColors.ActiveBorder;
-            btnResetPassword.Location = new Point(29, 529);
+            btnResetPassword.Location = new Point(105, 529);
             btnResetPassword.Name = "btnResetPassword";
             btnResetPassword.Size = new Size(299, 59);
             btnResetPassword.TabIndex = 74;
@@ -108,7 +110,7 @@
             // btnSaveInfo
             // 
             btnSaveInfo.BackColor = Color.Lime;
-            btnSaveInfo.Location = new Point(375, 529);
+            btnSaveInfo.Location = new Point(410, 529);
             btnSaveInfo.Name = "btnSaveInfo";
             btnSaveInfo.Size = new Size(90, 59);
             btnSaveInfo.TabIndex = 72;
@@ -277,10 +279,20 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
+            // btnDelete
+            // 
+            btnDelete.BackColor = Color.OrangeRed;
+            btnDelete.Location = new Point(9, 529);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(90, 59);
+            btnDelete.TabIndex = 76;
+            btnDelete.Text = "Xóa";
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
+            // 
             // EmployeeDetail
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(533, 625);
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.None;
@@ -316,5 +328,6 @@
         private Button btnResetPassword;
         private OpenFileDialog openFileDialog1;
         private Button btnBack;
+        private Button btnDelete;
     }
 }

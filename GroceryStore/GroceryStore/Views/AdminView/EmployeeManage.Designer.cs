@@ -30,25 +30,25 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeManage));
             panel1 = new Panel();
-            button1 = new Button();
+            btnAddEmployee = new Button();
             label1 = new Label();
             pictureBox1 = new PictureBox();
             flpEmployeeView = new FlowLayoutPanel();
             btnSearch = new Button();
             txbSearch = new TextBox();
-            button2 = new Button();
-            button3 = new Button();
+            btnPrev = new Button();
+            btnNext = new Button();
             label2 = new Label();
-            label3 = new Label();
+            lblCurrentPage = new Label();
             label4 = new Label();
-            label5 = new Label();
+            lblMaxPage = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnAddEmployee);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox1);
             panel1.Location = new Point(9, 8);
@@ -57,17 +57,18 @@
             panel1.Size = new Size(1224, 50);
             panel1.TabIndex = 1;
             // 
-            // button1
+            // btnAddEmployee
             // 
-            button1.BackColor = Color.Chartreuse;
-            button1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            button1.Location = new Point(993, 3);
-            button1.Margin = new Padding(0);
-            button1.Name = "button1";
-            button1.Size = new Size(228, 43);
-            button1.TabIndex = 2;
-            button1.Text = "Add Employee";
-            button1.UseVisualStyleBackColor = false;
+            btnAddEmployee.BackColor = Color.Chartreuse;
+            btnAddEmployee.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            btnAddEmployee.Location = new Point(993, 3);
+            btnAddEmployee.Margin = new Padding(0);
+            btnAddEmployee.Name = "btnAddEmployee";
+            btnAddEmployee.Size = new Size(228, 43);
+            btnAddEmployee.TabIndex = 2;
+            btnAddEmployee.Text = "Add Employee";
+            btnAddEmployee.UseVisualStyleBackColor = false;
+            btnAddEmployee.Click += btnAddEmployee_Click;
             // 
             // label1
             // 
@@ -118,25 +119,27 @@
             txbSearch.Size = new Size(326, 28);
             txbSearch.TabIndex = 3;
             // 
-            // button2
+            // btnPrev
             // 
-            button2.Font = new Font("Tahoma", 11F);
-            button2.Location = new Point(416, 808);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 36);
-            button2.TabIndex = 5;
-            button2.Text = "Trước";
-            button2.UseVisualStyleBackColor = true;
+            btnPrev.Font = new Font("Tahoma", 11F);
+            btnPrev.Location = new Point(416, 808);
+            btnPrev.Name = "btnPrev";
+            btnPrev.Size = new Size(94, 36);
+            btnPrev.TabIndex = 5;
+            btnPrev.Text = "Trước";
+            btnPrev.UseVisualStyleBackColor = true;
+            btnPrev.Click += btnPrev_Click;
             // 
-            // button3
+            // btnNext
             // 
-            button3.Font = new Font("Tahoma", 11F);
-            button3.Location = new Point(755, 810);
-            button3.Name = "button3";
-            button3.Size = new Size(94, 36);
-            button3.TabIndex = 6;
-            button3.Text = "Sau";
-            button3.UseVisualStyleBackColor = true;
+            btnNext.Font = new Font("Tahoma", 11F);
+            btnNext.Location = new Point(755, 810);
+            btnNext.Name = "btnNext";
+            btnNext.Size = new Size(94, 36);
+            btnNext.TabIndex = 6;
+            btnNext.Text = "Sau";
+            btnNext.UseVisualStyleBackColor = true;
+            btnNext.Click += btnNext_Click;
             // 
             // label2
             // 
@@ -148,15 +151,15 @@
             label2.TabIndex = 8;
             label2.Text = "Trang: ";
             // 
-            // label3
+            // lblCurrentPage
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Tahoma", 11F);
-            label3.Location = new Point(600, 815);
-            label3.Name = "label3";
-            label3.Size = new Size(20, 23);
-            label3.TabIndex = 9;
-            label3.Text = "1";
+            lblCurrentPage.AutoSize = true;
+            lblCurrentPage.Font = new Font("Tahoma", 11F);
+            lblCurrentPage.Location = new Point(600, 815);
+            lblCurrentPage.Name = "lblCurrentPage";
+            lblCurrentPage.Size = new Size(20, 23);
+            lblCurrentPage.TabIndex = 9;
+            lblCurrentPage.Text = "1";
             // 
             // label4
             // 
@@ -168,26 +171,26 @@
             label4.TabIndex = 10;
             label4.Text = "/";
             // 
-            // label5
+            // lblMaxPage
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Tahoma", 11F);
-            label5.Location = new Point(667, 815);
-            label5.Name = "label5";
-            label5.Size = new Size(45, 23);
-            label5.TabIndex = 11;
-            label5.Text = "max";
+            lblMaxPage.AutoSize = true;
+            lblMaxPage.Font = new Font("Tahoma", 11F);
+            lblMaxPage.Location = new Point(667, 815);
+            lblMaxPage.Name = "lblMaxPage";
+            lblMaxPage.Size = new Size(45, 23);
+            lblMaxPage.TabIndex = 11;
+            lblMaxPage.Text = "max";
             // 
             // EmployeeManage
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(label5);
+            Controls.Add(lblMaxPage);
             Controls.Add(label4);
-            Controls.Add(label3);
+            Controls.Add(lblCurrentPage);
             Controls.Add(label2);
-            Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(btnNext);
+            Controls.Add(btnPrev);
             Controls.Add(btnSearch);
             Controls.Add(txbSearch);
             Controls.Add(flpEmployeeView);
@@ -208,15 +211,15 @@
         private Panel panel1;
         private Label label1;
         private PictureBox pictureBox1;
-        private Button button1;
+        private Button btnAddEmployee;
         private Button btnSearch;
         private TextBox txbSearch;
-        private Button button2;
-        private Button button3;
+        private Button btnPrev;
+        private Button btnNext;
         private Label label2;
         public FlowLayoutPanel flpEmployeeView;
-        private Label label3;
+        private Label lblCurrentPage;
         private Label label4;
-        private Label label5;
+        private Label lblMaxPage;
     }
 }

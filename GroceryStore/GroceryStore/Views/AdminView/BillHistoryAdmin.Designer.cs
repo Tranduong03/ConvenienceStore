@@ -326,8 +326,7 @@
             // 
             // BillHistoryAdmin
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             Controls.Add(panel4);
             Controls.Add(label4);
             Controls.Add(tableBillDetail);

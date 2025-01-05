@@ -29,6 +29,7 @@ namespace GroceryStore.Views.AdminView
             lblEmployeePhone.Text = user.PhoneNumber;
         }
 
+        internal event Action<User> OnUserDelete;
         internal event Action OnUserUpdate;
 
         private void btnInformation_Click(object sender, EventArgs e)
@@ -37,6 +38,10 @@ namespace GroceryStore.Views.AdminView
             if (employeeDetail.ShowDialog() == DialogResult.None)
             {
                 OnUserUpdate?.Invoke();
+            }
+            else if(employeeDetail.ShowDialog() == DialogResult.Ignore)
+            {
+                OnUserDelete?.Invoke(user);
             }
         }
     }

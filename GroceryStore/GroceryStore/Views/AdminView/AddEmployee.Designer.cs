@@ -350,12 +350,12 @@
             // 
             // AddEmployee
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(537, 716);
             Controls.Add(groupBox1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "AddEmployee";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "AddEmployee";
             ((System.ComponentModel.ISupportInitialize)picEmployeeImage).EndInit();
             groupBox1.ResumeLayout(false);

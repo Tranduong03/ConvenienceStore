@@ -266,8 +266,7 @@
             // 
             // Import_Product
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             Controls.Add(pnlDetailImport);
             Controls.Add(panel2);
             Controls.Add(btnFillWithDay);

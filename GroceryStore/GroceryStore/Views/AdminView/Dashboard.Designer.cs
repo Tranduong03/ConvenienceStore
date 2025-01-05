@@ -402,16 +402,14 @@
             // 
             // Dashboard
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1250, 900);
+            AutoScaleMode = AutoScaleMode.None;
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(pnlChart);
             Controls.Add(panel2);
             Name = "Dashboard";
-            Text = "Dashboard";
+            Size = new Size(1250, 900);
             Load += Dashboard_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();

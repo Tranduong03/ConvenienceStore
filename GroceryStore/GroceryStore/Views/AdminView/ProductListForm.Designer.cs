@@ -72,8 +72,7 @@
             // 
             // ProductListForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(640, 492);
             Controls.Add(cbSupplier);
             Controls.Add(btnSelect);

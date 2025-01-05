@@ -251,7 +251,7 @@
             // btnCancelAdd
             // 
             btnCancelAdd.Image = (Image)resources.GetObject("btnCancelAdd.Image");
-            btnCancelAdd.Location = new Point(490, 12);
+            btnCancelAdd.Location = new Point(496, 12);
             btnCancelAdd.Name = "btnCancelAdd";
             btnCancelAdd.Size = new Size(58, 51);
             btnCancelAdd.TabIndex = 86;
@@ -381,9 +381,9 @@
             // 
             // btnSaveChange
             // 
-            btnSaveChange.BackColor = SystemColors.GradientActiveCaption;
+            btnSaveChange.BackColor = Color.Lime;
             btnSaveChange.Font = new Font("Tahoma", 12F, FontStyle.Bold);
-            btnSaveChange.Location = new Point(659, 715);
+            btnSaveChange.Location = new Point(921, 447);
             btnSaveChange.Name = "btnSaveChange";
             btnSaveChange.Size = new Size(149, 52);
             btnSaveChange.TabIndex = 82;
@@ -393,9 +393,9 @@
             // 
             // btnAdd
             // 
-            btnAdd.BackColor = SystemColors.ActiveCaption;
+            btnAdd.BackColor = Color.Aqua;
             btnAdd.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdd.Location = new Point(659, 504);
+            btnAdd.Location = new Point(664, 447);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(149, 49);
             btnAdd.TabIndex = 86;
@@ -405,8 +405,7 @@
             // 
             // CustomerView
             // 
-            AutoScaleDimensions = new SizeF(10F, 22F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             Controls.Add(btnAdd);
             Controls.Add(btnSaveChange);
             Controls.Add(groupBox1);
