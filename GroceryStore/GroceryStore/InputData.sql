@@ -156,5 +156,4 @@ VALUES
 ('user10', 'password10', 'User Ten', 'user10@example.com', '1234567899', 0, GETDATE(), 0);
 
 
-INSERT INTO Customers (Name, Email, Address, PhoneNumber, Gender, dateJoin)
-VALUES ('Test User', NULL, NULL, '123456789', 1, GETDATE());
+update PRODUCT set ImageLink = N'imagename.png' where ProductName  = N'productname';

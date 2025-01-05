@@ -34,6 +34,9 @@ namespace GroceryStore.Views
                 string imagePath = Path.Combine("Resource", "UserImages", user.ImgLink);
                 picImgLink.Image = Image.FromFile(imagePath);
             }
+            EmployeeProductView employeeProductView = new EmployeeProductView(currentUser);
+            pnlWork.Controls.Clear();
+            pnlWork.Controls.Add(employeeProductView);
         }
 
         private void btnBuy_Click(object sender, EventArgs e)

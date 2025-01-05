@@ -293,6 +293,7 @@
             btnImport.Text = "        Import";
             btnImport.TextAlign = ContentAlignment.MiddleLeft;
             btnImport.UseVisualStyleBackColor = false;
+            btnImport.Click += btnImport_Click;
             // 
             // panel5
             // 
@@ -331,12 +332,13 @@
             // 
             // AdminForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1598, 900);
             Controls.Add(pnlWork);
             Controls.Add(sidebarMenu);
+            MaximizeBox = false;
             Name = "AdminForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminForm";
             sidebarMenu.ResumeLayout(false);
             panel6.ResumeLayout(false);

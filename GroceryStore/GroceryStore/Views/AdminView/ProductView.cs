@@ -74,11 +74,11 @@ namespace GroceryStore.Views
             {
                 var suppliers = context.Suppliers.ToList();
                 cbxSupplier_tabAdd.DataSource = suppliers;
-                cbxSupplier_tabAdd.DisplayMember = "Name";
+                cbxSupplier_tabAdd.DisplayMember = "SupplierName";
                 cbxSupplier_tabAdd.ValueMember = "SupplierID";
 
                 cbxSupplier_tabUpdate.DataSource = suppliers;
-                cbxSupplier_tabUpdate.DisplayMember = "Name";
+                cbxSupplier_tabUpdate.DisplayMember = "SupplierName";
                 cbxSupplier_tabUpdate.ValueMember = "SupplierID";
 
             }
@@ -90,11 +90,11 @@ namespace GroceryStore.Views
             {
                 var categories = context.Categories.ToList();
                 cbxCategory_tabAdd.DataSource = categories;
-                cbxCategory_tabAdd.DisplayMember = "Name";
+                cbxCategory_tabAdd.DisplayMember = "CName";
                 cbxCategory_tabAdd.ValueMember = "CategoryID";
 
                 cbxCategory_tabUpdate.DataSource = categories;
-                cbxCategory_tabUpdate.DisplayMember = "Name";
+                cbxCategory_tabUpdate.DisplayMember = "CName";
                 cbxCategory_tabUpdate.ValueMember = "CategoryID";
             }
         }

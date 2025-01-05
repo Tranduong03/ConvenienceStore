@@ -236,12 +236,13 @@
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1600, 900);
             Controls.Add(pnlWork);
             Controls.Add(sidebarMenu);
+            MaximizeBox = false;
             Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Flash Shop";
             sidebarMenu.ResumeLayout(false);
             panel6.ResumeLayout(false);
