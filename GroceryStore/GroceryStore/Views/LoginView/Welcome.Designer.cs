@@ -118,7 +118,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 650);
             Controls.Add(tableLayoutPanel1);
+            KeyPreview = true;
             Name = "Welcome";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Đăng nhập";
             tableLayoutPanel1.ResumeLayout(false);
             pnlContent.ResumeLayout(false);

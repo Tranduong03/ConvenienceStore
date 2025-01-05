@@ -64,6 +64,14 @@
             txbSumCost = new TextBox();
             label4 = new Label();
             initalCreateBindingSource = new BindingSource(components);
+            lblMaxPage = new Label();
+            label10 = new Label();
+            lblCurrentPage = new Label();
+            label12 = new Label();
+            btnNext = new Button();
+            btnPrev = new Button();
+            btnToBeginPage = new Button();
+            btnToLastPage = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -195,7 +203,7 @@
             flpListProduct.Location = new Point(9, 135);
             flpListProduct.Margin = new Padding(0);
             flpListProduct.Name = "flpListProduct";
-            flpListProduct.Size = new Size(930, 756);
+            flpListProduct.Size = new Size(930, 638);
             flpListProduct.TabIndex = 24;
             // 
             // flowLayoutPanel1
@@ -416,10 +424,102 @@
             label4.TabIndex = 0;
             label4.Text = "Tổng tiền";
             // 
+            // lblMaxPage
+            // 
+            lblMaxPage.AutoSize = true;
+            lblMaxPage.Font = new Font("Tahoma", 11F);
+            lblMaxPage.Location = new Point(473, 812);
+            lblMaxPage.Name = "lblMaxPage";
+            lblMaxPage.Size = new Size(45, 23);
+            lblMaxPage.TabIndex = 31;
+            lblMaxPage.Text = "max";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Tahoma", 11F);
+            label10.Location = new Point(450, 812);
+            label10.Name = "label10";
+            label10.Size = new Size(17, 23);
+            label10.TabIndex = 30;
+            label10.Text = "/";
+            // 
+            // lblCurrentPage
+            // 
+            lblCurrentPage.AutoSize = true;
+            lblCurrentPage.Font = new Font("Tahoma", 11F);
+            lblCurrentPage.Location = new Point(406, 812);
+            lblCurrentPage.Name = "lblCurrentPage";
+            lblCurrentPage.Size = new Size(20, 23);
+            lblCurrentPage.TabIndex = 29;
+            lblCurrentPage.Text = "1";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Tahoma", 11F);
+            label12.Location = new Point(338, 814);
+            label12.Name = "label12";
+            label12.Size = new Size(73, 23);
+            label12.TabIndex = 28;
+            label12.Text = "Trang: ";
+            // 
+            // btnNext
+            // 
+            btnNext.Font = new Font("Tahoma", 11F);
+            btnNext.Location = new Point(561, 807);
+            btnNext.Name = "btnNext";
+            btnNext.Size = new Size(94, 36);
+            btnNext.TabIndex = 27;
+            btnNext.Text = "Sau";
+            btnNext.UseVisualStyleBackColor = true;
+            btnNext.Click += btnNext_Click;
+            // 
+            // btnPrev
+            // 
+            btnPrev.Font = new Font("Tahoma", 11F);
+            btnPrev.Location = new Point(222, 805);
+            btnPrev.Name = "btnPrev";
+            btnPrev.Size = new Size(94, 36);
+            btnPrev.TabIndex = 26;
+            btnPrev.Text = "Trước";
+            btnPrev.UseVisualStyleBackColor = true;
+            btnPrev.Click += btnPrev_Click;
+            // 
+            // btnToBeginPage
+            // 
+            btnToBeginPage.Font = new Font("Tahoma", 11F);
+            btnToBeginPage.Location = new Point(122, 805);
+            btnToBeginPage.Name = "btnToBeginPage";
+            btnToBeginPage.Size = new Size(94, 36);
+            btnToBeginPage.TabIndex = 32;
+            btnToBeginPage.Text = "Đến đầu";
+            btnToBeginPage.UseVisualStyleBackColor = true;
+            btnToBeginPage.Click += btnToBeginPage_Click;
+            // 
+            // btnToLastPage
+            // 
+            btnToLastPage.Font = new Font("Tahoma", 11F);
+            btnToLastPage.Location = new Point(661, 807);
+            btnToLastPage.Name = "btnToLastPage";
+            btnToLastPage.Size = new Size(94, 36);
+            btnToLastPage.TabIndex = 33;
+            btnToLastPage.Text = "Đến cuối";
+            btnToLastPage.UseVisualStyleBackColor = true;
+            btnToLastPage.Click += btnToLastPage_Click;
+            // 
             // EmployeeProductView
             // 
             AutoScaleDimensions = new SizeF(8F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnToLastPage);
+            Controls.Add(btnToBeginPage);
+            Controls.Add(lblMaxPage);
+            Controls.Add(label10);
+            Controls.Add(lblCurrentPage);
+            Controls.Add(label12);
+            Controls.Add(btnNext);
+            Controls.Add(btnPrev);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(flpListProduct);
             Controls.Add(label2);
@@ -482,5 +582,13 @@
         private Label label8;
         private Button btnChooseCustomer;
         private Button btnAddCustomer;
+        private Label lblMaxPage;
+        private Label label10;
+        private Label lblCurrentPage;
+        private Label label12;
+        private Button btnNext;
+        private Button btnPrev;
+        private Button btnToBeginPage;
+        private Button btnToLastPage;
     }
 }

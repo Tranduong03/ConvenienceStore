@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace GroceryStore.Views
 {
-    public partial class EmployeeDetailInfo : Form
+    public partial class EmployeeDetailInfo : UserControl
     {
         User employee = new User();
         public EmployeeDetailInfo()

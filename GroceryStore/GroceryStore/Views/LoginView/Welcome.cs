@@ -17,6 +17,7 @@ namespace GroceryStore.Views
         public Welcome()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
 
             // Khởi tạo childForm login cho form Welcome
             var loginForm = new Login_Child

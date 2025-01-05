@@ -160,6 +160,7 @@
             txbPassword.Text = "Password";
             txbPassword.UseSystemPasswordChar = true;
             txbPassword.Enter += txbPassword_Enter;
+            txbPassword.KeyPress += txbPassword_KeyPress;
             txbPassword.Leave += txbPassword_Leave;
             // 
             // tableLayoutPanel2
@@ -212,6 +213,7 @@
             ClientSize = new Size(400, 650);
             Controls.Add(pnlLogin);
             FormBorderStyle = FormBorderStyle.None;
+            KeyPreview = true;
             Name = "Login_Child";
             Text = "Login_Child";
             pnlLogin.ResumeLayout(false);

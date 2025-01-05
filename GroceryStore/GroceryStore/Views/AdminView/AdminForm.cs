@@ -18,12 +18,14 @@ namespace GroceryStore.Views
         public AdminForm()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
         }
 
         internal AdminForm(User user)
         {
             InitializeComponent();
             currentAdm = user;
+            this.MaximizeBox = false;
         }
 
         private void btnProduct_Click(object sender, EventArgs e)
@@ -45,6 +47,27 @@ namespace GroceryStore.Views
             CustomerView customerView = new CustomerView(currentAdm);
             pnlWork.Controls.Clear();
             pnlWork.Controls.Add(customerView);
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Welcome welcome = new Welcome();
+            welcome.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            pnlWork.Controls.Clear();
+            pnlWork.Controls.Add(dashboard);
+        }
+
+        private void btnBillHistory_Click(object sender, EventArgs e)
+        {
+            BillHistoryAdmin billHistoryAdmin = new BillHistoryAdmin();
+            pnlWork.Controls.Clear();
+            pnlWork.Controls.Add(billHistoryAdmin);
         }
     }
 }

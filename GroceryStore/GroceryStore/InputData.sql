@@ -1,4 +1,6 @@
-﻿
+﻿INSERT INTO USERS(UserName, Password, Email, PhoneNumber, Gender, Role) VALUES
+(N'admin', N'$2a$11$UH0jJk3tm5bVzRHV5CvWF.8ysGqEYGfih3ubrXq9e2TzGcYSUz61C', N'admin@gmail.com', '0123564737', 0, 1),
+(N'nhanvien', N'$2a$11$UH0jJk3tm5bVzRHV5CvWF.8ysGqEYGfih3ubrXq9e2TzGcYSUz61C', N'nhanvien@gmail.com', '0516546453', 0, 0)
 
 
 INSERT INTO CATEGORY(CName, Description) VALUES

@@ -43,6 +43,7 @@
             // 
             // pnlProductDetail
             // 
+            pnlProductDetail.BackColor = SystemColors.GradientActiveCaption;
             pnlProductDetail.Controls.Add(btnPurchase);
             pnlProductDetail.Controls.Add(txbQuantity);
             pnlProductDetail.Controls.Add(btnIncIndex);
@@ -51,17 +52,17 @@
             pnlProductDetail.Controls.Add(label1);
             pnlProductDetail.Controls.Add(lblProdName);
             pnlProductDetail.Controls.Add(picProdImage);
-            pnlProductDetail.Location = new Point(0, 0);
-            pnlProductDetail.Margin = new Padding(0);
+            pnlProductDetail.Location = new Point(3, 0);
+            pnlProductDetail.Margin = new Padding(5);
             pnlProductDetail.Name = "pnlProductDetail";
-            pnlProductDetail.Size = new Size(300, 210);
+            pnlProductDetail.Size = new Size(293, 207);
             pnlProductDetail.TabIndex = 0;
             // 
             // btnPurchase
             // 
             btnPurchase.BackColor = Color.Lime;
             btnPurchase.Font = new Font("Tahoma", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPurchase.Location = new Point(48, 166);
+            btnPurchase.Location = new Point(43, 142);
             btnPurchase.Name = "btnPurchase";
             btnPurchase.Size = new Size(213, 42);
             btnPurchase.TabIndex = 17;
@@ -72,7 +73,7 @@
             // txbQuantity
             // 
             txbQuantity.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txbQuantity.Location = new Point(96, 134);
+            txbQuantity.Location = new Point(91, 110);
             txbQuantity.Name = "txbQuantity";
             txbQuantity.Size = new Size(104, 26);
             txbQuantity.TabIndex = 16;
@@ -82,7 +83,7 @@
             // btnIncIndex
             // 
             btnIncIndex.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnIncIndex.Location = new Point(206, 134);
+            btnIncIndex.Location = new Point(201, 110);
             btnIncIndex.Name = "btnIncIndex";
             btnIncIndex.Size = new Size(32, 29);
             btnIncIndex.TabIndex = 15;
@@ -93,7 +94,7 @@
             // btnDescIndex
             // 
             btnDescIndex.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDescIndex.Location = new Point(60, 134);
+            btnDescIndex.Location = new Point(55, 110);
             btnDescIndex.Name = "btnDescIndex";
             btnDescIndex.Size = new Size(30, 29);
             btnDescIndex.TabIndex = 14;
@@ -103,7 +104,7 @@
             // 
             // txbSellPrice
             // 
-            txbSellPrice.Location = new Point(162, 50);
+            txbSellPrice.Location = new Point(153, 41);
             txbSellPrice.Name = "txbSellPrice";
             txbSellPrice.ReadOnly = true;
             txbSellPrice.Size = new Size(125, 26);
@@ -112,7 +113,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(124, 53);
+            label1.Location = new Point(115, 44);
             label1.Name = "label1";
             label1.Size = new Size(38, 18);
             label1.TabIndex = 12;
@@ -131,9 +132,9 @@
             // 
             // picProdImage
             // 
-            picProdImage.Location = new Point(14, 38);
+            picProdImage.Location = new Point(29, 28);
             picProdImage.Name = "picProdImage";
-            picProdImage.Size = new Size(100, 90);
+            picProdImage.Size = new Size(72, 68);
             picProdImage.SizeMode = PictureBoxSizeMode.StretchImage;
             picProdImage.TabIndex = 10;
             picProdImage.TabStop = false;

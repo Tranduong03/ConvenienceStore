@@ -36,7 +36,7 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             panel1 = new Panel();
-            button1 = new Button();
+            btnDashboard = new Button();
             panel2 = new Panel();
             btnProduct = new Button();
             panel3 = new Panel();
@@ -44,9 +44,11 @@
             panel8 = new Panel();
             btnEmployee = new Button();
             panel4 = new Panel();
-            button4 = new Button();
+            btnBillHistory = new Button();
+            panel9 = new Panel();
+            btnImport = new Button();
             panel5 = new Panel();
-            button5 = new Button();
+            btnExit = new Button();
             pnlWork = new Panel();
             sidebarMenu.SuspendLayout();
             panel6.SuspendLayout();
@@ -57,11 +59,13 @@
             panel3.SuspendLayout();
             panel8.SuspendLayout();
             panel4.SuspendLayout();
+            panel9.SuspendLayout();
             panel5.SuspendLayout();
             SuspendLayout();
             // 
             // sidebarMenu
             // 
+            sidebarMenu.AutoScroll = true;
             sidebarMenu.BackColor = Color.FromArgb(37, 150, 190);
             sidebarMenu.Controls.Add(panel6);
             sidebarMenu.Controls.Add(panel1);
@@ -69,6 +73,7 @@
             sidebarMenu.Controls.Add(panel3);
             sidebarMenu.Controls.Add(panel8);
             sidebarMenu.Controls.Add(panel4);
+            sidebarMenu.Controls.Add(panel9);
             sidebarMenu.Controls.Add(panel5);
             sidebarMenu.Location = new Point(0, 0);
             sidebarMenu.Margin = new Padding(0);
@@ -90,6 +95,7 @@
             // 
             // panel7
             // 
+            panel7.BackColor = SystemColors.ActiveCaption;
             panel7.Controls.Add(label2);
             panel7.Location = new Point(3, 232);
             panel7.Name = "panel7";
@@ -99,7 +105,8 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(126, 0);
+            label2.BackColor = SystemColors.ActiveCaption;
+            label2.Location = new Point(129, 8);
             label2.Name = "label2";
             label2.Size = new Size(87, 29);
             label2.TabIndex = 2;
@@ -119,6 +126,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = SystemColors.ActiveCaption;
             label1.Location = new Point(113, 188);
             label1.Name = "label1";
             label1.Size = new Size(123, 29);
@@ -127,29 +135,30 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnDashboard);
             panel1.Location = new Point(25, 320);
             panel1.Margin = new Padding(25, 20, 0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(300, 64);
             panel1.TabIndex = 1;
             // 
-            // button1
+            // btnDashboard
             // 
-            button1.BackColor = Color.FromArgb(37, 150, 190);
-            button1.Dock = DockStyle.Fill;
-            button1.Font = new Font("Tahoma", 14F, FontStyle.Bold);
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(0, 0);
-            button1.Margin = new Padding(0);
-            button1.Name = "button1";
-            button1.Padding = new Padding(30, 0, 0, 0);
-            button1.Size = new Size(300, 64);
-            button1.TabIndex = 2;
-            button1.Text = "        Dashboard";
-            button1.TextAlign = ContentAlignment.MiddleLeft;
-            button1.UseVisualStyleBackColor = false;
+            btnDashboard.BackColor = SystemColors.ActiveCaption;
+            btnDashboard.Dock = DockStyle.Fill;
+            btnDashboard.Font = new Font("Tahoma", 14F, FontStyle.Bold);
+            btnDashboard.Image = (Image)resources.GetObject("btnDashboard.Image");
+            btnDashboard.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDashboard.Location = new Point(0, 0);
+            btnDashboard.Margin = new Padding(0);
+            btnDashboard.Name = "btnDashboard";
+            btnDashboard.Padding = new Padding(30, 0, 0, 0);
+            btnDashboard.Size = new Size(300, 64);
+            btnDashboard.TabIndex = 2;
+            btnDashboard.Text = "        Dashboard";
+            btnDashboard.TextAlign = ContentAlignment.MiddleLeft;
+            btnDashboard.UseVisualStyleBackColor = false;
+            btnDashboard.Click += button1_Click;
             // 
             // panel2
             // 
@@ -162,7 +171,7 @@
             // 
             // btnProduct
             // 
-            btnProduct.BackColor = Color.FromArgb(37, 150, 190);
+            btnProduct.BackColor = SystemColors.ActiveCaption;
             btnProduct.Dock = DockStyle.Fill;
             btnProduct.Font = new Font("Tahoma", 14F, FontStyle.Bold);
             btnProduct.Image = (Image)resources.GetObject("btnProduct.Image");
@@ -189,7 +198,7 @@
             // 
             // btnCustomer
             // 
-            btnCustomer.BackColor = Color.FromArgb(37, 150, 190);
+            btnCustomer.BackColor = SystemColors.ActiveCaption;
             btnCustomer.Dock = DockStyle.Fill;
             btnCustomer.Font = new Font("Tahoma", 14F, FontStyle.Bold);
             btnCustomer.Image = (Image)resources.GetObject("btnCustomer.Image");
@@ -216,7 +225,7 @@
             // 
             // btnEmployee
             // 
-            btnEmployee.BackColor = Color.FromArgb(37, 150, 190);
+            btnEmployee.BackColor = SystemColors.ActiveCaption;
             btnEmployee.Dock = DockStyle.Fill;
             btnEmployee.Font = new Font("Tahoma", 14F, FontStyle.Bold);
             btnEmployee.Image = (Image)resources.GetObject("btnEmployee.Image");
@@ -234,55 +243,83 @@
             // 
             // panel4
             // 
-            panel4.Controls.Add(button4);
+            panel4.Controls.Add(btnBillHistory);
             panel4.Location = new Point(25, 656);
             panel4.Margin = new Padding(25, 20, 0, 0);
             panel4.Name = "panel4";
             panel4.Size = new Size(300, 64);
             panel4.TabIndex = 3;
             // 
-            // button4
+            // btnBillHistory
             // 
-            button4.BackColor = Color.FromArgb(37, 150, 190);
-            button4.Dock = DockStyle.Fill;
-            button4.Font = new Font("Tahoma", 14F, FontStyle.Bold);
-            button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(0, 0);
-            button4.Margin = new Padding(0);
-            button4.Name = "button4";
-            button4.Padding = new Padding(30, 0, 0, 0);
-            button4.Size = new Size(300, 64);
-            button4.TabIndex = 2;
-            button4.Text = "        Bill";
-            button4.TextAlign = ContentAlignment.MiddleLeft;
-            button4.UseVisualStyleBackColor = false;
+            btnBillHistory.BackColor = SystemColors.ActiveCaption;
+            btnBillHistory.Dock = DockStyle.Fill;
+            btnBillHistory.Font = new Font("Tahoma", 14F, FontStyle.Bold);
+            btnBillHistory.Image = (Image)resources.GetObject("btnBillHistory.Image");
+            btnBillHistory.ImageAlign = ContentAlignment.MiddleLeft;
+            btnBillHistory.Location = new Point(0, 0);
+            btnBillHistory.Margin = new Padding(0);
+            btnBillHistory.Name = "btnBillHistory";
+            btnBillHistory.Padding = new Padding(30, 0, 0, 0);
+            btnBillHistory.Size = new Size(300, 64);
+            btnBillHistory.TabIndex = 2;
+            btnBillHistory.Text = "        Bill";
+            btnBillHistory.TextAlign = ContentAlignment.MiddleLeft;
+            btnBillHistory.UseVisualStyleBackColor = false;
+            btnBillHistory.Click += btnBillHistory_Click;
+            // 
+            // panel9
+            // 
+            panel9.Controls.Add(btnImport);
+            panel9.Location = new Point(25, 740);
+            panel9.Margin = new Padding(25, 20, 0, 0);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(300, 64);
+            panel9.TabIndex = 4;
+            // 
+            // btnImport
+            // 
+            btnImport.BackColor = SystemColors.ActiveCaption;
+            btnImport.Dock = DockStyle.Fill;
+            btnImport.Font = new Font("Tahoma", 14F, FontStyle.Bold);
+            btnImport.Image = (Image)resources.GetObject("btnImport.Image");
+            btnImport.ImageAlign = ContentAlignment.MiddleLeft;
+            btnImport.Location = new Point(0, 0);
+            btnImport.Margin = new Padding(0);
+            btnImport.Name = "btnImport";
+            btnImport.Padding = new Padding(30, 0, 0, 0);
+            btnImport.Size = new Size(300, 64);
+            btnImport.TabIndex = 2;
+            btnImport.Text = "        Import";
+            btnImport.TextAlign = ContentAlignment.MiddleLeft;
+            btnImport.UseVisualStyleBackColor = false;
             // 
             // panel5
             // 
-            panel5.Controls.Add(button5);
-            panel5.Location = new Point(25, 740);
+            panel5.Controls.Add(btnExit);
+            panel5.Location = new Point(25, 824);
             panel5.Margin = new Padding(25, 20, 0, 0);
             panel5.Name = "panel5";
             panel5.Size = new Size(300, 64);
             panel5.TabIndex = 3;
             // 
-            // button5
+            // btnExit
             // 
-            button5.BackColor = Color.FromArgb(37, 150, 190);
-            button5.Dock = DockStyle.Fill;
-            button5.Font = new Font("Tahoma", 14F, FontStyle.Bold);
-            button5.Image = (Image)resources.GetObject("button5.Image");
-            button5.ImageAlign = ContentAlignment.MiddleLeft;
-            button5.Location = new Point(0, 0);
-            button5.Margin = new Padding(0);
-            button5.Name = "button5";
-            button5.Padding = new Padding(30, 0, 0, 0);
-            button5.Size = new Size(300, 64);
-            button5.TabIndex = 2;
-            button5.Text = "        Exit";
-            button5.TextAlign = ContentAlignment.MiddleLeft;
-            button5.UseVisualStyleBackColor = false;
+            btnExit.BackColor = SystemColors.ActiveCaption;
+            btnExit.Dock = DockStyle.Fill;
+            btnExit.Font = new Font("Tahoma", 14F, FontStyle.Bold);
+            btnExit.Image = (Image)resources.GetObject("btnExit.Image");
+            btnExit.ImageAlign = ContentAlignment.MiddleLeft;
+            btnExit.Location = new Point(0, 0);
+            btnExit.Margin = new Padding(0);
+            btnExit.Name = "btnExit";
+            btnExit.Padding = new Padding(30, 0, 0, 0);
+            btnExit.Size = new Size(300, 64);
+            btnExit.TabIndex = 2;
+            btnExit.Text = "        Exit";
+            btnExit.TextAlign = ContentAlignment.MiddleLeft;
+            btnExit.UseVisualStyleBackColor = false;
+            btnExit.Click += btnExit_Click;
             // 
             // pnlWork
             // 
@@ -312,6 +349,7 @@
             panel3.ResumeLayout(false);
             panel8.ResumeLayout(false);
             panel4.ResumeLayout(false);
+            panel9.ResumeLayout(false);
             panel5.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -320,15 +358,15 @@
 
         private FlowLayoutPanel sidebarMenu;
         private Panel panel1;
-        private Button button1;
+        private Button btnDashboard;
         private Panel panel2;
         private Button btnProduct;
         private Panel panel3;
         private Button btnCustomer;
         private Panel panel4;
-        private Button button4;
+        private Button btnBillHistory;
         private Panel panel5;
-        private Button button5;
+        private Button btnExit;
         private Panel panel6;
         private Panel panel7;
         private Label label2;
@@ -337,5 +375,7 @@
         private Panel pnlWork;
         private Panel panel8;
         private Button btnEmployee;
+        private Panel panel9;
+        private Button btnImport;
     }
 }

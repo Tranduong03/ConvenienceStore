@@ -70,22 +70,27 @@ namespace GroceryStore.Views
         // Đăng nhập
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            LoginAction();
+        }
+
+        private void LoginAction()
+        {
             using (var context = new AppDBContext())
             {
                 // Lấy dữ liệu từ form
                 string accountOrEmail = txbAccount.Text.Trim();
                 string password = txbPassword.Text.Trim();
 
-                if(accountOrEmail == "1" && password == "1") // Thử nghiệm đóng mở form, không quan trọng
+                if (accountOrEmail == "1" && password == "1") // Thử nghiệm đóng mở form, không quan trọng
                 {
                     AdminForm adm = new AdminForm();
-                   
+
                     var welcome_Form = this.Owner as Welcome;
                     welcome_Form?.Hide(); // Đóng form Welcome nếu nó đang mở
                     adm.FormClosed += (s, args) => welcome_Form.Close();
                     adm.Show();
                     this.Close();
-                   
+
                 }
 
                 // Tìm kiếm người dùng theo Account hoặc Email
@@ -136,7 +141,13 @@ namespace GroceryStore.Views
             timerWarning.Start(); // Khởi động Timer
         }
 
-
-
+        private void txbPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                LoginAction();
+                e.Handled = true;
+            }
+        }
     }
 }

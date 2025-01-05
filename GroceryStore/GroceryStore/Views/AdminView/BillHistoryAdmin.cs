@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GroceryStore.OtherProcess;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,74 +8,65 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GroceryStore.Model;
-using GroceryStore.OtherProcess;
 
-namespace GroceryStore.Views.EmployeeView
+namespace GroceryStore.Views.AdminView
 {
-    public partial class BillHistory : UserControl
+    public partial class BillHistoryAdmin : UserControl
     {
-        private User user = new User();
-        public BillHistory()
+        public BillHistoryAdmin()
         {
             InitializeComponent();
-        }
-        internal BillHistory(User u)
-        {
-            InitializeComponent();
-            user = u;
         }
 
-        private void BillHistory_Load(object sender, EventArgs e)
+        private void BillHistoryAdmin_Load(object sender, EventArgs e)
         {
-            LoadBillHistory(user);
+            LoadBillHistory();
             dtpStart.Value = new DateTime(2000, 1, 1);
         }
 
-        private void LoadBillHistory(User user)
+        private void LoadBillHistory()
         {
             using (var context = new AppDBContext())
             {
-                // Kiểm tra user có tồn tại không
-                if (user == null)
-                {
-                    MessageBox.Show("Người dùng không hợp lệ.");
-                    return;
-                }
+
 
                 // Lấy dữ liệu từ các điều khiển
-                string searchKeyword = txbSearch.Text.Trim(); // txbSearchCustomer là TextBox tìm kiếm
+                string customerSearch = txbCustomerSearch.Text.Trim();
+                string userSearch = txbEmployeeSearch.Text.Trim();
                 DateTime startDate = dtpStart.Value.Date;             // dtpStart là DateTimePicker bắt đầu
                 DateTime endDate = dtpEnd.Value.Date.AddDays(1).AddTicks(-1); // dtpEnd là DateTimePicker kết thúc
 
                 // Truy vấn lấy danh sách hóa đơn
                 var bills = context.Bills
-                    .Where(b => b.UserID == user.UserID
-                                && b.BillDate >= startDate
+                    .Where(b => b.BillDate >= startDate
                                 && b.BillDate <= endDate
-                                && (string.IsNullOrEmpty(searchKeyword) ||
-                                    (b.Customer != null && b.Customer.CustomerName.Contains(searchKeyword))))
+                                && (string.IsNullOrEmpty(customerSearch) ||
+                                    (b.Customer != null && b.Customer.CustomerName.Contains(customerSearch)))
+                                && (string.IsNullOrEmpty(userSearch) ||
+                                    (b.User != null && b.User.UserName.Contains(userSearch))))
                     .Select(b => new
                     {
                         BillID = b.BillID,
                         CustomerName = b.Customer != null ? b.Customer.CustomerName : "Không xác định",
+                        EmployeeName = b.User != null ? b.User.FullName : "Không xác định",
                         BillDate = b.BillDate,
                         TotalCost = b.TotalCost
                     })
                     .ToList();
 
+
                 // Gán dữ liệu cho DataGridView
                 tableBillHistory.DataSource = bills;
                 tableBillHistory.Columns["BillID"].HeaderText = "Mã hóa đơn";
                 tableBillHistory.Columns["CustomerName"].HeaderText = "Tên khách hàng";
+                tableBillHistory.Columns["EmployeeName"].HeaderText = "Tên nhân viên";
                 tableBillHistory.Columns["BillDate"].HeaderText = "Ngày hóa đơn";
                 tableBillHistory.Columns["TotalCost"].HeaderText = "Tổng chi phí";
             }
         }
-
         private void btnFillWithDay_Click(object sender, EventArgs e)
         {
-            LoadBillHistory(user);
+            LoadBillHistory();
         }
 
         private void dtpStart_ValueChanged(object sender, EventArgs e)
@@ -151,29 +143,6 @@ namespace GroceryStore.Views.EmployeeView
                 tableBillDetail.ClearSelection();
             }
 
-        }
-
-        private void btnPrintBill_Click(object sender, EventArgs e)
-        {
-            if (tableBillHistory.SelectedRows.Count > 0)
-            {
-                // Lấy dòng đang được chọn
-                DataGridViewRow selectedRow = tableBillHistory.SelectedRows[0];
-
-                // Lấy thông tin từ các cột của dòng đã chọn
-                string billName = selectedRow.Cells["BillID"].Value.ToString();
-                string customerName = selectedRow.Cells["CustomerName"].Value.ToString();
-
-                string filename = billName + "_" + customerName + ".pdf";
-
-                string outputPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "OutputBill", filename);
-
-                PDFtool.SavePanelAsPdf(pnlBillPrint, outputPath);
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn một hóa đơn.");
-            }
         }
     }
 }

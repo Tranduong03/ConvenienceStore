@@ -14,6 +14,10 @@ namespace GroceryStore.Views
 {
     public partial class EmployeeProductView : UserControl
     {
+        private int currentPage = 1; // Trang hiện tại
+        private int pageSize = 9;   // Số sản phẩm trên mỗi trang
+        private int totalPages;      // Tổng số trang
+
         User employee = new User();
         private Dictionary<Product, int> purchasedProducts = new Dictionary<Product, int>();
 
@@ -42,13 +46,35 @@ namespace GroceryStore.Views
         private void LoadProductPanels()
         {
             flpListProduct.Controls.Clear(); // Xóa các panel cũ
-
+            string keyword = txbSearch.Text.Trim(); // Từ khóa tìm kiếm
+            int selectedCategoryID = (cbxCategory.SelectedItem as dynamic)?.CategoryID ?? 0;
             using (var context = new AppDBContext())
             {
-                var products = context.Products.ToList(); // Lấy danh sách sản phẩm
+                var query = context.Products.AsQueryable(); // Lấy danh sách sản phẩm
+
+                if (selectedCategoryID > 0)
+                {
+                    query = query.Where(p => p.CategoryID == selectedCategoryID);
+                }
+
+                if (!string.IsNullOrEmpty(keyword))
+                {
+                    query = query.Where(p => p.ProductName.Contains(keyword));
+                }
+
+                int totalProducts = query.Count();
+
+                totalPages = (int)Math.Ceiling((double)totalProducts / pageSize);
+                currentPage = currentPage > totalPages ? totalPages : currentPage;
+                lblCurrentPage.Text = currentPage.ToString();
+                lblMaxPage.Text = totalPages.ToString();
+
+                var filteredProducts = query.Skip((currentPage - 1) * pageSize) // Bỏ qua các sản phẩm của trang trước
+                                            .Take(pageSize)                   // Lấy số lượng sản phẩm của trang hiện tại
+                                            .ToList();
 
 
-                foreach (var product in products)
+                foreach (var product in filteredProducts)
                 {
                     ProductDetail prodShow = new ProductDetail(product);
 
@@ -60,6 +86,26 @@ namespace GroceryStore.Views
                 }
 
             }
+        }
+
+        private void btnPrev_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 1)
+            {
+                currentPage--;
+                LoadProductPanels();
+            }
+
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (currentPage < totalPages)
+            {
+                currentPage++;
+                LoadProductPanels();
+            }
+
         }
 
         // Xử lý sự kiện khi sản phẩm được mua (xử lí từ Form ProductDetail)
@@ -151,81 +197,12 @@ namespace GroceryStore.Views
 
         private void cbxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Lấy CategoryID được chọn từ ComboBox
-            int selectedCategoryID = (cbxCategory.SelectedItem as dynamic).CategoryID;
-
-            flpListProduct.Controls.Clear(); // Xóa các panel cũ
-
-            using (var context = new AppDBContext())
-            {
-                // Lấy toàn bộ sản phẩm
-                var products = context.Products.ToList();
-
-                // Nếu không chọn "Tất cả", lọc theo CategoryID
-                if (selectedCategoryID != 0)
-                {
-                    products = products.Where(p => p.CategoryID == selectedCategoryID).ToList();
-                }
-
-                // Hiển thị các sản phẩm đã lọc
-                foreach (var product in products)
-                {
-                    ProductDetail prodShow = new ProductDetail(product);
-
-                    // Đăng ký sự kiện khi nhấn btnPurchase
-                    prodShow.OnProductPurchased += ProductPurchasedHandler;
-
-                    Panel pnlProduct = prodShow.pnlProductDetail;
-                    flpListProduct.Controls.Add(pnlProduct); // Thêm panel vào FlowLayoutPanel
-                }
-            }
+            LoadProductPanels();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string keyword = txbSearch.Text.Trim(); // Từ khóa tìm kiếm
-            int selectedCategoryID = (cbxCategory.SelectedItem as dynamic)?.CategoryID ?? 0; // Lấy CategoryID từ ComboBox
-
-            flpListProduct.Controls.Clear(); // Xóa các panel cũ
-
-            using (var context = new AppDBContext())
-            {
-                // Truy vấn ban đầu lấy tất cả sản phẩm
-                var query = context.Products.AsQueryable();
-
-                // Áp dụng điều kiện lọc theo danh mục nếu không phải "Tất cả"
-                if (selectedCategoryID != 0)
-                {
-                    query = query.Where(p => p.CategoryID == selectedCategoryID);
-                }
-
-                // Áp dụng điều kiện tìm kiếm theo từ khóa (Name hoặc Description)
-                if (!string.IsNullOrEmpty(keyword))
-                {
-                    query = query.Where(p => p.ProductName.Contains(keyword) || p.Description.Contains(keyword));
-                }
-
-                // Lấy danh sách sản phẩm đã lọc
-                var filteredProducts = query.ToList();
-
-                // Hiển thị sản phẩm đã lọc vào flpListProduct
-                foreach (var product in filteredProducts)
-                {
-                    ProductDetail prodShow = new ProductDetail(product);
-
-                    // Đăng ký sự kiện khi nhấn btnPurchase
-                    prodShow.OnProductPurchased += ProductPurchasedHandler;
-
-                    Panel pnlProduct = prodShow.pnlProductDetail;
-                    flpListProduct.Controls.Add(pnlProduct); // Thêm panel vào FlowLayoutPanel
-                }
-
-                // Thông báo nếu không tìm thấy sản phẩm nào
-                if (filteredProducts.Count == 0)
-                {
-                    MessageBox.Show("Không tìm thấy sản phẩm nào phù hợp.", "Kết quả tìm kiếm", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
+            LoadProductPanels();
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
@@ -243,7 +220,7 @@ namespace GroceryStore.Views
             ChooseCustomer choose = new ChooseCustomer();
             if (choose.ShowDialog() == DialogResult.OK)
             {
-                txbCustomerID.Text = choose.Tag.ToString(); 
+                txbCustomerID.Text = choose.Tag.ToString();
             }
         }
 
@@ -268,7 +245,7 @@ namespace GroceryStore.Views
 
         private void btnPurchase_Click(object sender, EventArgs e)
         {
- 
+
             // Kiểm tra và gán CustomerID (0 nếu là khách vãng lai)
             int customerId = 0;
 
@@ -336,6 +313,23 @@ namespace GroceryStore.Views
             txbCustomerID.Text = string.Empty;
         }
 
+        private void btnToLastPage_Click(object sender, EventArgs e)
+        {
+            if (currentPage != totalPages)
+            {
+                currentPage = totalPages;
+                LoadProductPanels();
+            }
+        }
 
+        private void btnToBeginPage_Click(object sender, EventArgs e)
+        {
+            if (currentPage != 1) 
+            { 
+                currentPage = 1;
+                LoadProductPanels();
+            }
+
+        }
     }
 }

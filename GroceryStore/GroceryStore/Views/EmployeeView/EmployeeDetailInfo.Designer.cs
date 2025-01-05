@@ -60,9 +60,7 @@
             txbPhone = new TextBox();
             label7 = new Label();
             label13 = new Label();
-            label8 = new Label();
             label12 = new Label();
-            txbAddress = new TextBox();
             cboGender = new ComboBox();
             lblWarning = new Label();
             openFileDialog1 = new OpenFileDialog();
@@ -250,9 +248,7 @@
             groupBox1.Controls.Add(txbPhone);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label13);
-            groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label12);
-            groupBox1.Controls.Add(txbAddress);
             groupBox1.Controls.Add(cboGender);
             groupBox1.Font = new Font("Tahoma", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(32, 47);
@@ -265,7 +261,7 @@
             // btnSaveInfo
             // 
             btnSaveInfo.BackColor = Color.Lime;
-            btnSaveInfo.Location = new Point(164, 643);
+            btnSaveInfo.Location = new Point(160, 610);
             btnSaveInfo.Name = "btnSaveInfo";
             btnSaveInfo.Size = new Size(189, 61);
             btnSaveInfo.TabIndex = 72;
@@ -275,7 +271,7 @@
             // 
             // txbImgLink
             // 
-            txbImgLink.Location = new Point(118, 389);
+            txbImgLink.Location = new Point(118, 308);
             txbImgLink.Name = "txbImgLink";
             txbImgLink.Size = new Size(287, 35);
             txbImgLink.TabIndex = 71;
@@ -283,7 +279,7 @@
             // btnSelectImage
             // 
             btnSelectImage.Font = new Font("Tahoma", 12F);
-            btnSelectImage.Location = new Point(164, 439);
+            btnSelectImage.Location = new Point(164, 358);
             btnSelectImage.Name = "btnSelectImage";
             btnSelectImage.Size = new Size(112, 34);
             btnSelectImage.TabIndex = 70;
@@ -293,7 +289,7 @@
             // 
             // picEmployeeImage
             // 
-            picEmployeeImage.Location = new Point(32, 439);
+            picEmployeeImage.Location = new Point(32, 358);
             picEmployeeImage.Name = "picEmployeeImage";
             picEmployeeImage.Size = new Size(126, 124);
             picEmployeeImage.SizeMode = PictureBoxSizeMode.Zoom;
@@ -304,7 +300,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Tahoma", 12F);
-            label2.Location = new Point(32, 395);
+            label2.Location = new Point(32, 314);
             label2.Name = "label2";
             label2.Size = new Size(80, 24);
             label2.TabIndex = 68;
@@ -407,16 +403,6 @@
             label13.TabIndex = 62;
             label13.Text = "*";
             // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Tahoma", 12F);
-            label8.Location = new Point(32, 310);
-            label8.Name = "label8";
-            label8.Size = new Size(56, 24);
-            label8.TabIndex = 55;
-            label8.Text = "Nơi ở";
-            // 
             // label12
             // 
             label12.AutoSize = true;
@@ -427,14 +413,6 @@
             label12.Size = new Size(21, 24);
             label12.TabIndex = 61;
             label12.Text = "*";
-            // 
-            // txbAddress
-            // 
-            txbAddress.Font = new Font("Tahoma", 12F);
-            txbAddress.Location = new Point(31, 337);
-            txbAddress.Name = "txbAddress";
-            txbAddress.Size = new Size(374, 32);
-            txbAddress.TabIndex = 56;
             // 
             // cboGender
             // 
@@ -469,7 +447,6 @@
             ClientSize = new Size(1250, 900);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "EmployeeDetailInfo";
             Text = "CustomerDetailInfo";
             panel1.ResumeLayout(false);
@@ -499,8 +476,6 @@
         private Label label13;
         private Label label12;
         private ComboBox cboGender;
-        private TextBox txbAddress;
-        private Label label8;
         private Label label7;
         private TextBox txbPhone;
         private Label label6;

@@ -18,13 +18,16 @@ namespace GroceryStore.Views
         User currentUser = new User();
         public MainForm()
         {
+
             InitializeComponent();
+            this.MaximizeBox = false;
         }
 
         internal MainForm(User user)
         {
             InitializeComponent();
             currentUser = user;
+            this.MaximizeBox=false;
             lblCustomerName.Text = currentUser.UserName;
             if (currentUser.ImgLink != string.Empty)
             {
@@ -52,6 +55,15 @@ namespace GroceryStore.Views
             BillHistory billHistory = new BillHistory(currentUser);
             pnlWork.Controls.Clear();
             pnlWork.Controls.Add(billHistory);
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Welcome welcome = new Welcome();
+            welcome.Show();
+            this.Hide();
+           
+            
         }
     }
 }

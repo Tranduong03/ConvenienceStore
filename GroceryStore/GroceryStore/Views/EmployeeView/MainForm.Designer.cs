@@ -223,6 +223,7 @@
             btnExit.Text = "        Exit";
             btnExit.TextAlign = ContentAlignment.MiddleLeft;
             btnExit.UseVisualStyleBackColor = false;
+            btnExit.Click += btnExit_Click;
             // 
             // pnlWork
             // 
