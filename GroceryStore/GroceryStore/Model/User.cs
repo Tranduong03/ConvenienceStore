@@ -6,38 +6,40 @@ using System.Text.RegularExpressions;
 
 namespace GroceryStore.Model
 {
-    [Table("USERS")] 
+    [Table("USERS")]
     public class User
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] 
-        public int UserID { get; set; } 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int UserID { get; set; }
 
         [Required]
-        [StringLength(128)] 
-        public string UserName { get; set; } = string.Empty; 
+        [StringLength(128)]
+        public string UserName { get; set; } = string.Empty;
 
         [Required]
-        [StringLength(128)] 
+        [StringLength(128)]
         public string Password { get; set; } = string.Empty;
 
         [StringLength(128)]
         public string? FullName { get; set; } = "Tên người dùng";
 
-        [StringLength(128)] 
-        public string? Email { get; set; } 
+        [StringLength(128)]
+        public string? Email { get; set; }
 
-        [StringLength(15)] 
+        [StringLength(15)]
         public string? PhoneNumber { get; set; }
 
-        public bool? Gender { get; set; } 
+        public bool? Gender { get; set; }
 
-        [StringLength(255)] 
-        public string? ImgLink { get; set; } 
+        [StringLength(255)]
+        public string? ImgLink { get; set; } = "default.png";
 
         [Column(TypeName = "bit")]
         [Required]
         public bool Role { get; set; } = false;
+
+        public DateTime? CreatedAt { get; set; } = DateTime.Now;
     }
 
     //internal class User

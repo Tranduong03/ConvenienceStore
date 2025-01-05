@@ -25,7 +25,7 @@ namespace GroceryStore.Model
         public decimal SellPrice { get; set; }
 
         [StringLength(128)]
-        public string Description { get; set; } = "Sản phẩm này không có mô tả";
+        public string? Description { get; set; } = "Sản phẩm này không có mô tả";
 
         [Column(TypeName = "int")]
         public int Stock { get; set; } = 0;

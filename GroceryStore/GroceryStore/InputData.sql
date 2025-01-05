@@ -1,7 +1,7 @@
 ﻿
 
 
-INSERT INTO Categories(Name, Description) VALUES
+INSERT INTO CATEGORY(CName, Description) VALUES
 (N'Đồ uống', N'Nước ngọt, cà phê, trà, bia, rượu'),  
 (N'Đồ ngọt', N'Bánh, kẹo'), 
 (N'Sản phẩm từ sữa', N'Phô mai, sữa chua, sữa đặc'), 
@@ -11,7 +11,7 @@ INSERT INTO Categories(Name, Description) VALUES
 (N'Đồ ăn nhanh', N'Mì gói, tokbokki, bánh bao'),
 (N'Hàng tiêu dùng', N'Bàn chải, băng keo, các đồ dùng hàng ngày')
 
-INSERT INTO Suppliers (Name, Email, Address, FAX)
+INSERT INTO SUPPLIER(SupplierName, Email, Address, Contact)
 VALUES
 ('Coca-Cola', 'coca-cola@email.com', '123 Coca-Cola Street', '123456789'),
 ('Pepsi', 'pepsi@email.com', '456 Pepsi Avenue', '987654321'),
@@ -24,13 +24,17 @@ VALUES
 ('Dutch Lady', 'dutchlady@email.com', '606 Dutch Lady Street', '927364182'),
 ('TH True Milk', 'thtruemilk@email.com', '707 TH True Milk Rd', '102938475');
 
-INSERT INTO Suppliers (Name, Email, Address, FAX)
+INSERT INTO SUPPLIER(SupplierName, Email, Address, Contact)
 VALUES
 ('Oishi', 'oishi@gmail.com', '808 Oishi Road', '1234567881'),
 ('King Food', 'kfood@gmail.com', '909 KFood Street', '324342342'),
 ('King Tool', 'ktool@gmail.com', '111 KTool Avenue', '311111111')
 
-INSERT INTO Products (Name, CategoryID, SellPrice, Description, Quantity, SupplierID)
+INSERT INTO SUPPLIER(SupplierName, Email, Address, Contact)
+VALUES
+('Other', 'other@gmail.com', 'Other Food', '1233211231')
+
+INSERT INTO PRODUCT(ProductName, CategoryID, SellPrice, Description, Stock, SupplierID)
 VALUES
 ('Pepsi Can 320ml', 1, 9360, '320ml can', 90, 2),
 ('Pepsi Bottle 330ml', 1, 8400, 'small 330ml bottle', 250, 2),
@@ -43,7 +47,7 @@ VALUES
 ('Dr Pepper', 1, 15120, '500ml bottle', 210, 1),
 ('Coca Cola', 1, 15120, '500ml bottle', 260, 1);
 
-INSERT INTO Products (Name, CategoryID, SellPrice, Description, Quantity, SupplierID)
+INSERT INTO PRODUCT(ProductName, CategoryID, SellPrice, Description, Stock, SupplierID)
 VALUES
 ('Schweppes', 1, 13200, '500ml bottle', 300, 1),
 ('Zero Degree Green Tea', 1, 11280, '500ml bottle', 200, 12),
@@ -56,7 +60,7 @@ VALUES
 ('TH Pineapple Juice', 1, 11280, '500ml bottle', 200, 10),
 ('TH Grapefruit Juice', 1, 11280, '500ml bottle', 250, 10);
 
-INSERT INTO Products (Name, CategoryID, SellPrice, Description, Quantity, SupplierID)
+INSERT INTO PRODUCT(ProductName, CategoryID, SellPrice, Description, Stock, SupplierID)
 VALUES
 ('Saigon Beer', 1, 14160, 'box of 24 cans, 330ml can', 300, 4),
 ('Heineken Beer', 1, 23520, 'box of 24 cans, 330ml can', 350, 3),
@@ -69,7 +73,7 @@ VALUES
 ('Grape Wine', 1, 282240, '500ml bottle', 360, 12),
 ('Sake', 1, 423600, '500ml bottle', 330, 12);
 
-INSERT INTO Products (Name, CategoryID, SellPrice, Description, Quantity, SupplierID)
+INSERT INTO PRODUCT(ProductName, CategoryID, SellPrice, Description, Stock, SupplierID)
 VALUES
 ('Mr. Brown Coffee', 1, 11280, '500ml can', 200, 12),
 ('Highland Coffee Milk Can', 1, 15120, '500ml can', 190, 12),
@@ -81,49 +85,73 @@ VALUES
 ('Oatmeal Cookies Kinh Do', 2, 14400, NULL, 75, 12),
 ('Sweet Bread Vinabread', 2, 19200, NULL, 245, 12),
 ('Donut', 2, 14400, NULL, 184, 12);
+-- USERS
 
 --Customers
 
-INSERT INTO Customers (Name, Email, Address, PhoneNumber, Gender, DateJoin)
+INSERT INTO CUSTOMER (CustomerName, PhoneNumber, Gender)
 VALUES
-(N'Nguyễn Văn A', N'nguyenvana@example.com', N'123 Phố X, Hà Nội', N'091234567', 0, '2023-12-01'),
-(N'Phạm Thị B', N'phamthib@example.com', N'456 Đường Y, HCM', N'0987654321', 1, '2023-12-03'),
-(N'Lê Minh C', N'leminhc@example.com', N'789 Đường Z, Đà Nẵng', N'0922334455', 0, '2023-12-05'),
-(N'Trần Thị D', N'tranthid@example.com', N'101 Đường M, Hà Nội', N'0933445566', 1, '2023-12-07'),
-(N'Vũ Quang E', N'vuquange@example.com', N'202 Đường B, HCM', N'0944556677', 0, '2023-12-09'),
-(N'Hoàng Lan F', N'hoanglanf@example.com', N'303 Đường C, Đà Nẵng', N'0955667788', 2, '2023-12-11'),
-(N'Nguyễn Thị G', N'nguyenthig@example.com', N'404 Đường K, Hà Nội', N'0966778899', 1, '2023-12-13'),
-(N'Phan Quang H', N'phanquangh@example.com', N'505 Đường L, HCM', N'0977889900', 0, '2023-12-15'),
-(N'Bùi Lan I', N'builani@example.com', N'606 Đường N, Đà Nẵng', N'0988990011', 1, '2023-12-17'),
-(N'Đặng Minh J', N'dangminhj@example.com', N'707 Đường O, Hà Nội', N'0999001122', 0, '2023-12-19'),
-(N'Trần Đình K', N'trandinhk@example.com', N'808 Đường P, HCM', N'0810012233', 1, '2023-12-21'),
-(N'Ngô Hữu L', N'ngohul@example.com', N'909 Đường Q, Đà Nẵng', N'0820123344', 2, '2023-12-23'),
-(N'Phạm Lâm M', N'phamlamm@example.com', N'1010 Đường R, Hà Nội', N'0831234455', 0, '2023-12-25'),
-(N'Võ Minh N', N'vominhn@example.com', N'1111 Đường S, HCM', N'0842344566', 1, '2023-12-27'),
-(N'Nguyễn Thiên O', N'nguyenthieno@example.com', N'1212 Đường T, Đà Nẵng', N'0853455677', 0, '2023-12-29'),
-(N'Hồ Thanh P', N'hothanhp@example.com', N'1313 Đường U, Hà Nội', N'0864566788', 1, '2023-12-31'),
-(N'La Đức Q', N'laduq@example.com', N'1414 Đường V, HCM', N'0875677899', 0, '2024-01-02'),
-(N'Nguyễn Vũ R', N'nguyenvur@example.com', N'1515 Đường W, Đà Nẵng', N'0886789900', 2, '2024-01-04'),
-(N'Toàn Thị S', N'toanthis@example.com', N'1616 Đường X, Hà Nội', N'0897890011', 1, '2024-01-06'),
-(N'Hải Đăng T', N'haidangt@example.com', N'1717 Đường Y, HCM', N'0909011122', 0, '2024-01-08'),
-(N'Kim Tiến U', N'kimtienu@example.com', N'1818 Đường Z, Đà Nẵng', N'0910122233', 1, '2024-01-10'),
-(N'Vũ Ngọc V', N'vungocv@example.com', N'1919 Đường A, Hà Nội', N'0921233344', 0, '2024-01-12'),
-(N'Lâm Thiên W', N'lamthienw@example.com', N'2020 Đường B, HCM', N'0932344455', 2, '2024-01-14'),
-(N'Bùi Hữu X', N'buihux@example.com', N'2121 Đường C, Đà Nẵng', N'0943455566', 1, '2024-01-16'),
-(N'Nguyễn Thanh Y', N'nguyenthanhy@example.com', N'2222 Đường D, Hà Nội', N'0954566677', 0, '2024-01-18'),
-(N'Đỗ Minh Z', N'dominhz@example.com', N'2323 Đường E, HCM', N'0965677788', 1, '2024-01-20'),
-(N'Vũ Đức A1', N'vuduca1@example.com', N'2424 Đường F, Đà Nẵng', N'0976788899', 2, '2024-01-22'),
-(N'Trần Quang B2', N'tranquangb2@example.com', N'2525 Đường G, Hà Nội', N'0987899900', 0, '2024-01-24'),
-(N'Ngô Hòa C3', N'ngohoc3@example.com', N'2626 Đường H, HCM', N'0998900011', 1, '2024-01-26'),
-(N'Hồ Hải D4', N'hohaid4@example.com', N'2727 Đường I, Đà Nẵng', N'0810122233', 2, '2024-01-28');
+    (N'Nguyễn Văn A', '0912345678', 0),
+    (N'Nguyễn Thị B', '0912345679', 1),
+    (N'Trần Văn C', '0912345680', 0),
+    (N'Lê Thị D', '0912345681', 1),
+    (N'Phạm Văn E', '0912345682', 0),
+    (N'Huỳnh Thị F', '0912345683', 1),
+    (N'Vũ Văn G', '0912345684', 0),
+    (N'Bùi Thị H', '0912345685', 1),
+    (N'Hoàng Văn I', '0912345686', 0),
+    (N'Doãn Thị K', '0912345687', 1),
+    (N'Nguyễn Văn L', '0912345688', 0),
+    (N'Nguyễn Thị M', '0912345689', 1),
+    (N'Trần Văn N', '0912345690', 0),
+    (N'Lê Thị O', '0912345691', 1),
+    (N'Phạm Văn P', '0912345692', 0),
+    (N'Huỳnh Thị Q', '0912345693', 1),
+    (N'Vũ Văn R', '0912345694', 0),
+    (N'Bùi Thị S', '0912345695', 1),
+    (N'Hoàng Văn T', '0912345696', 0),
+    (N'Doãn Thị U', '0912345697', 1),
+    (N'Nguyễn Văn V', '0912345698', 0),
+    (N'Nguyễn Thị X', '0912345699', 1),
+    (N'Trần Văn Y', '0912345700', 0),
+    (N'Lê Thị Z', '0912345701', 1),
+    (N'Phạm Văn AA', '0912345702', 0),
+    (N'Huỳnh Thị BB', '0912345703', 1),
+    (N'Vũ Văn CC', '0912345704', 0),
+    (N'Bùi Thị DD', '0912345705', 1),
+    (N'Hoàng Văn EE', '0912345706', 0),
+    (N'Doãn Thị FF', '0912345707', 1),
+    (N'Nguyễn Văn GG', '0912345708', 0),
+    (N'Nguyễn Thị HH', '0912345709', 1),
+    (N'Trần Văn II', '0912345710', 0),
+    (N'Lê Thị JJ', '0912345711', 1),
+    (N'Phạm Văn KK', '0912345712', 0),
+    (N'Huỳnh Thị LL', '0912345713', 1),
+    (N'Vũ Văn MM', '0912345714', 0),
+    (N'Bùi Thị NN', '0912345715', 1),
+    (N'Hoàng Văn OO', '0912345716', 0),
+    (N'Doãn Thị PP', '0912345717', 1);
 
 -- Guest - Customer đặc biệt
-SET IDENTITY_INSERT Customers ON;
+SET IDENTITY_INSERT CUSTOMER ON;
 
-INSERT INTO Customers (CustomerId, Name, Email, Address, PhoneNumber, Gender, DateJoin)
-VALUES (0, N'Guest', NULL, NULL, N'0000000000', 0, GETDATE());
+INSERT INTO CUSTOMER (CustomerID, CustomerName, PhoneNumber, Gender)
+VALUES (0, N'Guest', '0100000000', 0);
 
-SET IDENTITY_INSERT Customers OFF;
+SET IDENTITY_INSERT CUSTOMER OFF;
 
-INSERT INTO Customers (Name, Email, Address, PhoneNumber, Gender, dateJoin)
-VALUES ('Test User', NULL, NULL, '123456789', 1, GETDATE());
+INSERT INTO USERS (UserName, Password, FullName, Email, PhoneNumber, Gender, CreatedAt, Role)
+VALUES
+('user1', 'password1', 'User One', 'user1@example.com', '1234567890', 1, GETDATE(), 0),
+('user2', 'password2', 'User Two', 'user2@example.com', '1234567891', 0, GETDATE(), 0),
+('user3', 'password3', 'User Three', 'user3@example.com', '1234567892', 1, GETDATE(), 0),
+('user4', 'password4', 'User Four', 'user4@example.com', '1234567893', 0, GETDATE(), 0),
+('user5', 'password5', 'User Five', 'user5@example.com', '1234567894', 1, GETDATE(), 0),
+('user6', 'password6', 'User Six', 'user6@example.com', '1234567895', 0, GETDATE(), 0),
+('user7', 'password7', 'User Seven', 'user7@example.com', '1234567896', 1, GETDATE(), 0),
+('user8', 'password8', 'User Eight', 'user8@example.com', '1234567897', 0, GETDATE(), 0),
+('user9', 'password9', 'User Nine', 'user9@example.com', '1234567898', 1, GETDATE(), 0),
+('user10', 'password10', 'User Ten', 'user10@example.com', '1234567899', 0, GETDATE(), 0);
+
+
+

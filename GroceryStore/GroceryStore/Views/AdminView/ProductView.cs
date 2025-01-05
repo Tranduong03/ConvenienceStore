@@ -8,12 +8,13 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace GroceryStore.Views
 {
-    public partial class ProductView : Form
+    public partial class ProductView : UserControl
     {
         private int currentPage = 1; // Trang hiện tại
         private int pageSize = 17;   // Số sản phẩm trên mỗi trang
         private int totalPages;      // Tổng số trang
         private int currentSellPrice = 0;
+        private User currentAdm;
         // Constructor
         public ProductView()
         {
@@ -24,6 +25,16 @@ namespace GroceryStore.Views
             LoadSupplierData();
         }
         // Cho phép chọn multiselect ở tab cần chọn
+
+        internal ProductView(User user)
+        {
+            currentAdm = user;
+            InitializeComponent();
+            InitializeSearchAutoComplete();
+            LoadProductData();  // Gọi phương thức tải dữ liệu khi form khởi tạo
+            LoadCategoryData();
+            LoadSupplierData();
+        }
         private void tabMenuWork_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (tabMenuWork.SelectedTab.Name)
@@ -35,7 +46,6 @@ namespace GroceryStore.Views
                     break;
 
                 case "tabUpdate":
-                case "tabImport":
                     tableProducts.MultiSelect = false; // Tắt MultiSelect
                     tableProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Chế độ chọn cả hàng
                     break;
@@ -48,7 +58,7 @@ namespace GroceryStore.Views
             {
                 // Lấy tất cả tên sản phẩm từ cơ sở dữ liệu
                 var productNames = context.Products
-                                          .Select(p => p.Name)
+                                          .Select(p => p.ProductName)
                                           .ToList();
 
                 // Cài đặt AutoComplete cho TextBox
@@ -100,13 +110,13 @@ namespace GroceryStore.Views
             {
                 var productData = from p in context.Products
                                   join c in context.Categories on p.CategoryID equals c.CategoryID
-                                  where p.Name.Contains(searchQuery) // Tìm kiếm theo tên sản phẩm
+                                  where p.ProductName.Contains(searchQuery) // Tìm kiếm theo tên sản phẩm
                                   select new
                                   {
                                       ProductID = p.ProductID,
-                                      ProductName = p.Name,
-                                      CategoryName = c.Name,
-                                      p.Quantity,
+                                      ProductName = p.ProductName,
+                                      CategoryName = c.CName,
+                                      p.Stock,
                                       p.SellPrice,
                                       Description = p.Description,
                                       CategoryID = p.CategoryID // Giữ nguyên CategoryID
@@ -125,7 +135,7 @@ namespace GroceryStore.Views
                 // Thêm dữ liệu vào DataGridView
                 foreach (var item in pageData)
                 {
-                    tableProducts.Rows.Add(item.ProductName, item.CategoryName, item.Quantity, item.SellPrice, item.Description != string.Empty ? item.Description : "None");
+                    tableProducts.Rows.Add(item.ProductName, item.CategoryName, item.Stock, item.SellPrice, item.Description != string.Empty ? item.Description : "None");
                 }
 
                 // Cập nhật thông tin trang hiện tại và tổng số trang
@@ -197,7 +207,7 @@ namespace GroceryStore.Views
             // Lấy dữ liệu từ các control
             string productName = txbAddName.Text;
             int categoryId = (cbxCategory_tabAdd.SelectedItem as Category).CategoryID; // Giả sử bạn đã gán giá trị đúng cho ComboBox Category
-            int quantity = int.Parse(txbAddQuantity.Text);
+            int stock = int.Parse(txbAddQuantity.Text);
             int sellPrice = int.Parse(txbAddSellPrice.Text);
             string description = txbAddDescription.Text != string.Empty ? txbAddDescription.Text : "None" ;
             string imgLink = txbAddImgLink.Text != string.Empty ? txbAddImgLink.Text : "none.png"; // Đường dẫn ảnh (hoặc tên tệp ảnh)
@@ -206,9 +216,9 @@ namespace GroceryStore.Views
             // Tạo đối tượng Product mới
             var newProduct = new Product
             {
-                Name = productName,
+                ProductName = productName,
                 CategoryID = categoryId,
-                Quantity = quantity,
+                Stock = stock,
                 SellPrice = sellPrice,
                 Description = description,
                 ImageLink = imgLink, // Đường dẫn tương đối của ảnh hoặc tên ảnh
@@ -316,10 +326,6 @@ namespace GroceryStore.Views
                             // Xử lý cho tabUpdate
                             HandleUpdateTab(productName);
                         }
-                        else if (tabMenuWork.SelectedTab == tabImport)
-                        {
-                            HandleImportTab(productName);
-                        }
                     }
                 }
             }
@@ -349,7 +355,7 @@ namespace GroceryStore.Views
                             string productName = productNameCell.ToString();
 
                             // Tìm sản phẩm trong cơ sở dữ liệu
-                            var productToDelete = context.Products.FirstOrDefault(p => p.Name == productName);
+                            var productToDelete = context.Products.FirstOrDefault(p => p.ProductName == productName);
 
                             if (productToDelete != null)
                             {
@@ -410,13 +416,13 @@ namespace GroceryStore.Views
                 var product = context.Products
                                      .Include(p => p.Category)
                                      .Include(p => p.Supplier)
-                                     .FirstOrDefault(p => p.Name == productName);
+                                     .FirstOrDefault(p => p.ProductName == productName);
 
                 if (product != null)
                 {
                     // Hiển thị thông tin sản phẩm trong các điều khiển của tabUpdate
-                    txbUpdateName.Text = product.Name;
-                    txbUpdateSellPrice.Text = product.SellPrice.ToString("F2");
+                    txbUpdateName.Text = product.ProductName;
+                    txbUpdateSellPrice.Text = product.SellPrice.ToString();
                     txbUpdateDescription.Text = string.IsNullOrEmpty(product.Description) ? "None" : product.Description;
                     txbUpdateImgLink.Text = string.IsNullOrEmpty(product.ImageLink) ? "none.png" : product.ImageLink;
 
@@ -427,7 +433,7 @@ namespace GroceryStore.Views
                     // Cập nhật ComboBox cho nhà cung cấp
                     if (product.Supplier != null)
                     {
-                        cbxSupplier_tabUpdate.SelectedItem = product.Supplier.Name;
+                        cbxSupplier_tabUpdate.SelectedItem = product.Supplier.SupplierName;
                     }
                     else
                     {
@@ -467,28 +473,6 @@ namespace GroceryStore.Views
                 }
             }
         }
-
-        private void HandleImportTab(string productName)
-        {
-            // Kiểm tra nếu có hàng được chọn trong bảng
-            if (tableProducts.SelectedRows.Count > 0)
-            {
-                var selectedRow = tableProducts.SelectedRows[0]; // Lấy hàng đầu tiên được chọn
-                int sellPrice = Convert.ToInt32(selectedRow.Cells["colSellPrice"].Value);
-
-
-                // Hiển thị tên sản phẩm lên TextBox
-                txbImportProdName.Text = productName;
-                currentSellPrice = sellPrice;
-            }
-            else
-            {
-                // Xóa dữ liệu nếu không có sản phẩm được chọn
-                txbImportProdName.Text = string.Empty;
-                currentSellPrice = 0;
-            }
-        }
-
 
         /*
          * 
@@ -553,11 +537,11 @@ namespace GroceryStore.Views
 
             // Lấy Category từ ComboBox
             GroceryStore.Model.Category selectedCategory = cbxCategory_tabUpdate.SelectedItem as GroceryStore.Model.Category;
-            string updatedCategory = selectedCategory?.Name;  // Lấy tên danh mục từ đối tượng Category
+            string updatedCategory = selectedCategory?.CName;  // Lấy tên danh mục từ đối tượng Category
 
             // Lấy Supplier từ ComboBox
             GroceryStore.Model.Supplier selectedSupplier = cbxSupplier_tabUpdate.SelectedItem as GroceryStore.Model.Supplier;
-            string updatedSupplier = selectedSupplier?.Name;  // Lấy tên nhà cung cấp từ đối tượng Supplier
+            string updatedSupplier = selectedSupplier?.SupplierName;  // Lấy tên nhà cung cấp từ đối tượng Supplier
 
             string updatedImageLink = txbUpdateImgLink.Text.Trim();
 
@@ -591,7 +575,7 @@ namespace GroceryStore.Views
             int productId;
             using (var context = new AppDBContext())
             {
-                var product = context.Products.FirstOrDefault(p => p.Name == productName);
+                var product = context.Products.FirstOrDefault(p => p.ProductName == productName);
                 if (product == null)
                 {
                     MessageBox.Show("Không tìm thấy sản phẩm trong cơ sở dữ liệu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -600,13 +584,13 @@ namespace GroceryStore.Views
                 productId = product.ProductID;
 
                 // Cập nhật thông tin sản phẩm
-                product.Name = updatedName;
+                product.ProductName = updatedName;
                 product.SellPrice = updatedSellPrice;
                 product.Description = string.IsNullOrEmpty(updatedDescription) ? "None" : updatedDescription;
 
                 // Truy vấn danh mục (Category) bằng cách sử dụng tên danh mục
                 var category = context.Categories
-                                      .FirstOrDefault(c => c.Name.ToLower() == updatedCategory.ToLower());
+                                      .FirstOrDefault(c => c.CName.ToLower() == updatedCategory.ToLower());
                 if (category != null)
                 {
                     product.CategoryID = category.CategoryID;
@@ -619,7 +603,7 @@ namespace GroceryStore.Views
 
                 // Truy vấn nhà cung cấp (Supplier) bằng cách sử dụng tên nhà cung cấp
                 var supplier = context.Suppliers
-                                      .FirstOrDefault(s => s.Name.ToLower() == updatedSupplier.ToLower());
+                                      .FirstOrDefault(s => s.SupplierName.ToLower() == updatedSupplier.ToLower());
 
                 if (supplier != null)
                 {
@@ -651,97 +635,6 @@ namespace GroceryStore.Views
                 }
             }
         }
-
-
-
-
-        /* 
-         * 
-         * Kết thúc làm việc với tab Update, bắt đầu nhập hàng ở tab import
-         * 
-         */
-
-        private void txbImportQuantity_TextChanged(object sender, EventArgs e)
-        {
-            if (currentSellPrice <= 0)
-            {
-                MessageBox.Show("Vui lòng chọn một sản phẩm hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (int.TryParse(txbImportQuantity.Text.Trim(), out int quantity) && quantity > 0)
-            {
-                int totalCost = currentSellPrice * quantity;
-                txbCost.Text = totalCost.ToString();
-            }
-            else
-            {
-                txbCost.Text = "0.00";
-            }
-        }
-
-        private void btnImportProd_Click(object sender, EventArgs e)
-{
-    // Kiểm tra dữ liệu nhập
-    if (string.IsNullOrEmpty(txbImportProdName.Text.Trim()) ||
-        string.IsNullOrEmpty(txbImportQuantity.Text.Trim()) ||
-        !int.TryParse(txbImportQuantity.Text.Trim(), out int importQuantity) ||
-        importQuantity <= 0)
-    {
-        MessageBox.Show("Vui lòng nhập đầy đủ thông tin hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        return;
-    }
-
-    // Lấy thông tin từ các điều khiển
-    string productName = txbImportProdName.Text.Trim();
-    int cost = currentSellPrice * importQuantity; // Giá nhập dựa trên giá bán
-
-    using (var context = new AppDBContext())
-    {
-        // Tìm sản phẩm trong bảng Products
-        var product = context.Products.FirstOrDefault(p => p.Name == productName);
-        if (product == null)
-        {
-            MessageBox.Show("Không tìm thấy sản phẩm trong cơ sở dữ liệu.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        // Lấy SupplierID từ sản phẩm
-        int supplierId = product.SupplierID;
-
-        // Cập nhật số lượng sản phẩm
-        product.Quantity += importQuantity;
-
-        // Lưu lịch sử nhập hàng vào bảng ImportProduct
-        var importProduct = new Import
-        {
-            ProductID = product.ProductID,
-            SupplierID = supplierId,
-            Quantity = importQuantity,
-            Cost = cost, // Chuyển đổi sang kiểu int nếu cần
-            ImportAt = DateTime.Now // Thời gian nhập
-        };
-
-        context.ImportProducts.Add(importProduct);
-
-        try
-        {
-            // Lưu thay đổi vào cơ sở dữ liệu
-            context.SaveChanges();
-
-            // Thông báo thành công
-            MessageBox.Show("Nhập hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            // Làm mới dữ liệu hiển thị
-            LoadProductData();
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show($"Đã xảy ra lỗi khi lưu dữ liệu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-    }
-}
-
     }
 }
  

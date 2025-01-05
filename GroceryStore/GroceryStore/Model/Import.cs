@@ -28,7 +28,7 @@ namespace GroceryStore.Model
         public string? ImageLink { get; set; }
 
         [ForeignKey("UserID")]
-        public int? UserID { get; set; }
+        public int? UserID { get; set; }// ? NHÂN VIÊN ĐƯỢC NHẬP HÀNG LUÔN À BẠN
         public User? User { get; set; }
     }
 

@@ -30,17 +30,15 @@ namespace GroceryStore.Views
         private void LoadEmployeeDetail(User user)
         {
             // Gán giá trị các thuộc tính của User vào các điều khiển trên form
-            txbName.Text = user.UserName;              // Gán tên nhân viên
+            txbName.Text = user.FullName;              // Gán tên nhân viên
             txbEmail.Text = user.Email;            // Gán email
             txbPhone.Text = user.PhoneNumber;            // Gán số điện thoại
-            txbAddress.Text = user.Address;        // Gán địa chỉ
 
             // Gán giới tính vào ComboBox
             cboGender.SelectedItem = user.Gender switch
             {
-                0 => "Nam",
-                1 => "Nữ",
-                2 => "Phi nhị giới",
+                true => "Nữ",
+                false => "Nam",
                 _ => null
             };
 
@@ -120,40 +118,39 @@ namespace GroceryStore.Views
                 return;
             }
 
-            // Tạo đối tượng User từ thông tin nhập liệu
-            User user = new User
-            {
-                UserName = txbName.Text,
-                Email = txbEmail.Text,
-                PhoneNumber = txbPhone.Text,
-                Address = txbAddress.Text,
-                Gender = cboGender.SelectedItem switch
-                {
-                    "Nam" => 0,
-                    "Nữ" => 1,
-                    "Phi nhị giới" => 2,
-                    _ => 0
-                },
-                ImgLink = txbImgLink.Text // Lấy tên file ảnh từ TextBox
-            };
-
             try
             {
-                // Lưu thông tin vào cơ sở dữ liệu
                 using (var context = new AppDBContext())
                 {
-                    // Giả sử bạn đang thêm mới một nhân viên
-                    context.Users.Add(user);
-                    context.SaveChanges();
+                    // Lấy đối tượng User từ database dựa trên UserID
+                    var existingUser = context.Users.Find(employee.UserID);
+
+                    if (existingUser != null)
+                    {
+                        // Cập nhật thông tin từ form vào đối tượng database
+                        existingUser.FullName = txbName.Text;
+                        existingUser.Email = txbEmail.Text;
+                        existingUser.PhoneNumber = txbPhone.Text;
+                        existingUser.Gender = cboGender.SelectedItem switch
+                        {
+                            "Nữ" => true,
+                            "Nam" => false
+                        };
+                        existingUser.ImgLink = txbImgLink.Text;
+
+                        // Cập nhật employee hiện tại
+                        employee = existingUser;
+
+                        // Lưu thay đổi vào cơ sở dữ liệu
+                        context.SaveChanges();
+
+                        MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
-
-                // Hiển thị thông báo thành công
-                MessageBox.Show("Lưu thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Đã xảy ra lỗi khi lưu thông tin: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Đã xảy ra lỗi khi cập nhật thông tin: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

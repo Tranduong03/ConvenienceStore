@@ -82,14 +82,6 @@
             label15 = new Label();
             label17 = new Label();
             label18 = new Label();
-            tabImport = new TabPage();
-            txbCost = new TextBox();
-            label20 = new Label();
-            txbImportQuantity = new TextBox();
-            txbImportProdName = new TextBox();
-            label16 = new Label();
-            label19 = new Label();
-            btnImportProd = new Button();
             cbxArrange = new ComboBox();
             openFileDialog1 = new OpenFileDialog();
             label8 = new Label();
@@ -112,7 +104,6 @@
             ((System.ComponentModel.ISupportInitialize)tableChooseProduct).BeginInit();
             tabUpdate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picUpdateProdImage).BeginInit();
-            tabImport.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -256,7 +247,6 @@
             tabMenuWork.Controls.Add(tabAdd);
             tabMenuWork.Controls.Add(tabDelete);
             tabMenuWork.Controls.Add(tabUpdate);
-            tabMenuWork.Controls.Add(tabImport);
             tabMenuWork.Dock = DockStyle.Fill;
             tabMenuWork.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             tabMenuWork.ItemSize = new Size(120, 25);
@@ -644,94 +634,6 @@
             label18.TabIndex = 17;
             label18.Text = "Name:";
             // 
-            // tabImport
-            // 
-            tabImport.Controls.Add(txbCost);
-            tabImport.Controls.Add(label20);
-            tabImport.Controls.Add(txbImportQuantity);
-            tabImport.Controls.Add(txbImportProdName);
-            tabImport.Controls.Add(label16);
-            tabImport.Controls.Add(label19);
-            tabImport.Controls.Add(btnImportProd);
-            tabImport.Location = new Point(4, 29);
-            tabImport.Name = "tabImport";
-            tabImport.Size = new Size(1213, 174);
-            tabImport.TabIndex = 3;
-            tabImport.Text = "Import Goods";
-            tabImport.UseVisualStyleBackColor = true;
-            // 
-            // txbCost
-            // 
-            txbCost.Font = new Font("Tahoma", 9F);
-            txbCost.Location = new Point(149, 122);
-            txbCost.Name = "txbCost";
-            txbCost.PlaceholderText = "Tổng tiền";
-            txbCost.ReadOnly = true;
-            txbCost.Size = new Size(210, 26);
-            txbCost.TabIndex = 37;
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Tahoma", 9F);
-            label20.Location = new Point(30, 125);
-            label20.Name = "label20";
-            label20.Size = new Size(46, 18);
-            label20.TabIndex = 36;
-            label20.Text = "Total:";
-            // 
-            // txbImportQuantity
-            // 
-            txbImportQuantity.Font = new Font("Tahoma", 9F);
-            txbImportQuantity.Location = new Point(149, 73);
-            txbImportQuantity.Name = "txbImportQuantity";
-            txbImportQuantity.PlaceholderText = "Số lượng";
-            txbImportQuantity.Size = new Size(210, 26);
-            txbImportQuantity.TabIndex = 35;
-            txbImportQuantity.TextChanged += txbImportQuantity_TextChanged;
-            // 
-            // txbImportProdName
-            // 
-            txbImportProdName.Font = new Font("Tahoma", 9F);
-            txbImportProdName.Location = new Point(149, 27);
-            txbImportProdName.Name = "txbImportProdName";
-            txbImportProdName.PlaceholderText = "Chọn từ bảng";
-            txbImportProdName.ReadOnly = true;
-            txbImportProdName.Size = new Size(210, 26);
-            txbImportProdName.TabIndex = 33;
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Tahoma", 9F);
-            label16.Location = new Point(30, 76);
-            label16.Name = "label16";
-            label16.Size = new Size(68, 18);
-            label16.TabIndex = 34;
-            label16.Text = "Quantity:";
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Tahoma", 9F);
-            label19.Location = new Point(30, 30);
-            label19.Name = "label19";
-            label19.Size = new Size(52, 18);
-            label19.TabIndex = 32;
-            label19.Text = "Name:";
-            // 
-            // btnImportProd
-            // 
-            btnImportProd.BackColor = Color.Lime;
-            btnImportProd.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnImportProd.Location = new Point(412, 99);
-            btnImportProd.Name = "btnImportProd";
-            btnImportProd.Size = new Size(185, 44);
-            btnImportProd.TabIndex = 31;
-            btnImportProd.Text = "Import";
-            btnImportProd.UseVisualStyleBackColor = false;
-            btnImportProd.Click += btnImportProd_Click;
-            // 
             // cbxArrange
             // 
             cbxArrange.FormattingEnabled = true;
@@ -843,7 +745,7 @@
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.None;
+            // FormBorderStyle = FormBorderStyle.None;
             Name = "ProductView";
             Text = "Products";
             panel1.ResumeLayout(false);
@@ -862,8 +764,6 @@
             tabUpdate.ResumeLayout(false);
             tabUpdate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picUpdateProdImage).EndInit();
-            tabImport.ResumeLayout(false);
-            tabImport.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -906,7 +806,6 @@
         private Label label2;
         private TabPage tabDelete;
         private TabPage tabUpdate;
-        private TabPage tabImport;
         private DataGridViewTextBoxColumn colName;
         private DataGridViewTextBoxColumn colCategory;
         private DataGridViewTextBoxColumn colQuantity;
@@ -934,12 +833,5 @@
         private Label label15;
         private Label label17;
         private Label label18;
-        private Button btnImportProd;
-        private TextBox txbImportQuantity;
-        private TextBox txbImportProdName;
-        private Label label16;
-        private Label label19;
-        private Label label20;
-        private TextBox txbCost;
     }
 }

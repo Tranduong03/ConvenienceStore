@@ -20,6 +20,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="PdfSharp" Version="6.1.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -53,12 +54,22 @@
     <None Update="Resource\Images\mirinda_cam.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Resource\UserImages\default.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Resource\UserImages\default.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 	
 	
 	<ItemGroup>
 		<Content Include="Resource\Images\**\*" CopyToOutputDirectory="PreserveNewest" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="Resource\UserImages\**\*" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 
 

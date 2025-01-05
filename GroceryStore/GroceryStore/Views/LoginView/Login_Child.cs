@@ -67,42 +67,30 @@ namespace GroceryStore.Views
             txbPassword.UseSystemPasswordChar = !chkShowPassword.Checked;
         }
 
-        // Làm việc chuyển Form
-        private void linkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            var mainForm = this.Owner as Welcome;
-            if (mainForm != null)
-            {
-                var registerForm = new Register_Child();
-                mainForm.LoadFormIntoPanel();
-            }
-
-        }
-
         // Đăng nhập
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // mặc định tài khoản admin
-            // adminDKD
-            // 1
-
-            if(txbAccount.Text == "adminDKD" && txbPassword.Text == "1")
-            {
-                AdminForm adminForm = new AdminForm();
-                adminForm.Show();
-                this.Close();
-            }
-
-            // nếu không, lấy tài khoản từ CSDL
             using (var context = new AppDBContext())
             {
                 // Lấy dữ liệu từ form
                 string accountOrEmail = txbAccount.Text.Trim();
                 string password = txbPassword.Text.Trim();
 
+                if(accountOrEmail == "1" && password == "1") // Thử nghiệm đóng mở form, không quan trọng
+                {
+                    AdminForm adm = new AdminForm();
+                   
+                    var welcome_Form = this.Owner as Welcome;
+                    welcome_Form?.Hide(); // Đóng form Welcome nếu nó đang mở
+                    adm.FormClosed += (s, args) => welcome_Form.Close();
+                    adm.Show();
+                    this.Close();
+                   
+                }
+
                 // Tìm kiếm người dùng theo Account hoặc Email
                 var user = context.Users.FirstOrDefault(u =>
-                    u.Account == accountOrEmail || u.Email == accountOrEmail);
+                    u.UserName == accountOrEmail || u.Email == accountOrEmail);
 
                 if (user == null)
                 {
@@ -118,11 +106,22 @@ namespace GroceryStore.Views
                     StartWarningTimer();
                     return;
                 }
-                
-                // Đăng nhập thành công
-                MainForm mainForm = new MainForm(user); // Hoặc truyền dữ liệu nếu cần
-                this.Close();
-                mainForm.Show(); // Mở MainForm
+                Form nextForm;
+                // Đăng nhập thành công với ADMIN role
+                if (user.Role)
+                {
+                    nextForm = new AdminForm(user);
+                }
+                else // Đăng nhập bằng nhân viên
+                {
+                    nextForm = new MainForm(user);
+                }
+
+                var welcomeForm = this.Owner as Welcome;
+                welcomeForm.Hide(); // Ẩn Welcome thay vì đóng ngay
+                nextForm.FormClosed += (s, args) => welcomeForm.Close(); // Đóng Welcome khi form mới đóng
+                nextForm.Show(); // Hiển thị form mới
+                this.Close(); // Đóng Login_Child
             }
         }
 
@@ -136,6 +135,7 @@ namespace GroceryStore.Views
             timerWarning.Stop(); // Dừng lại nếu Timer đang chạy
             timerWarning.Start(); // Khởi động Timer
         }
+
 
 
     }

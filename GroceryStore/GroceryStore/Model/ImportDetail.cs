@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace GroceryStore.Model
 {
+    [Table("IMPORTDETAIL")]
     public class ImportDetail
     {
         [Key]

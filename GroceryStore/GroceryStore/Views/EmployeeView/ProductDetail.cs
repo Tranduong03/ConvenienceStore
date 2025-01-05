@@ -24,7 +24,7 @@ namespace GroceryStore.Views
         {
             InitializeComponent();
             prod = product;
-            lblProdName.Text = prod.Name;
+            lblProdName.Text = prod.ProductName;
             txbSellPrice.Text = prod.SellPrice.ToString();
             picProdImage.ImageLocation = Path.Combine("Resource", "Images", product.ImageLink);
         }
@@ -36,7 +36,7 @@ namespace GroceryStore.Views
 
         private void btnIncIndex_Click(object sender, EventArgs e)
         {
-            txbQuantity.Text = Math.Min(int.Parse(txbQuantity.Text) + 1, prod.Quantity).ToString();
+            txbQuantity.Text = Math.Min(int.Parse(txbQuantity.Text) + 1, prod.Stock).ToString();
         }
 
         // Sự kiện public để truyền thông tin về sản phẩm và số lượng

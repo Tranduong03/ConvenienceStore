@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GroceryStore.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20241218121442_RepeatAddDatabase")]
-    partial class RepeatAddDatabase
+    [Migration("20241223151517_NewModelUpdate")]
+    partial class NewModelUpdate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,40 +27,42 @@ namespace GroceryStore.Migrations
 
             modelBuilder.Entity("GroceryStore.Model.Bill", b =>
                 {
-                    b.Property<int>("BillId")
+                    b.Property<int>("BillID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BillId"));
-
-                    b.Property<string>("BillCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BillID"));
 
                     b.Property<DateTime>("BillDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CustomerID")
+                    b.Property<int?>("CustomerID")
                         .HasColumnType("int");
 
-                    b.Property<long>("TotalCost")
-                        .HasColumnType("bigint");
+                    b.Property<decimal?>("TotalCost")
+                        .HasColumnType("decimal(18,0)");
 
-                    b.Property<int>("UserID")
+                    b.Property<int?>("UserID")
                         .HasColumnType("int");
 
-                    b.HasKey("BillId");
+                    b.HasKey("BillID");
 
                     b.HasIndex("CustomerID");
 
                     b.HasIndex("UserID");
 
-                    b.ToTable("Bills");
+                    b.ToTable("BILL");
                 });
 
             modelBuilder.Entity("GroceryStore.Model.BillDetail", b =>
                 {
-                    b.Property<int>("BillId")
+                    b.Property<int>("BillDetailID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BillDetailID"));
+
+                    b.Property<int>("BillID")
                         .HasColumnType("int");
 
                     b.Property<int>("ProductID")
@@ -69,14 +71,16 @@ namespace GroceryStore.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<int>("SellPrice")
-                        .HasColumnType("int");
+                    b.Property<decimal>("UnitPrice")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("BillId", "ProductID");
+                    b.HasKey("BillDetailID");
+
+                    b.HasIndex("BillID");
 
                     b.HasIndex("ProductID");
 
-                    b.ToTable("BillDetails");
+                    b.ToTable("BILLDETAIL");
                 });
 
             modelBuilder.Entity("GroceryStore.Model.Category", b =>
@@ -87,58 +91,50 @@ namespace GroceryStore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryID"));
 
-                    b.Property<string>("Description")
+                    b.Property<string>("CName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                    b.Property<string>("Description")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.HasKey("CategoryID");
 
-                    b.ToTable("Categories");
+                    b.ToTable("CATEGORY");
                 });
 
             modelBuilder.Entity("GroceryStore.Model.Customer", b =>
                 {
-                    b.Property<int>("CustomerId")
+                    b.Property<int>("CustomerID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CustomerId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CustomerID"));
 
-                    b.Property<string>("Address")
+                    b.Property<string>("CustomerName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                    b.Property<float>("FCoin")
+                        .HasColumnType("real");
 
-                    b.Property<int>("Gender")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("Gender")
+                        .HasColumnType("bit");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
 
-                    b.Property<DateTime>("dateJoin")
-                        .HasColumnType("datetime2");
+                    b.HasKey("CustomerID");
 
-                    b.HasKey("CustomerId");
-
-                    b.ToTable("Customers");
+                    b.ToTable("CUSTOMER");
                 });
 
-            modelBuilder.Entity("GroceryStore.Model.ImportProduct", b =>
+            modelBuilder.Entity("GroceryStore.Model.Import", b =>
                 {
                     b.Property<int>("ImportID")
                         .ValueGeneratedOnAdd()
@@ -146,11 +142,39 @@ namespace GroceryStore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ImportID"));
 
-                    b.Property<int>("Cost")
+                    b.Property<string>("ImageLink")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.Property<DateTime>("ImportDate")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("Note")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("TotalCost")
+                        .HasColumnType("decimal(18,0)");
+
+                    b.Property<int?>("UserID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("ImportAt")
-                        .HasColumnType("datetime2");
+                    b.HasKey("ImportID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("IMPORT");
+                });
+
+            modelBuilder.Entity("GroceryStore.Model.ImportDetail", b =>
+                {
+                    b.Property<int>("DetailID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DetailID"));
+
+                    b.Property<int>("ImportID")
+                        .HasColumnType("int");
 
                     b.Property<int>("ProductID")
                         .HasColumnType("int");
@@ -161,13 +185,18 @@ namespace GroceryStore.Migrations
                     b.Property<int>("SupplierID")
                         .HasColumnType("int");
 
-                    b.HasKey("ImportID");
+                    b.Property<decimal>("UnitPrice")
+                        .HasColumnType("decimal(10,0)");
+
+                    b.HasKey("DetailID");
+
+                    b.HasIndex("ImportID");
 
                     b.HasIndex("ProductID");
 
                     b.HasIndex("SupplierID");
 
-                    b.ToTable("ImportProducts");
+                    b.ToTable("IMPORTDETAIL");
                 });
 
             modelBuilder.Entity("GroceryStore.Model.Product", b =>
@@ -178,31 +207,29 @@ namespace GroceryStore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductID"));
 
-                    b.Property<int>("CategoryID")
+                    b.Property<int?>("CategoryID")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ImageLink")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("ProductName")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
-                    b.Property<int>("Quantity")
+                    b.Property<decimal>("SellPrice")
+                        .HasColumnType("decimal(10,0)");
+
+                    b.Property<int>("Stock")
                         .HasColumnType("int");
 
-                    b.Property<int>("SellPrice")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SupplierID")
+                    b.Property<int?>("SupplierID")
                         .HasColumnType("int");
 
                     b.HasKey("ProductID");
@@ -211,7 +238,7 @@ namespace GroceryStore.Migrations
 
                     b.HasIndex("SupplierID");
 
-                    b.ToTable("Products");
+                    b.ToTable("PRODUCT");
                 });
 
             modelBuilder.Entity("GroceryStore.Model.Supplier", b =>
@@ -223,28 +250,25 @@ namespace GroceryStore.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SupplierID"));
 
                     b.Property<string>("Address")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Contact")
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
-                    b.Property<string>("FAX")
+                    b.Property<string>("SupplierName")
                         .IsRequired()
-                        .HasMaxLength(24)
-                        .HasColumnType("nvarchar(24)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.HasKey("SupplierID");
 
-                    b.ToTable("Suppliers");
+                    b.ToTable("SUPPLIER");
                 });
 
             modelBuilder.Entity("GroceryStore.Model.User", b =>
@@ -255,58 +279,52 @@ namespace GroceryStore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserID"));
 
-                    b.Property<string>("Account")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("nvarchar(32)");
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
-                    b.Property<int>("Gender")
-                        .HasColumnType("int");
+                    b.Property<string>("FullName")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.Property<bool?>("Gender")
+                        .HasColumnType("bit");
 
                     b.Property<string>("ImgLink")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasMaxLength(61)
-                        .HasColumnType("nvarchar(61)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
+
+                    b.Property<bool>("Role")
+                        .HasColumnType("bit");
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.HasKey("UserID");
 
-                    b.ToTable("Users");
+                    b.ToTable("USERS");
                 });
 
             modelBuilder.Entity("GroceryStore.Model.Bill", b =>
                 {
                     b.HasOne("GroceryStore.Model.Customer", "Customer")
                         .WithMany()
-                        .HasForeignKey("CustomerID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CustomerID");
 
                     b.HasOne("GroceryStore.Model.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserID");
 
                     b.Navigation("Customer");
 
@@ -317,7 +335,7 @@ namespace GroceryStore.Migrations
                 {
                     b.HasOne("GroceryStore.Model.Bill", "Bill")
                         .WithMany()
-                        .HasForeignKey("BillId")
+                        .HasForeignKey("BillID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -332,8 +350,23 @@ namespace GroceryStore.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("GroceryStore.Model.ImportProduct", b =>
+            modelBuilder.Entity("GroceryStore.Model.Import", b =>
                 {
+                    b.HasOne("GroceryStore.Model.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserID");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("GroceryStore.Model.ImportDetail", b =>
+                {
+                    b.HasOne("GroceryStore.Model.Import", "Import")
+                        .WithMany()
+                        .HasForeignKey("ImportID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("GroceryStore.Model.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductID")
@@ -346,6 +379,8 @@ namespace GroceryStore.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Import");
+
                     b.Navigation("Product");
 
                     b.Navigation("Supplier");
@@ -355,15 +390,11 @@ namespace GroceryStore.Migrations
                 {
                     b.HasOne("GroceryStore.Model.Category", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryID");
 
                     b.HasOne("GroceryStore.Model.Supplier", "Supplier")
                         .WithMany()
-                        .HasForeignKey("SupplierID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SupplierID");
 
                     b.Navigation("Category");
 
