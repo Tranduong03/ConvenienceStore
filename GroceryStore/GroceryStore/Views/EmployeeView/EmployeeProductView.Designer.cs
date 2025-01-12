@@ -146,9 +146,9 @@
             label1.Font = new Font("Tahoma", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(57, 10);
             label1.Name = "label1";
-            label1.Size = new Size(117, 36);
+            label1.Size = new Size(142, 36);
             label1.TabIndex = 1;
-            label1.Text = "Product";
+            label1.Text = "Bán hàng";
             // 
             // pictureBox1
             // 
@@ -184,7 +184,7 @@
             txbSearch.Font = new Font("Tahoma", 10F);
             txbSearch.Location = new Point(3, 3);
             txbSearch.Name = "txbSearch";
-            txbSearch.PlaceholderText = "Find Product Here";
+            txbSearch.PlaceholderText = "Tìm mặt hàng tại đây";
             txbSearch.Size = new Size(326, 28);
             txbSearch.TabIndex = 0;
             // 

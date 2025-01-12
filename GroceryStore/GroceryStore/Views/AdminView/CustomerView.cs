@@ -47,12 +47,14 @@ namespace GroceryStore.Views.AdminView
         {
             lblCurrentPage.Text = currentPage.ToString();
             tableCustomerList.Rows.Clear();
+            string keyword = txbSearch.Text.Trim();
             using (var context = new AppDBContext())
             {
-                pageNumber = (context.Customers.Count() - 1) / 21 + 1;
+                pageNumber = (context.Customers.Where(c => c.CustomerName.Contains(keyword)).Count() - 1) / 21 + 1;
+                if(currentPage > pageNumber) currentPage = pageNumber;
                 lblMaxPage.Text = pageNumber.ToString();
                 // Lấy danh sách khách hàng từ database, chỉ lấy các trường cần thiết
-                var customers = context.Customers.Where(c => c.CustomerID != 0)
+                var customers = context.Customers.Where(c => c.CustomerID != 0 && c.CustomerName.Contains(keyword))
                     .Select(c => new
                     {
                         c.CustomerID,
@@ -219,7 +221,7 @@ namespace GroceryStore.Views.AdminView
         private void btnAdd_Click(object sender, EventArgs e)
         {
             groupBox1.Visible = true;
-        }      
+        }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
@@ -283,7 +285,11 @@ namespace GroceryStore.Views.AdminView
                 MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-       
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            LoadCustomerList();
+        }
     }
 
 

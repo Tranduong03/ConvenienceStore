@@ -76,7 +76,7 @@ namespace GroceryStore.Views
                 var startOfMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
                 var endOfMonth = startOfMonth.AddMonths(1).AddDays(-1);
                 var monthlyRevenue = context.Bills
-                                            .Where(b => b.BillDate >= startOfMonth && b.BillDate <= endOfMonth)
+                                            .Where(b => b.BillDate >= DateTime.Now.AddDays(-30) && b.BillDate <= DateTime.Now)
                                             .Sum(b => b.TotalCost ?? 0);
 
                 decimal monthlyIncome = monthlyRevenue * 0.2m;

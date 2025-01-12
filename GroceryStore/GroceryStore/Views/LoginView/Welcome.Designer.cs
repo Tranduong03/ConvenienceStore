@@ -117,6 +117,7 @@
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(800, 650);
             Controls.Add(tableLayoutPanel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             KeyPreview = true;
             MaximizeBox = false;
             Name = "Welcome";

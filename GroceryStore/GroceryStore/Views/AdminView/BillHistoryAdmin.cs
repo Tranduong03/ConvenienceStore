@@ -44,7 +44,7 @@ namespace GroceryStore.Views.AdminView
                                 && (string.IsNullOrEmpty(customerSearch) ||
                                     (b.Customer != null && b.Customer.CustomerName.Contains(customerSearch)))
                                 && (string.IsNullOrEmpty(userSearch) ||
-                                    (b.User != null && b.User.UserName.Contains(userSearch))))
+                                    (b.User != null && b.User.FullName.Contains(userSearch))))
                     .Select(b => new
                     {
                         BillID = b.BillID,

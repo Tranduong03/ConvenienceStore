@@ -338,7 +338,7 @@
             txbSearch.Font = new Font("Tahoma", 10F);
             txbSearch.Location = new Point(3, 3);
             txbSearch.Name = "txbSearch";
-            txbSearch.PlaceholderText = "Find Customer Here";
+            txbSearch.PlaceholderText = "Tìm theo khách hàng";
             txbSearch.Size = new Size(291, 28);
             txbSearch.TabIndex = 0;
             // 
@@ -347,9 +347,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(3, 152);
             label1.Name = "label1";
-            label1.Size = new Size(74, 21);
+            label1.Size = new Size(62, 21);
             label1.TabIndex = 75;
-            label1.Text = "Fill with:";
+            label1.Text = "Lọc từ:";
             // 
             // panel2
             // 
@@ -368,7 +368,7 @@
             btnPrintBill.Name = "btnPrintBill";
             btnPrintBill.Size = new Size(162, 35);
             btnPrintBill.TabIndex = 2;
-            btnPrintBill.Text = "Print Bill";
+            btnPrintBill.Text = "In hóa đơn";
             btnPrintBill.UseVisualStyleBackColor = true;
             btnPrintBill.Click += btnPrintBill_Click;
             // 
@@ -379,9 +379,9 @@
             label2.Font = new Font("Tahoma", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.Location = new Point(57, 8);
             label2.Name = "label2";
-            label2.Size = new Size(155, 36);
+            label2.Size = new Size(341, 36);
             label2.TabIndex = 1;
-            label2.Text = "Bill History";
+            label2.Text = "Lịch sử hóa đơn cá nhân";
             // 
             // pictureBox1
             // 
@@ -406,9 +406,9 @@
             label3.AutoSize = true;
             label3.Location = new Point(263, 152);
             label3.Name = "label3";
-            label3.Size = new Size(36, 21);
+            label3.Size = new Size(44, 21);
             label3.TabIndex = 77;
-            label3.Text = "to :";
+            label3.Text = "đến:";
             // 
             // dtpEnd
             // 

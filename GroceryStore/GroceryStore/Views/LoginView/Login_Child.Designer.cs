@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login_Child));
             pnlLogin = new Panel();
             lblWarning = new Label();
-            linkForgotPassword = new LinkLabel();
             chkShowPassword = new CheckBox();
             btnLogin = new Button();
             pictureBox2 = new PictureBox();
@@ -54,7 +53,6 @@
             // pnlLogin
             // 
             pnlLogin.Controls.Add(lblWarning);
-            pnlLogin.Controls.Add(linkForgotPassword);
             pnlLogin.Controls.Add(chkShowPassword);
             pnlLogin.Controls.Add(btnLogin);
             pnlLogin.Controls.Add(pictureBox2);
@@ -78,16 +76,6 @@
             lblWarning.Size = new Size(20, 20);
             lblWarning.TabIndex = 9;
             // 
-            // linkForgotPassword
-            // 
-            linkForgotPassword.AutoSize = true;
-            linkForgotPassword.Location = new Point(277, 396);
-            linkForgotPassword.Name = "linkForgotPassword";
-            linkForgotPassword.Size = new Size(109, 20);
-            linkForgotPassword.TabIndex = 6;
-            linkForgotPassword.TabStop = true;
-            linkForgotPassword.Text = "Quên mật khẩu";
-            // 
             // chkShowPassword
             // 
             chkShowPassword.AutoSize = true;
@@ -108,7 +96,7 @@
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(261, 55);
             btnLogin.TabIndex = 4;
-            btnLogin.Text = "Login";
+            btnLogin.Text = "Đăng nhập";
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
             // 
@@ -230,7 +218,6 @@
         #endregion
 
         public Panel pnlLogin;
-        private LinkLabel linkForgotPassword;
         private CheckBox chkShowPassword;
         private Button btnLogin;
         private PictureBox pictureBox2;

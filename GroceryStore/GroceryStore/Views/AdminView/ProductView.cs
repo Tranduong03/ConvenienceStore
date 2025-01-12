@@ -103,7 +103,7 @@ namespace GroceryStore.Views
         private void LoadProductData()
         {
             string searchQuery = txbSearch.Text; // Lấy từ khóa tìm kiếm
-            string sortOrder = cbxArrange.SelectedItem?.ToString() ?? "Giá (từ thấp đến cao)"; // Lấy cách sắp xếp
+            
 
             using (var context = new AppDBContext())
             {
@@ -181,11 +181,6 @@ namespace GroceryStore.Views
             LoadProductData();
         }
 
-        private void btnArrange_Click(object sender, EventArgs e)
-        {
-            currentPage = 1;
-            LoadProductData();
-        }
         /*
         *
         *   Kết thúc xử lí trên bảng 

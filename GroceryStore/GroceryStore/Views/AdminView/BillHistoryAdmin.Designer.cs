@@ -87,9 +87,9 @@
             label3.AutoSize = true;
             label3.Location = new Point(279, 155);
             label3.Name = "label3";
-            label3.Size = new Size(30, 20);
+            label3.Size = new Size(37, 20);
             label3.TabIndex = 84;
-            label3.Text = "to :";
+            label3.Text = "đến:";
             // 
             // dtpStart
             // 
@@ -105,9 +105,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(19, 155);
             label1.Name = "label1";
-            label1.Size = new Size(63, 20);
+            label1.Size = new Size(59, 20);
             label1.TabIndex = 82;
-            label1.Text = "Fill with:";
+            label1.Text = "Lọc với:";
             // 
             // panel3
             // 
@@ -122,7 +122,7 @@
             txbCustomerSearch.Font = new Font("Tahoma", 10F);
             txbCustomerSearch.Location = new Point(2, 3);
             txbCustomerSearch.Name = "txbCustomerSearch";
-            txbCustomerSearch.PlaceholderText = "Find Customer Here";
+            txbCustomerSearch.PlaceholderText = "Tìm theo tên khách ";
             txbCustomerSearch.Size = new Size(291, 28);
             txbCustomerSearch.TabIndex = 0;
             // 
@@ -160,9 +160,9 @@
             label2.Font = new Font("Tahoma", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.Location = new Point(57, 9);
             label2.Name = "label2";
-            label2.Size = new Size(155, 36);
+            label2.Size = new Size(226, 36);
             label2.TabIndex = 1;
-            label2.Text = "Bill History";
+            label2.Text = "Lịch sử hóa đơn";
             // 
             // pictureBox1
             // 
@@ -320,7 +320,7 @@
             txbEmployeeSearch.Font = new Font("Tahoma", 10F);
             txbEmployeeSearch.Location = new Point(2, 3);
             txbEmployeeSearch.Name = "txbEmployeeSearch";
-            txbEmployeeSearch.PlaceholderText = "Find Employee Here";
+            txbEmployeeSearch.PlaceholderText = "Tìm theo tên nhân viên";
             txbEmployeeSearch.Size = new Size(291, 28);
             txbEmployeeSearch.TabIndex = 0;
             // 

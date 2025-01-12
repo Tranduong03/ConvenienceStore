@@ -127,11 +127,11 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = SystemColors.ActiveCaption;
-            label1.Location = new Point(113, 188);
+            label1.Location = new Point(117, 200);
             label1.Name = "label1";
-            label1.Size = new Size(123, 29);
+            label1.Size = new Size(121, 29);
             label1.TabIndex = 1;
-            label1.Text = "WELCOME";
+            label1.Text = "XIN CHÀO";
             // 
             // panel1
             // 
@@ -336,6 +336,7 @@
             ClientSize = new Size(1598, 900);
             Controls.Add(pnlWork);
             Controls.Add(sidebarMenu);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "AdminForm";
             StartPosition = FormStartPosition.CenterScreen;

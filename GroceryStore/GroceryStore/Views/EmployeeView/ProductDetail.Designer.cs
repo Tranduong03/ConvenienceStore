@@ -66,7 +66,7 @@
             btnPurchase.Name = "btnPurchase";
             btnPurchase.Size = new Size(213, 42);
             btnPurchase.TabIndex = 17;
-            btnPurchase.Text = "Add-in Purchase";
+            btnPurchase.Text = "Thêm vào giỏ hàng";
             btnPurchase.UseVisualStyleBackColor = false;
             btnPurchase.Click += btnPurchase_Click;
             // 

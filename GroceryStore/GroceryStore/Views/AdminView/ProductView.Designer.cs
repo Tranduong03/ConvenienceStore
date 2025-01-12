@@ -46,6 +46,10 @@
             tabMenuWork = new TabControl();
             tabAdd = new TabPage();
             txbAddImgLink = new TextBox();
+            txbAddDescription = new TextBox();
+            txbAddQuantity = new TextBox();
+            txbAddSellPrice = new TextBox();
+            txbAddName = new TextBox();
             cbxSupplier_tabAdd = new ComboBox();
             label11 = new Label();
             btnSaveNewProduct = new Button();
@@ -54,16 +58,15 @@
             label7 = new Label();
             cbxCategory_tabAdd = new ComboBox();
             label6 = new Label();
-            txbAddDescription = new TextBox();
-            txbAddQuantity = new TextBox();
-            txbAddSellPrice = new TextBox();
-            txbAddName = new TextBox();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             tabUpdate = new TabPage();
             txbUpdateImgLink = new TextBox();
+            txbUpdateDescription = new TextBox();
+            txbUpdateSellPrice = new TextBox();
+            txbUpdateName = new TextBox();
             cbxSupplier_tabUpdate = new ComboBox();
             label12 = new Label();
             btnUpdateProd = new Button();
@@ -72,22 +75,16 @@
             label13 = new Label();
             cbxCategory_tabUpdate = new ComboBox();
             label14 = new Label();
-            txbUpdateDescription = new TextBox();
-            txbUpdateSellPrice = new TextBox();
-            txbUpdateName = new TextBox();
             label15 = new Label();
             label17 = new Label();
             label18 = new Label();
-            cbxArrange = new ComboBox();
             openFileDialog1 = new OpenFileDialog();
-            label8 = new Label();
             label9 = new Label();
             lblCurrPage = new Label();
             label10 = new Label();
             lblMaxPage = new Label();
             btnNext = new Button();
             btnPrev = new Button();
-            btnArrange = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -117,9 +114,9 @@
             label1.Font = new Font("Tahoma", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(57, 10);
             label1.Name = "label1";
-            label1.Size = new Size(117, 36);
+            label1.Size = new Size(149, 36);
             label1.TabIndex = 1;
-            label1.Text = "Product";
+            label1.Text = "Sản phẩm";
             // 
             // pictureBox1
             // 
@@ -164,7 +161,7 @@
             txbSearch.Font = new Font("Tahoma", 14F);
             txbSearch.Location = new Point(3, 3);
             txbSearch.Name = "txbSearch";
-            txbSearch.PlaceholderText = "Find Product Here";
+            txbSearch.PlaceholderText = "Tìm sản phẩm tại đây";
             txbSearch.Size = new Size(326, 36);
             txbSearch.TabIndex = 0;
             txbSearch.TextChanged += txbSearch_TextChanged;
@@ -188,7 +185,7 @@
             // colName
             // 
             colName.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            colName.HeaderText = "Name";
+            colName.HeaderText = "Tên sản phẩm";
             colName.MinimumWidth = 6;
             colName.Name = "colName";
             colName.ReadOnly = true;
@@ -197,7 +194,7 @@
             // colCategory
             // 
             colCategory.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            colCategory.HeaderText = "Category";
+            colCategory.HeaderText = "Phân loại";
             colCategory.MinimumWidth = 6;
             colCategory.Name = "colCategory";
             colCategory.ReadOnly = true;
@@ -206,7 +203,7 @@
             // colQuantity
             // 
             colQuantity.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            colQuantity.HeaderText = "Quantity";
+            colQuantity.HeaderText = "Tồn kho";
             colQuantity.MinimumWidth = 6;
             colQuantity.Name = "colQuantity";
             colQuantity.ReadOnly = true;
@@ -215,7 +212,7 @@
             // colSellPrice
             // 
             colSellPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            colSellPrice.HeaderText = "Sell Price";
+            colSellPrice.HeaderText = "Giá bán";
             colSellPrice.MinimumWidth = 6;
             colSellPrice.Name = "colSellPrice";
             colSellPrice.ReadOnly = true;
@@ -223,7 +220,7 @@
             // 
             // colDescription
             // 
-            colDescription.HeaderText = "Description";
+            colDescription.HeaderText = "Mô tả";
             colDescription.MinimumWidth = 6;
             colDescription.Name = "colDescription";
             colDescription.ReadOnly = true;
@@ -254,6 +251,10 @@
             // tabAdd
             // 
             tabAdd.Controls.Add(txbAddImgLink);
+            tabAdd.Controls.Add(txbAddDescription);
+            tabAdd.Controls.Add(txbAddQuantity);
+            tabAdd.Controls.Add(txbAddSellPrice);
+            tabAdd.Controls.Add(txbAddName);
             tabAdd.Controls.Add(cbxSupplier_tabAdd);
             tabAdd.Controls.Add(label11);
             tabAdd.Controls.Add(btnSaveNewProduct);
@@ -262,10 +263,6 @@
             tabAdd.Controls.Add(label7);
             tabAdd.Controls.Add(cbxCategory_tabAdd);
             tabAdd.Controls.Add(label6);
-            tabAdd.Controls.Add(txbAddDescription);
-            tabAdd.Controls.Add(txbAddQuantity);
-            tabAdd.Controls.Add(txbAddSellPrice);
-            tabAdd.Controls.Add(txbAddName);
             tabAdd.Controls.Add(label5);
             tabAdd.Controls.Add(label4);
             tabAdd.Controls.Add(label3);
@@ -276,7 +273,7 @@
             tabAdd.Padding = new Padding(3);
             tabAdd.Size = new Size(1213, 174);
             tabAdd.TabIndex = 0;
-            tabAdd.Text = "Add";
+            tabAdd.Text = "Thêm";
             tabAdd.UseVisualStyleBackColor = true;
             // 
             // txbAddImgLink
@@ -285,80 +282,6 @@
             txbAddImgLink.Name = "txbAddImgLink";
             txbAddImgLink.Size = new Size(267, 26);
             txbAddImgLink.TabIndex = 16;
-            // 
-            // cbxSupplier_tabAdd
-            // 
-            cbxSupplier_tabAdd.FormattingEnabled = true;
-            cbxSupplier_tabAdd.Location = new Point(513, 120);
-            cbxSupplier_tabAdd.Name = "cbxSupplier_tabAdd";
-            cbxSupplier_tabAdd.Size = new Size(209, 26);
-            cbxSupplier_tabAdd.TabIndex = 15;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(392, 123);
-            label11.Name = "label11";
-            label11.Size = new Size(62, 18);
-            label11.TabIndex = 14;
-            label11.Text = "Supplier:";
-            // 
-            // btnSaveNewProduct
-            // 
-            btnSaveNewProduct.BackColor = Color.Lime;
-            btnSaveNewProduct.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSaveNewProduct.Location = new Point(823, 102);
-            btnSaveNewProduct.Name = "btnSaveNewProduct";
-            btnSaveNewProduct.Size = new Size(185, 44);
-            btnSaveNewProduct.TabIndex = 13;
-            btnSaveNewProduct.Text = "Add Product";
-            btnSaveNewProduct.UseVisualStyleBackColor = false;
-            btnSaveNewProduct.Click += btnSaveNewProduct_Click;
-            // 
-            // btnSelectImage
-            // 
-            btnSelectImage.Location = new Point(914, 12);
-            btnSelectImage.Name = "btnSelectImage";
-            btnSelectImage.Size = new Size(109, 29);
-            btnSelectImage.TabIndex = 12;
-            btnSelectImage.Text = "Select Image";
-            btnSelectImage.UseVisualStyleBackColor = true;
-            btnSelectImage.Click += btnSelectImage_Click;
-            // 
-            // picAddProdImage
-            // 
-            picAddProdImage.Location = new Point(823, 10);
-            picAddProdImage.Name = "picAddProdImage";
-            picAddProdImage.Size = new Size(80, 80);
-            picAddProdImage.SizeMode = PictureBoxSizeMode.Zoom;
-            picAddProdImage.TabIndex = 11;
-            picAddProdImage.TabStop = false;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(756, 15);
-            label7.Name = "label7";
-            label7.Size = new Size(61, 18);
-            label7.TabIndex = 10;
-            label7.Text = "Image: ";
-            // 
-            // cbxCategory_tabAdd
-            // 
-            cbxCategory_tabAdd.FormattingEnabled = true;
-            cbxCategory_tabAdd.Location = new Point(513, 76);
-            cbxCategory_tabAdd.Name = "cbxCategory_tabAdd";
-            cbxCategory_tabAdd.Size = new Size(209, 26);
-            cbxCategory_tabAdd.TabIndex = 9;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(393, 79);
-            label6.Name = "label6";
-            label6.Size = new Size(72, 18);
-            label6.TabIndex = 8;
-            label6.Text = "Category:";
             // 
             // txbAddDescription
             // 
@@ -390,45 +313,122 @@
             txbAddName.Size = new Size(210, 26);
             txbAddName.TabIndex = 1;
             // 
+            // cbxSupplier_tabAdd
+            // 
+            cbxSupplier_tabAdd.FormattingEnabled = true;
+            cbxSupplier_tabAdd.Location = new Point(513, 120);
+            cbxSupplier_tabAdd.Name = "cbxSupplier_tabAdd";
+            cbxSupplier_tabAdd.Size = new Size(209, 26);
+            cbxSupplier_tabAdd.TabIndex = 15;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(393, 128);
+            label11.Name = "label11";
+            label11.Size = new Size(98, 18);
+            label11.TabIndex = 14;
+            label11.Text = "Nhà cung cấp";
+            // 
+            // btnSaveNewProduct
+            // 
+            btnSaveNewProduct.BackColor = Color.Lime;
+            btnSaveNewProduct.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSaveNewProduct.Location = new Point(823, 102);
+            btnSaveNewProduct.Name = "btnSaveNewProduct";
+            btnSaveNewProduct.Size = new Size(185, 44);
+            btnSaveNewProduct.TabIndex = 13;
+            btnSaveNewProduct.Text = "Thêm";
+            btnSaveNewProduct.UseVisualStyleBackColor = false;
+            btnSaveNewProduct.Click += btnSaveNewProduct_Click;
+            // 
+            // btnSelectImage
+            // 
+            btnSelectImage.Location = new Point(914, 12);
+            btnSelectImage.Name = "btnSelectImage";
+            btnSelectImage.Size = new Size(109, 29);
+            btnSelectImage.TabIndex = 12;
+            btnSelectImage.Text = "Select Image";
+            btnSelectImage.UseVisualStyleBackColor = true;
+            btnSelectImage.Click += btnSelectImage_Click;
+            // 
+            // picAddProdImage
+            // 
+            picAddProdImage.Location = new Point(823, 10);
+            picAddProdImage.Name = "picAddProdImage";
+            picAddProdImage.Size = new Size(80, 80);
+            picAddProdImage.SizeMode = PictureBoxSizeMode.Zoom;
+            picAddProdImage.TabIndex = 11;
+            picAddProdImage.TabStop = false;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(756, 15);
+            label7.Name = "label7";
+            label7.Size = new Size(38, 18);
+            label7.TabIndex = 10;
+            label7.Text = "Ảnh:";
+            // 
+            // cbxCategory_tabAdd
+            // 
+            cbxCategory_tabAdd.FormattingEnabled = true;
+            cbxCategory_tabAdd.Location = new Point(513, 76);
+            cbxCategory_tabAdd.Name = "cbxCategory_tabAdd";
+            cbxCategory_tabAdd.Size = new Size(209, 26);
+            cbxCategory_tabAdd.TabIndex = 9;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(393, 79);
+            label6.Name = "label6";
+            label6.Size = new Size(70, 18);
+            label6.TabIndex = 8;
+            label6.Text = "Phân loại:";
+            // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Location = new Point(393, 18);
             label5.Name = "label5";
-            label5.Size = new Size(83, 18);
+            label5.Size = new Size(51, 18);
             label5.TabIndex = 6;
-            label5.Text = "Description:";
+            label5.Text = "Mô tả:";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Location = new Point(15, 117);
             label4.Name = "label4";
-            label4.Size = new Size(68, 18);
+            label4.Size = new Size(69, 18);
             label4.TabIndex = 4;
-            label4.Text = "Quantity:";
+            label4.Text = "Số lượng:";
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Location = new Point(15, 67);
             label3.Name = "label3";
-            label3.Size = new Size(68, 18);
+            label3.Size = new Size(62, 18);
             label3.TabIndex = 2;
-            label3.Text = "Sell Price:";
+            label3.Text = "Giá bán:";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(15, 18);
             label2.Name = "label2";
-            label2.Size = new Size(52, 18);
+            label2.Size = new Size(39, 18);
             label2.TabIndex = 0;
-            label2.Text = "Name:";
+            label2.Text = "Tên:";
             // 
             // tabUpdate
             // 
             tabUpdate.Controls.Add(txbUpdateImgLink);
+            tabUpdate.Controls.Add(txbUpdateDescription);
+            tabUpdate.Controls.Add(txbUpdateSellPrice);
+            tabUpdate.Controls.Add(txbUpdateName);
             tabUpdate.Controls.Add(cbxSupplier_tabUpdate);
             tabUpdate.Controls.Add(label12);
             tabUpdate.Controls.Add(btnUpdateProd);
@@ -437,9 +437,6 @@
             tabUpdate.Controls.Add(label13);
             tabUpdate.Controls.Add(cbxCategory_tabUpdate);
             tabUpdate.Controls.Add(label14);
-            tabUpdate.Controls.Add(txbUpdateDescription);
-            tabUpdate.Controls.Add(txbUpdateSellPrice);
-            tabUpdate.Controls.Add(txbUpdateName);
             tabUpdate.Controls.Add(label15);
             tabUpdate.Controls.Add(label17);
             tabUpdate.Controls.Add(label18);
@@ -448,7 +445,7 @@
             tabUpdate.Name = "tabUpdate";
             tabUpdate.Size = new Size(1213, 174);
             tabUpdate.TabIndex = 2;
-            tabUpdate.Text = "Update";
+            tabUpdate.Text = "Cập nhật";
             tabUpdate.UseVisualStyleBackColor = true;
             // 
             // txbUpdateImgLink
@@ -457,6 +454,29 @@
             txbUpdateImgLink.Name = "txbUpdateImgLink";
             txbUpdateImgLink.Size = new Size(267, 26);
             txbUpdateImgLink.TabIndex = 33;
+            // 
+            // txbUpdateDescription
+            // 
+            txbUpdateDescription.Location = new Point(512, 10);
+            txbUpdateDescription.Multiline = true;
+            txbUpdateDescription.Name = "txbUpdateDescription";
+            txbUpdateDescription.ScrollBars = ScrollBars.Vertical;
+            txbUpdateDescription.Size = new Size(210, 60);
+            txbUpdateDescription.TabIndex = 24;
+            // 
+            // txbUpdateSellPrice
+            // 
+            txbUpdateSellPrice.Location = new Point(134, 64);
+            txbUpdateSellPrice.Name = "txbUpdateSellPrice";
+            txbUpdateSellPrice.Size = new Size(210, 26);
+            txbUpdateSellPrice.TabIndex = 20;
+            // 
+            // txbUpdateName
+            // 
+            txbUpdateName.Location = new Point(134, 15);
+            txbUpdateName.Name = "txbUpdateName";
+            txbUpdateName.Size = new Size(210, 26);
+            txbUpdateName.TabIndex = 18;
             // 
             // cbxSupplier_tabUpdate
             // 
@@ -532,29 +552,6 @@
             label14.TabIndex = 25;
             label14.Text = "Category:";
             // 
-            // txbUpdateDescription
-            // 
-            txbUpdateDescription.Location = new Point(512, 10);
-            txbUpdateDescription.Multiline = true;
-            txbUpdateDescription.Name = "txbUpdateDescription";
-            txbUpdateDescription.ScrollBars = ScrollBars.Vertical;
-            txbUpdateDescription.Size = new Size(210, 60);
-            txbUpdateDescription.TabIndex = 24;
-            // 
-            // txbUpdateSellPrice
-            // 
-            txbUpdateSellPrice.Location = new Point(134, 64);
-            txbUpdateSellPrice.Name = "txbUpdateSellPrice";
-            txbUpdateSellPrice.Size = new Size(210, 26);
-            txbUpdateSellPrice.TabIndex = 20;
-            // 
-            // txbUpdateName
-            // 
-            txbUpdateName.Location = new Point(134, 15);
-            txbUpdateName.Name = "txbUpdateName";
-            txbUpdateName.Size = new Size(210, 26);
-            txbUpdateName.TabIndex = 18;
-            // 
             // label15
             // 
             label15.AutoSize = true;
@@ -582,37 +579,19 @@
             label18.TabIndex = 17;
             label18.Text = "Name:";
             // 
-            // cbxArrange
-            // 
-            cbxArrange.FormattingEnabled = true;
-            cbxArrange.Items.AddRange(new object[] { "Giá (từ thấp đến cao)", "Giá (từ cao đến thấp)", "Tên (A-Z)", "Tên (Z-A)" });
-            cbxArrange.Location = new Point(843, 92);
-            cbxArrange.Name = "cbxArrange";
-            cbxArrange.Size = new Size(257, 28);
-            cbxArrange.TabIndex = 5;
-            // 
             // openFileDialog1
             // 
             openFileDialog1.FileName = "openFileDialog1";
             openFileDialog1.RestoreDirectory = true;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(736, 95);
-            label8.Name = "label8";
-            label8.Size = new Size(101, 20);
-            label8.TabIndex = 6;
-            label8.Text = "Arrange with: ";
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Location = new Point(431, 95);
             label9.Name = "label9";
-            label9.Size = new Size(48, 20);
+            label9.Size = new Size(46, 20);
             label9.TabIndex = 7;
-            label9.Text = "Page: ";
+            label9.Text = "Trang";
             // 
             // lblCurrPage
             // 
@@ -628,9 +607,9 @@
             label10.AutoSize = true;
             label10.Location = new Point(565, 97);
             label10.Name = "label10";
-            label10.Size = new Size(26, 20);
+            label10.Size = new Size(35, 20);
             label10.TabIndex = 10;
-            label10.Text = "on";
+            label10.Text = "trên";
             // 
             // lblMaxPage
             // 
@@ -664,28 +643,15 @@
             btnPrev.UseVisualStyleBackColor = true;
             btnPrev.Click += btnPrev_Click;
             // 
-            // btnArrange
-            // 
-            btnArrange.Location = new Point(1106, 91);
-            btnArrange.Name = "btnArrange";
-            btnArrange.Size = new Size(80, 29);
-            btnArrange.TabIndex = 13;
-            btnArrange.Text = "Arrange";
-            btnArrange.UseVisualStyleBackColor = true;
-            btnArrange.Click += btnArrange_Click;
-            // 
             // ProductView
             // 
             AutoScaleMode = AutoScaleMode.None;
-            Controls.Add(btnArrange);
             Controls.Add(btnNext);
             Controls.Add(lblMaxPage);
             Controls.Add(label10);
             Controls.Add(lblCurrPage);
             Controls.Add(btnPrev);
             Controls.Add(label9);
-            Controls.Add(label8);
-            Controls.Add(cbxArrange);
             Controls.Add(panel4);
             Controls.Add(tableProducts);
             Controls.Add(panel3);

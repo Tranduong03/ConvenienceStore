@@ -186,9 +186,9 @@
             label2.Font = new Font("Tahoma", 12F);
             label2.Location = new Point(26, 416);
             label2.Name = "label2";
-            label2.Size = new Size(80, 24);
+            label2.Size = new Size(57, 24);
             label2.TabIndex = 68;
-            label2.Text = "Image: ";
+            label2.Text = "Ảnh: ";
             // 
             // picEmployeeImage
             // 

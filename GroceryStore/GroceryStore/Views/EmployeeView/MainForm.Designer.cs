@@ -82,6 +82,7 @@
             // 
             // panel7
             // 
+            panel7.BackColor = SystemColors.ActiveCaption;
             panel7.Controls.Add(lblCustomerName);
             panel7.Location = new Point(3, 232);
             panel7.Name = "panel7";
@@ -91,7 +92,7 @@
             // lblCustomerName
             // 
             lblCustomerName.AutoSize = true;
-            lblCustomerName.Location = new Point(126, 0);
+            lblCustomerName.Location = new Point(128, 8);
             lblCustomerName.Name = "lblCustomerName";
             lblCustomerName.Size = new Size(87, 29);
             lblCustomerName.TabIndex = 2;
@@ -111,11 +112,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(113, 188);
+            label1.Location = new Point(52, 188);
             label1.Name = "label1";
-            label1.Size = new Size(123, 29);
+            label1.Size = new Size(250, 29);
             label1.TabIndex = 1;
-            label1.Text = "WELCOME";
+            label1.Text = "MỘT NGÀY TỐT LÀNH";
             // 
             // panel2
             // 
@@ -166,7 +167,7 @@
             btnDetailInfo.Padding = new Padding(30, 0, 0, 0);
             btnDetailInfo.Size = new Size(300, 64);
             btnDetailInfo.TabIndex = 2;
-            btnDetailInfo.Text = "        Bản thân";
+            btnDetailInfo.Text = "        Hồ sơ cá nhân";
             btnDetailInfo.TextAlign = ContentAlignment.MiddleLeft;
             btnDetailInfo.UseVisualStyleBackColor = false;
             btnDetailInfo.Click += btnDetailInfo_Click;
@@ -240,6 +241,7 @@
             ClientSize = new Size(1600, 900);
             Controls.Add(pnlWork);
             Controls.Add(sidebarMenu);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;

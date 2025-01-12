@@ -66,7 +66,7 @@
             btnAddEmployee.Name = "btnAddEmployee";
             btnAddEmployee.Size = new Size(228, 43);
             btnAddEmployee.TabIndex = 2;
-            btnAddEmployee.Text = "Add Employee";
+            btnAddEmployee.Text = "Thêm nhân viên";
             btnAddEmployee.UseVisualStyleBackColor = false;
             btnAddEmployee.Click += btnAddEmployee_Click;
             // 
@@ -77,9 +77,9 @@
             label1.Font = new Font("Tahoma", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(57, 9);
             label1.Name = "label1";
-            label1.Size = new Size(258, 36);
+            label1.Size = new Size(257, 36);
             label1.TabIndex = 1;
-            label1.Text = "Employee Manage";
+            label1.Text = "Quản lý nhân viên";
             // 
             // pictureBox1
             // 
@@ -115,7 +115,7 @@
             txbSearch.Font = new Font("Tahoma", 10F);
             txbSearch.Location = new Point(157, 76);
             txbSearch.Name = "txbSearch";
-            txbSearch.PlaceholderText = "Find Employee Here";
+            txbSearch.PlaceholderText = "Tìm nhân viên tại đây";
             txbSearch.Size = new Size(326, 28);
             txbSearch.TabIndex = 3;
             // 

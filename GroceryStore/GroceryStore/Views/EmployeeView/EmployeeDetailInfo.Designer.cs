@@ -89,9 +89,9 @@
             label1.Font = new Font("Tahoma", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(61, 10);
             label1.Name = "label1";
-            label1.Size = new Size(187, 36);
+            label1.Size = new Size(258, 36);
             label1.TabIndex = 1;
-            label1.Text = "Personal info";
+            label1.Text = "Thông tin cá nhân";
             // 
             // pictureBox1
             // 
@@ -265,7 +265,7 @@
             btnSaveInfo.Name = "btnSaveInfo";
             btnSaveInfo.Size = new Size(189, 61);
             btnSaveInfo.TabIndex = 72;
-            btnSaveInfo.Text = "Save";
+            btnSaveInfo.Text = "Lưu";
             btnSaveInfo.UseVisualStyleBackColor = false;
             btnSaveInfo.Click += btnSaveInfo_Click;
             // 

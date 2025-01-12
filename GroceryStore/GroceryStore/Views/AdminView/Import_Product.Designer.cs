@@ -82,9 +82,9 @@
             label3.Location = new Point(282, 130);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(30, 20);
+            label3.Size = new Size(41, 20);
             label3.TabIndex = 83;
-            label3.Text = "to :";
+            label3.Text = "đến :";
             // 
             // dtpStart
             // 
@@ -182,7 +182,7 @@
             btnNewImport.Name = "btnNewImport";
             btnNewImport.Size = new Size(138, 36);
             btnNewImport.TabIndex = 2;
-            btnNewImport.Text = "New Import";
+            btnNewImport.Text = "Nhập thêm";
             btnNewImport.UseVisualStyleBackColor = true;
             btnNewImport.Click += btnNewImport_Click;
             // 
@@ -194,9 +194,9 @@
             label2.Location = new Point(54, 6);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(206, 36);
+            label2.Size = new Size(260, 36);
             label2.TabIndex = 1;
-            label2.Text = "Import History";
+            label2.Text = "Lịch sử nhập hàng";
             // 
             // pictureBox1
             // 
@@ -260,7 +260,7 @@
             btnPrintImport.Name = "btnPrintImport";
             btnPrintImport.Size = new Size(138, 36);
             btnPrintImport.TabIndex = 3;
-            btnPrintImport.Text = "Print Import";
+            btnPrintImport.Text = "In";
             btnPrintImport.UseVisualStyleBackColor = true;
             btnPrintImport.Click += btnPrintImport_Click;
             // 

@@ -85,9 +85,9 @@
             label1.Font = new Font("Tahoma", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(57, 10);
             label1.Name = "label1";
-            label1.Size = new Size(255, 36);
+            label1.Size = new Size(281, 36);
             label1.TabIndex = 1;
-            label1.Text = "Customer Manage";
+            label1.Text = "Quản lý khách hàng";
             // 
             // pictureBox1
             // 
@@ -154,13 +154,14 @@
             btnSearch.Size = new Size(32, 30);
             btnSearch.TabIndex = 1;
             btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // txbSearch
             // 
             txbSearch.Font = new Font("Tahoma", 10F);
             txbSearch.Location = new Point(3, 3);
             txbSearch.Name = "txbSearch";
-            txbSearch.PlaceholderText = "Find Customer Here";
+            txbSearch.PlaceholderText = "Tìm theo tên khách hàng";
             txbSearch.Size = new Size(323, 28);
             txbSearch.TabIndex = 0;
             // 
